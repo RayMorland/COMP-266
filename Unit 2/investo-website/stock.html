@@ -1,9 +1,5 @@
-<!-- 
-  Author: Raymond Morland
-  Date: January 11, 2023 
--->
-
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -33,8 +29,10 @@
     <main id="stock-main-content">
       <section id="stock-masthead">
         <div>
-          <h1 id="stock-symbol">Stock Symbol</h1>
-          <h3 id="stock-name">Stock Business Name</h3>
+          <!-- Placeholder text for stock information -->
+          <h1 id="stock-symbol">APPL</h1>
+          <h3 id="stock-name">APPL Inc.</h3>
+          <a href="https://investor.apple.com/investor-relations/default.aspx">Investor Website</a>
         </div>
         <div>
           <button id="watch-list-button">Add to Watchlist</button>
@@ -44,12 +42,16 @@
         <div>
           <div id="stock-chart-wrapper">
             <div>
+              <!-- Placeholder text for stock information -->
               <h4>Last Price</h4>
               <h2 id="price">$100.00</h2>
             </div>
+
+            <!-- Canvas will be required for displaying chart with js -->
             <canvas id="stock-chart"></canvas>
           </div>
           <div id="stock-data">
+            <!-- Placeholder text. Actual stock data will be read in using js -->
             <h3>Stock Data</h3>
             <table id="stock-data-table">
               <thead>
@@ -92,9 +94,11 @@
           </div>
         </div>
         <div id="stock-actions-panel">
+          <!-- Placeholder text for portfolio data -->
           <h3>My position <span id="my-position">10</span></h3>
           <div id="stock-quantity-buttons">
             <button onclick="" id="decrease-button">decrease</button>
+            <!-- Placeholder text for quantity that will be controlled with js -->
             <span id="quantity">1</span>
             <button type="button" onclick="" id="increase-button">
               increase
@@ -115,6 +119,7 @@
           <a href="/index.html" id="home-page-link-footer">Investo</a>
         </div>
         <div id="footer-contact-form">
+          <!-- Contact form will require js to do anything -->
           <form action="" id="contact-form">
             <label for="name">Your Name</label>
             <input
