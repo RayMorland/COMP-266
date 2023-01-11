@@ -1,9 +1,14 @@
+<!-- 
+  Author: Raymond Morland
+  Date: January 11, 2023 
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Investing Website</title>
+    <title>Investo: Learn</title>
   </head>
   <body>
     <header id="site-header">
@@ -25,40 +30,69 @@
         </ul>
       </nav>
     </header>
-    <main>
-      <section class="pb-0">
+    <main id="learn-main-content">
+      <section id="articles-masthead">
         <h1>Learn to Invest</h1>
       </section>
-      <section
-        id="articles"
-        style="display: grid; grid: auto / 50% 50%; gap: 30px"
-      ></section>
+      <section id="articles-section">
+        <a id="article-link" href="article.html">
+          <div id="article-decription">
+            <h3>Article Title</h3>
+            <h4>Read now</h4>
+          </div>
+          <img
+            src="https://images.unsplash.com/photo-1669951584605-4deba095a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80"
+            alt=""
+            id="article-main-image"
+          />
+        </a>
+      </section>
     </main>
     <footer id="site-footer">
       <!-- footer content container -->
-        <div id="footer-content">
-          <div id="footer-links">
-            <a href="/index.html" id="home-page-link-footer">Investo</a>
-          </div>
-          <div id="footer-contact-form">
-            <form action="" id="contact-form">
-              <label for="message">Your Email</label>
-              <input type="email" name="email" id="contact-email" placeholder="Your email">
-              <label for="message">Message</label>
-              <input type="text" name="message" id="contact-message" placeholder="Your message">
-            </form>
-          </div>
+      <div id="footer-content">
+        <div id="footer-links">
+          <a href="/index.html" id="home-page-link-footer">Investo</a>
         </div>
-        <!-- footer site info -->
-        <div id="footer-info">
-          <div id="copyright">&copy; 2023</div>
-          <div id="terms">
-            <ul>
-              <li><a href="">Terms</a></li>
-              <li><a href="">Sitemap</a></li>
-            </ul>
-          </div>
+        <div id="footer-contact-form">
+          <form action="" id="contact-form">
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              name="name"
+              id="contact-name"
+              placeholder="Your name"
+            />
+            <label for="message">Your Email</label>
+            <input
+              type="email"
+              name="email"
+              id="contact-email"
+              placeholder="Your email"
+            />
+            <label for="message">Message</label>
+            <input
+              type="text"
+              name="message"
+              id="contact-message"
+              placeholder="Your message"
+            />
+          </form>
         </div>
+      </div>
+      <!-- footer site info -->
+      <div id="footer-info">
+        <div id="author-info">
+          <span id="author">Raymond Morland</span>
+          <span id="date">January 11, 2023</span>
+        </div>
+        <div id="terms">
+          <ul>
+            <li><a href="">Terms</a></li>
+            <li><a href="">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

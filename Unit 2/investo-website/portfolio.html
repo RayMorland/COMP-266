@@ -1,9 +1,14 @@
+<!-- 
+  Author: Raymond Morland
+  Date: January 11, 2023 
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Investing Website</title>
+    <title>Investo: Portfolio</title>
   </head>
   <body>
     <header id="site-header">
@@ -25,53 +30,70 @@
         </ul>
       </nav>
     </header>
-    <main style="background-color: #fff6c4">
-      <section class="pb-0">
+    <main id="portfolio-main-content">
+      <section id="portfolio-masthead">
         <h1>My Portfolio</h1>
       </section>
-      <section class="row between">
-        <div class="col gap-10" style="width: 70%">
+      <section id="portfolio-content">
+        <div id="portfolio-positions-wrapper">
           <h3>Stocks</h3>
-          <div id="portfolio-positionss" class="col gap-10"></div>
+          <div id="portfolio-positions">
+            <a href="stock.html"> <h3>Stock Name Quantity in Portfolio</h3></a>
+          </div>
         </div>
-        <div class="col gap-10" style="flex: 1">
+        <div id="portfolio-watchlist-wrapper">
           <h3>Watchlist</h3>
-          <div
-            id="portfolio-watchlist"
-            style="
-              border: 5px solid black;
-              padding: 30px;
-              background-color: white;
-            "
-          ></div>
+          <div id="portfolio-watchlist">
+            <a href="stock.html">Stock Symbol</a>
+          </div>
         </div>
       </section>
     </main>
     <footer id="site-footer">
       <!-- footer content container -->
-        <div id="footer-content">
-          <div id="footer-links">
-            <a href="/index.html" id="home-page-link-footer">Investo</a>
-          </div>
-          <div id="footer-contact-form">
-            <form action="" id="contact-form">
-              <label for="message">Your Email</label>
-              <input type="email" name="email" id="contact-email" placeholder="Your email">
-              <label for="message">Message</label>
-              <input type="text" name="message" id="contact-message" placeholder="Your message">
-            </form>
-          </div>
+      <div id="footer-content">
+        <div id="footer-links">
+          <a href="/index.html" id="home-page-link-footer">Investo</a>
         </div>
-        <!-- footer site info -->
-        <div id="footer-info">
-          <div id="copyright">&copy; 2023</div>
-          <div id="terms">
-            <ul>
-              <li><a href="">Terms</a></li>
-              <li><a href="">Sitemap</a></li>
-            </ul>
-          </div>
+        <div id="footer-contact-form">
+          <form action="" id="contact-form">
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              name="name"
+              id="contact-name"
+              placeholder="Your name"
+            />
+            <label for="message">Your Email</label>
+            <input
+              type="email"
+              name="email"
+              id="contact-email"
+              placeholder="Your email"
+            />
+            <label for="message">Message</label>
+            <input
+              type="text"
+              name="message"
+              id="contact-message"
+              placeholder="Your message"
+            />
+          </form>
         </div>
+      </div>
+      <!-- footer site info -->
+      <div id="footer-info">
+        <div id="author-info">
+          <span id="author">Raymond Morland</span>
+          <span id="date">January 11, 2023</span>
+        </div>
+        <div id="terms">
+          <ul>
+            <li><a href="">Terms</a></li>
+            <li><a href="">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

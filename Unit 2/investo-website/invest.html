@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Investing Website</title>
+    <title>Investo: Invest</title>
   </head>
   <body>
     <header id="site-header">
@@ -25,20 +25,34 @@
         </ul>
       </nav>
     </header>
-    <main id="invest-page">
-      <section id="invest-page-masthead" class="row between pb-0">
+    <main id="invest-main-content">
+      <section id="invest-page-masthead">
         <div>
           <h1>Invest</h1>
         </div>
         <div class="row center">
-          <a href="portfolio.html" class="fancy-button">Portfolio</a>
+          <a href="portfolio.html">Go to Portfolio</a>
         </div>
       </section>
-      <section id="invest-page-content" class="row between">
-        <div id="market-wrapper" class="col gap-10" style="width: 100%">
+      <section id="invest-page-content">
+        <div id="market-wrapper">
           <h3>Stocks</h3>
-          <div id="stocks" class="gap-10"></div>
-          <h3 class="text-center">Load More</h3>
+          <div id="stocks">
+            <a href="stock.html">
+              <div>
+                <h3>Stock Symbol</h3>
+                <h4>Company Name</h4>
+              </div>
+              <!-- Mini stock chart -->
+              <div>
+                <canvas></canvas>
+              </div>
+              <div>
+                <h3>$10.20</h3>
+                <h4>+0.28 (0.19%) USD</h4>
+              </div>
+            </a>
+          </div>
         </div>
       </section>
     </main>
@@ -50,6 +64,13 @@
           </div>
           <div id="footer-contact-form">
             <form action="" id="contact-form">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                name="name"
+                id="contact-name"
+                placeholder="Your name"
+              />
               <label for="message">Your Email</label>
               <input type="email" name="email" id="contact-email" placeholder="Your email">
               <label for="message">Message</label>
@@ -59,7 +80,10 @@
         </div>
         <!-- footer site info -->
         <div id="footer-info">
-          <div id="copyright">&copy; 2023</div>
+          <div id="author-info">
+            <span id="author">Raymond Morland</span>
+            <span id="date">January 11, 2023</span>
+          </div>
           <div id="terms">
             <ul>
               <li><a href="">Terms</a></li>
