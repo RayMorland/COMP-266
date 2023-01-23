@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Investo: Invest</title>
+    <link rel="stylesheet" href="./assets/stylesheets/global.css">
+  </head>
+  <body>
+    <header id="site-header">
+      <a href="index.html" id="home-page-link-header">Investo</a>
+      <nav id="nav-links">
+        <ul id="nav-links-list">
+          <li>
+            <a href="invest.html">Invest</a>
+          </li>
+          <li>
+            <a href="learn.html">Learn</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+          <li>
+            <a href="portfolio.html">Portfolio</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="invest-main-content">
+      <section id="invest-page-masthead">
+        <div>
+          <h1>Invest</h1>
+        </div>
+        <div class="row center">
+          <a href="portfolio.html">Go to Portfolio</a>
+        </div>
+      </section>
+      <section id="invest-page-content">
+        <div id="market-wrapper">
+          <h3>Stocks</h3>
+          <div id="stocks">
+            <a href="stock.html">
+              <div>
+                <h3>Stock Symbol</h3>
+                <h4>Company Name</h4>
+              </div>
+              <!-- Mini stock chart -->
+              <div>
+                <canvas></canvas>
+              </div>
+              <div>
+                <h3>$10.20</h3>
+                <h4>+0.28 (0.19%) USD</h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer">
+      <!-- footer content container -->
+        <div id="footer-content">
+          <div id="footer-links">
+            <a href="index.html" id="home-page-link-footer">Investo</a>
+          </div>
+          <div id="footer-contact-form">
+            <!-- Contact form will require js to do anything -->
+            <form action="" id="contact-form">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                name="name"
+                id="contact-name"
+                placeholder="Your name"
+              />
+              <label for="message">Your Email</label>
+              <input type="email" name="email" id="contact-email" placeholder="Your email">
+              <label for="message">Message</label>
+              <input type="text" name="message" id="contact-message" placeholder="Your message">
+            </form>
+          </div>
+        </div>
+        <!-- footer site info -->
+        <div id="footer-info">
+          <div id="author-info">
+            <span id="author">Raymond Morland</span>
+            <span id="date">January 11, 2023</span>
+          </div>
+          <div id="terms">
+            <ul>
+              <li><a href="">Terms</a></li>
+              <li><a href="">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+  </body>
+</html>

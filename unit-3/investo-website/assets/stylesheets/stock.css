@@ -1,0 +1,9 @@
+#stock-actions-panel {
+    flex: 1;
+    border: 5px solid black;
+    padding: 2rem;
+    background-color: #ffffff;
+    align-items: stretch;
+    position: sticky;
+    top: 115px;
+}

@@ -1,0 +1,24 @@
+footer {
+    display: flex;
+    padding: 10vh 5vw;
+    background-color: #eeeeee;
+    border-top: 5px solid black;
+    flex-direction: column;
+}
+
+#footer-content {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#footer-info {
+    max-width: 1400px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
