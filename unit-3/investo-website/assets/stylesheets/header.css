@@ -66,11 +66,20 @@
   flex-direction: column;
 }
 
+.logo-link {
+  border-bottom: none !important;
+}
+
+.logo-link:hover {
+  text-decoration: none !important;
+}
+
 .nav-link {
   font-size: 1.5em;
   font-family: "effra-cc", sans-serif;
   font-weight: 600;
   font-style: normal;
+  border-bottom: solid 3px transparent;
   border-bottom: solid 3px transparent;
 }
 
