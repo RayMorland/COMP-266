@@ -1,0 +1,15 @@
+#portfolio-wrapper {
+    flex: 1;
+  }
+  
+  #portfolio-positions {
+  }
+  
+  .portfolio-stock {
+    border-bottom: 5px solid black;
+    padding: 5px;
+  }
+  
+  #portfolio-positions:last-child {
+    border-bottom: none;
+  }

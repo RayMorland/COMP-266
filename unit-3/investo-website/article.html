@@ -5,147 +5,176 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Investo: Article Title</title>
-    <link rel="stylesheet" href="./assets/stylesheets/global.css">
+    <link rel="stylesheet" href="./assets/stylesheets/global.css" />
+    <link rel="stylesheet" href="./assets/stylesheets/article.css" />
   </head>
   <body>
+    <!-- shared site header -->
     <header id="site-header">
-      <a href="index.html" id="home-page-link-header">Investo</a>
-      <nav id="nav-links">
-        <ul id="nav-links-list">
-          <li>
-            <a href="invest.html">Invest</a>
-          </li>
-          <li>
-            <a href="learn.html">Learn</a>
-          </li>
-          <li>
-            <a href="about.html">About</a>
-          </li>
-          <li>
-            <a href="portfolio.html">Portfolio</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main id="article-main-content">
-      <section id="article-masthead">
-        <h1 id="title">Article Title</h1>
-        <div id="article-masthead-image">
-          <img
-            src="https://images.unsplash.com/photo-1669951584605-4deba095a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80"
-            alt="coins"
-            id="next-article-one-main-image"
-          />
+      <div class="navbar">
+        <div class="nav-left">
+          <a href="index.html" class="logo-link nav-link">Investo</a>
         </div>
-      </section>
-      <section id="article-content">
-        <p id="content">
-          A stock, also known as a share or equity, represents a unit of
-          ownership in a company. When a company wants to raise money, it can
-          issue stocks and sell them to investors. In exchange for buying the
-          stocks, investors become shareholders and own a small piece of the
-          company. As a shareholder, you have the right to receive a portion of
-          the company's profits, known as dividends, and the right to vote on
-          certain company decisions. When a company goes public, it will issue
-          an Initial Public Offering (IPO) and sell stocks to the public for the
-          first time. After the IPO, the stocks will start trading on stock
-          exchanges, such as the NYSE or NASDAQ, and the price of the stocks
-          will fluctuate based on supply and demand. As the company performs
-          well, and the demand for the stock increases, the stock price rises
-          and as the company performs poorly, and the demand decreases, the
-          stock price drops. One important aspect of stocks is that the value of
-          a stock is not fixed and can change frequently, sometimes
-          dramatically. The value of a stock is influenced by many factors,
-          including the company's financial performance, market conditions, and
-          overall economic trends. As a result, buying and selling stocks
-          carries a certain level of risk, and there are no guarantees of
-          returns on investments. Stocks can be a good option for investors who
-          are willing to accept the risk in return for the potential for higher
-          returns. However, stocks also allow you to participate in the growth
-          of the company, as the value of the stock can increase over time.
-          Investors can make money by buying stocks at a lower price and selling
-          them at a higher price, a process known as capital appreciation. There
-          are different types of stocks like common stock and preferred stock.
-          Common stock is the most widely available type of stock and gives
-          shareholders the right to vote on company decisions and receive
-          dividends. Preferred stock, on the other hand, doesn't typically come
-          with voting rights but usually pays a fixed dividend, before any
-          dividends are paid to common stockholders. In summary, a stock is a
-          form of investment that represents ownership in a company and allows
-          investors to participate in the company's growth and earn a return on
-          their investment. It carries a certain level of risk, and the value of
-          the stock can fluctuate widely over time.
-        </p>
-      </section>
-      <section id="next-article-links">
-        <a id="next-article-one">
-          <img
-            src="https://images.unsplash.com/photo-1669951584605-4deba095a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80"
-            alt="coins"
-            id="next-article-one-main-image"
-          />
-          <div id="next-article-one-description">
-            <h3>Stocks</h3>
-            <h4>Read</h4>
-          </div>
-        </a>
-        <a id="next-article-two">
-          <img
-            src="https://images.unsplash.com/photo-1669951584605-4deba095a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80"
-            alt="coins"
-            id="next-article-two-main-image"
-          />
-          <div id="next-article-two-description">
-            <h3>Stocks</h3>
-            <h4>Read</h4>
-          </div>
-        </a>
-      </section>
-    </main>
-    <footer id="site-footer">
-      <!-- footer content container -->
-      <div id="footer-content">
-        <div id="footer-links">
-          <a href="index.html" id="home-page-link-footer">Investo</a>
-        </div>
-        <div id="footer-contact-form">
-          <!-- Contact form will require js to do anything -->
-          <form action="" id="contact-form">
-            <label for="name">Your Name</label>
-            <input
-              type="text"
-              name="name"
-              id="contact-name"
-              placeholder="Your name"
-            />
-            <label for="message">Your Email</label>
-            <input
-              type="email"
-              name="email"
-              id="contact-email"
-              placeholder="Your email"
-            />
-            <label for="message">Message</label>
-            <input
-              type="text"
-              name="message"
-              id="contact-message"
-              placeholder="Your message"
-            />
-          </form>
+        <div class="nav-right">
+          <nav class="nav-links">
+            <ul class="nav-links-list">
+              <li>
+                <a href="invest.html" class="nav-link">Invest</a>
+              </li>
+              <li>
+                <a href="learn.html" class="nav-link">Learn</a>
+              </li>
+              <li>
+                <a href="about.html" class="nav-link">About</a>
+              </li>
+              <li>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+              </li>
+            </ul>
+          </nav>
+          <button onclick="" id="header-menu-button" class="menu-button">
+            <div class="menu-button-bar"></div>
+            <div class="menu-button-bar"></div>
+            <div class="menu-button-bar"></div>
+          </button>
         </div>
       </div>
-      <!-- footer site info -->
-      <div id="footer-info">
-        <div id="author-info">
-          <span id="author">Raymond Morland</span>
-          <span id="date">January 11, 2023</span>
+    </header>
+    <main id="article-main-content">
+      <div class="container">
+        <section id="article-masthead" class="row">
+          <div class="column w-full">
+            <h1 id="title" class="mb-50">Article Title</h1>
+            <div id="article-masthead-image" class="w-full">
+              <img
+                src="https://images.unsplash.com/photo-1669951584605-4deba095a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80"
+                alt="coins"
+                id="next-article-one-main-image"
+                class=""
+              />
+            </div>
+          </div>
+        </section>
+        <section id="article-content" class="row">
+          <p id="content">
+            A stock, also known as a share or equity, represents a unit of
+            ownership in a company. When a company wants to raise money, it can
+            issue stocks and sell them to investors. In exchange for buying the
+            stocks, investors become shareholders and own a small piece of the
+            company. As a shareholder, you have the right to receive a portion
+            of the company's profits, known as dividends, and the right to vote
+            on certain company decisions. When a company goes public, it will
+            issue an Initial Public Offering (IPO) and sell stocks to the public
+            for the first time. After the IPO, the stocks will start trading on
+            stock exchanges, such as the NYSE or NASDAQ, and the price of the
+            stocks will fluctuate based on supply and demand. As the company
+            performs well, and the demand for the stock increases, the stock
+            price rises and as the company performs poorly, and the demand
+            decreases, the stock price drops. One important aspect of stocks is
+            that the value of a stock is not fixed and can change frequently,
+            sometimes dramatically. The value of a stock is influenced by many
+            factors, including the company's financial performance, market
+            conditions, and overall economic trends. As a result, buying and
+            selling stocks carries a certain level of risk, and there are no
+            guarantees of returns on investments. Stocks can be a good option
+            for investors who are willing to accept the risk in return for the
+            potential for higher returns. However, stocks also allow you to
+            participate in the growth of the company, as the value of the stock
+            can increase over time. Investors can make money by buying stocks at
+            a lower price and selling them at a higher price, a process known as
+            capital appreciation. There are different types of stocks like
+            common stock and preferred stock. Common stock is the most widely
+            available type of stock and gives shareholders the right to vote on
+            company decisions and receive dividends. Preferred stock, on the
+            other hand, doesn't typically come with voting rights but usually
+            pays a fixed dividend, before any dividends are paid to common
+            stockholders. In summary, a stock is a form of investment that
+            represents ownership in a company and allows investors to
+            participate in the company's growth and earn a return on their
+            investment. It carries a certain level of risk, and the value of the
+            stock can fluctuate widely over time.
+          </p>
+        </section>
+        <section id="next-article-links" class="responsive-row gap-20">
+          <a id="next-article-one" class="column flex-1 white-panel m-0">
+            <img
+              src="https://images.unsplash.com/photo-1669951584605-4deba095a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80"
+              alt="coins"
+              id="next-article-one-main-image"
+            />
+            <div id="next-article-one-description" class="article-description">
+              <h3>Stocks</h3>
+              <h4>Read</h4>
+            </div>
+          </a>
+          <a id="next-article-two" class="column flex-1 white-panel m-0">
+            <img
+              src="https://images.unsplash.com/photo-1669951584605-4deba095a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80"
+              alt="coins"
+              id="next-article-two-main-image"
+            />
+            <div id="next-article-two-description" class="article-description">
+              <h3>Stocks</h3>
+              <h4>Read</h4>
+            </div>
+          </a>
+        </section>
+      </div>
+    </main>
+    <!-- shared site footer -->
+    <footer id="site-footer">
+      <!-- footer content container -->
+      <div class="container">
+        <div id="footer-content" class="responsive-row justify-between">
+          <div id="footer-links">
+            <a href="index.html" class="logo-link">Investo</a>
+          </div>
+          <div id="footer-contact-form">
+            <!-- Contact form will require js to do anything -->
+            <form action="" id="contact-form" class="investo-form">
+              <div class="responsive-row gap-10">
+                <div class="column w-full">
+                  <input
+                    type="text"
+                    name="name"
+                    id="contact-name"
+                    placeholder="Your name"
+                    class="form-input-text"
+                  />
+                </div>
+                <div class="column w-full">
+                  <input
+                    type="email"
+                    name="email"
+                    id="contact-email"
+                    placeholder="Your email"
+                    class="form-input-email"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <input
+                  type="text"
+                  name="message"
+                  id="contact-message"
+                  placeholder="Your message"
+                  class="form-input-text w-full"
+                />
+              </div>
+            </form>
+          </div>
         </div>
-        <div id="terms">
-          <ul>
-            <li><a href="">Terms</a></li>
-            <li><a href="">Sitemap</a></li>
-          </ul>
+        <!-- footer site info -->
+        <div id="footer-info" class="responsive-row justify-between mt-50">
+          <div id="author-info" class="row gap-10 justify-start m-0">
+            <span id="author" class="fs-1"
+              >Raymond Morland January 11, 2023</span
+            >
+          </div>
+          <div id="terms" class="responsive-row gap-10 justify-end m-0">
+            <a href="" class="small-link">Terms</a>
+            <a href="" class="small-link">Sitemap</a>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,5 +1,5 @@
 #masthead {
-    min-height: 70vh;
+  min-height: 70vh;
   height: 70vh;
   background: linear-gradient(to right, #dff44e, #bdff23);
   border-bottom: 5px solid black;
@@ -19,23 +19,43 @@
 } */
 
 #stock-ticker {
-    width: 100%
+  width: 100%;
 }
 
 #intro-section {
   background: #c8bdb8;
+  border-bottom: 5px solid black;
 }
 
 #chart-section {
   background-color: #4f4c2d;
   color: white;
+  background-image: url("https://images.unsplash.com/photo-1613442368680-a30262ad8b3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 5px solid black;
+  min-height: 80vh;
+  height: 80vh;
 }
 
 #learn-section {
   /* background: linear-gradient(to right,#dff44e, #b0fa04); */
-  background: linear-gradient(74.84deg, #00c805 18.12%, #c3f53c 81.46%);
+  /* background: linear-gradient(74.84deg, #00c805 18.12%, #c3f53c 81.46%); */
+}
+
+#latest-article {
 }
 
 #latest-article-image {
   overflow: hidden;
+}
+
+#latest-article-image img {
+  overflow: hidden;
+  object-fit: cover;
+  width: 100%;
+}
+
+#latest-article-content {
+    padding: 20px 0;    
 }

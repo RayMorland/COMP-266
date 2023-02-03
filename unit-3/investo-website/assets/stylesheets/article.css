@@ -1,0 +1,36 @@
+#article-masthead-image {
+    height: 70vh;
+    overflow: hidden;
+}
+
+#article-masthead-image img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#next-article-two {
+    height: auto;
+    overflow: hidden;
+}
+
+#next-article-two img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#next-article-one {
+    height: auto;
+    overflow: hidden;
+}
+
+#next-article-one img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.article-description {
+    padding: 20px 0;   
+}

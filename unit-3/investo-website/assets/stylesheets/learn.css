@@ -1,0 +1,10 @@
+.article-card img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.article-card {
+    height: auto;
+    overflow: hidden;
+}

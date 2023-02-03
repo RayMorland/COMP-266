@@ -5,95 +5,131 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Investo: Invest</title>
-    <link rel="stylesheet" href="./assets/stylesheets/global.css">
+    <link rel="stylesheet" href="./assets/stylesheets/global.css" />
   </head>
   <body>
+    <!-- shared site header -->
     <header id="site-header">
-      <a href="index.html" id="home-page-link-header">Investo</a>
-      <nav id="nav-links">
-        <ul id="nav-links-list">
-          <li>
-            <a href="invest.html">Invest</a>
-          </li>
-          <li>
-            <a href="learn.html">Learn</a>
-          </li>
-          <li>
-            <a href="about.html">About</a>
-          </li>
-          <li>
-            <a href="portfolio.html">Portfolio</a>
-          </li>
-        </ul>
-      </nav>
+      <div class="navbar">
+        <div class="nav-left">
+          <a href="index.html" class="logo-link nav-link">Investo</a>
+        </div>
+        <div class="nav-right">
+          <nav class="nav-links">
+            <ul class="nav-links-list">
+              <li>
+                <a href="invest.html" class="nav-link">Invest</a>
+              </li>
+              <li>
+                <a href="learn.html" class="nav-link">Learn</a>
+              </li>
+              <li>
+                <a href="about.html" class="nav-link">About</a>
+              </li>
+              <li>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+              </li>
+            </ul>
+          </nav>
+          <button onclick="" id="header-menu-button" class="menu-button">
+            <div class="menu-button-bar"></div>
+            <div class="menu-button-bar"></div>
+            <div class="menu-button-bar"></div>
+          </button>
+        </div>
+      </div>
     </header>
     <main id="invest-main-content">
-      <section id="invest-page-masthead">
-        <div>
-          <h1>Invest</h1>
+      <div class="container">
+        <div class="row justify-between">
+          <div>
+            <h1>Invest</h1>
+          </div>
+          <a href="portfolio.html" class="fancy-button">Go to Portfolio</a>
         </div>
-        <div class="row center">
-          <a href="portfolio.html">Go to Portfolio</a>
-        </div>
-      </section>
-      <section id="invest-page-content">
-        <div id="market-wrapper">
-          <h3>Stocks</h3>
-          <div id="stocks">
-            <a href="stock.html">
-              <div>
-                <h3>Stock Symbol</h3>
-                <h4>Company Name</h4>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div id="invest-page-content">
+            <div id="market-wrapper">
+              <h3>Stocks</h3>
+              <div id="stocks">
+                <a href="stock.html" class="column white-panel">
+                  <div>
+                    <h3>Stock Symbol</h3>
+                    <h4>Company Name</h4>
+                  </div>
+                  <!-- Mini stock chart -->
+                  <div>
+                    <!-- <canvas></canvas> -->
+                  </div>
+                  <div>
+                    <h3>$10.20</h3>
+                    <h4>+0.28 (0.19%) USD</h4>
+                  </div>
+                </a>
               </div>
-              <!-- Mini stock chart -->
-              <div>
-                <canvas></canvas>
-              </div>
-              <div>
-                <h3>$10.20</h3>
-                <h4>+0.28 (0.19%) USD</h4>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
     </main>
+    <!-- shared site footer -->
     <footer id="site-footer">
       <!-- footer content container -->
-        <div id="footer-content">
+      <div class="container">
+        <div id="footer-content" class="responsive-row justify-between">
           <div id="footer-links">
-            <a href="index.html" id="home-page-link-footer">Investo</a>
+            <a href="index.html" class="logo-link">Investo</a>
           </div>
           <div id="footer-contact-form">
             <!-- Contact form will require js to do anything -->
-            <form action="" id="contact-form">
-              <label for="name">Your Name</label>
-              <input
-                type="text"
-                name="name"
-                id="contact-name"
-                placeholder="Your name"
-              />
-              <label for="message">Your Email</label>
-              <input type="email" name="email" id="contact-email" placeholder="Your email">
-              <label for="message">Message</label>
-              <input type="text" name="message" id="contact-message" placeholder="Your message">
+            <form action="" id="contact-form" class="investo-form">
+              <div class="responsive-row gap-10">
+                <div class="column w-full">
+                  <input
+                    type="text"
+                    name="name"
+                    id="contact-name"
+                    placeholder="Your name"
+                    class="form-input-text"
+                  />
+                </div>
+                <div class="column w-full">
+                  <input
+                    type="email"
+                    name="email"
+                    id="contact-email"
+                    placeholder="Your email"
+                    class="form-input-email"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <input
+                  type="text"
+                  name="message"
+                  id="contact-message"
+                  placeholder="Your message"
+                  class="form-input-text w-full"
+                />
+              </div>
             </form>
           </div>
         </div>
         <!-- footer site info -->
-        <div id="footer-info">
-          <div id="author-info">
-            <span id="author">Raymond Morland</span>
-            <span id="date">January 11, 2023</span>
+        <div id="footer-info" class="responsive-row justify-between mt-50">
+          <div id="author-info" class="row gap-10 justify-start m-0">
+            <span id="author" class="fs-1"
+              >Raymond Morland January 11, 2023</span
+            >
           </div>
-          <div id="terms">
-            <ul>
-              <li><a href="">Terms</a></li>
-              <li><a href="">Sitemap</a></li>
-            </ul>
+          <div id="terms" class="responsive-row gap-10 justify-end m-0">
+            <a href="" class="small-link">Terms</a>
+            <a href="" class="small-link">Sitemap</a>
           </div>
         </div>
+      </div>
     </footer>
   </body>
 </html>
