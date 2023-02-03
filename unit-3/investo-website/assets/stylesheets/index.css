@@ -1,36 +1,41 @@
 #masthead {
-    height: 70vh;
-    background: linear-gradient(to right,#dff44e, #bdff23);
-    border-bottom: 5px solid black;
-    background-image: url("https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=711&q=80");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    min-height: 70vh;
+  height: 70vh;
+  background: linear-gradient(to right, #dff44e, #bdff23);
+  border-bottom: 5px solid black;
+  background-image: url("https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=711&q=80");
+  background-size: cover;
+  background-position: center;
 }
 
-#masthead-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-    text-align: center;
-    width: 75%;
+/* #masthead-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-align: center;
+  width: 75%;
+} */
+
+#stock-ticker {
+    width: 100%
 }
 
 #intro-section {
-    background: #c8bdb8;
+  background: #c8bdb8;
 }
 
 #chart-section {
-    background-color: #4f4c2d;
-    color: white;
+  background-color: #4f4c2d;
+  color: white;
 }
 
 #learn-section {
-    /* background: linear-gradient(to right,#dff44e, #b0fa04); */
-    background: linear-gradient(74.84deg,#00C805 18.12%,#C3F53C 81.46%);
+  /* background: linear-gradient(to right,#dff44e, #b0fa04); */
+  background: linear-gradient(74.84deg, #00c805 18.12%, #c3f53c 81.46%);
+}
+
+#latest-article-image {
+  overflow: hidden;
 }

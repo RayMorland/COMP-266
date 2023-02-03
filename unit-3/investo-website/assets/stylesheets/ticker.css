@@ -3,7 +3,8 @@
     width: 100vw;
     overflow: hidden;
     background-color: black;
-    height: 40px;
+    height: 35px;
+    border-top: 5px solid black;
 }
 
 .ticker-wrapper {
