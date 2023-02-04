@@ -42,9 +42,12 @@
     </header>
     <main id="invest-main-content">
       <div class="container">
-        <div class="responsive-row gap-20 justify-between justify-between align-center">
-          <div>
+        <div
+          class="responsive-row gap-20 justify-between justify-between align-center"
+        >
+          <div class="column align-start m-0">
             <h1>Invest</h1>
+            <p>Pick a Stock to get started</p>
           </div>
           <a href="portfolio.html" class="fancy-button">Go to Portfolio</a>
         </div>
@@ -72,39 +75,39 @@
                 </div>
               </a>
               <a
-              href="stock.html"
-              class="responsive-row white-panel justify-between align-center"
-            >
-              <div class="column justify-center align-start">
-                <h3 class="stock-symbol">AAPL</h3>
-                <span class="stock-company-name">Apple Inc.</span>
-              </div>
-              <!-- Mini stock chart -->
-              <div>
-                <canvas class="stock-chart-canvas"></canvas>
-              </div>
-              <div class="column">
-                <span class="stock-price">$10.20</span>
-                <span class="stock-change">+$0.28 (0.19%) USD</span>
-              </div>
-            </a>
-            <a
-            href="stock.html"
-            class="responsive-row white-panel justify-between align-center"
-          >
-            <div class="column justify-center align-start">
-              <h3 class="stock-symbol">AAPL</h3>
-              <span class="stock-company-name">Apple Inc.</span>
-            </div>
-            <!-- Mini stock chart -->
-            <div>
-              <canvas class="stock-chart-canvas"></canvas>
-            </div>
-            <div class="column">
-              <span class="stock-price">$10.20</span>
-              <span class="stock-change">+$0.28 (0.19%) USD</span>
-            </div>
-          </a>
+                href="stock.html"
+                class="responsive-row white-panel justify-between align-center"
+              >
+                <div class="column justify-center align-start">
+                  <h3 class="stock-symbol">AAPL</h3>
+                  <span class="stock-company-name">Apple Inc.</span>
+                </div>
+                <!-- Mini stock chart -->
+                <div>
+                  <canvas class="stock-chart-canvas"></canvas>
+                </div>
+                <div class="column">
+                  <span class="stock-price">$10.20</span>
+                  <span class="stock-change">+$0.28 (0.19%) USD</span>
+                </div>
+              </a>
+              <a
+                href="stock.html"
+                class="responsive-row white-panel justify-between align-center"
+              >
+                <div class="column justify-center align-start">
+                  <h3 class="stock-symbol">AAPL</h3>
+                  <span class="stock-company-name">Apple Inc.</span>
+                </div>
+                <!-- Mini stock chart -->
+                <div>
+                  <canvas class="stock-chart-canvas"></canvas>
+                </div>
+                <div class="column">
+                  <span class="stock-price">$10.20</span>
+                  <span class="stock-change">+$0.28 (0.19%) USD</span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -118,28 +121,25 @@
           <div id="footer-links">
             <a href="index.html" class="logo-link">Investo</a>
           </div>
-          <div id="footer-contact-form">
+          <div id="footer-contact-form" class="w-50-100">
             <!-- Contact form will require js to do anything -->
+            <h3>Send us a message</h3>
             <form action="" id="contact-form" class="investo-form">
               <div class="responsive-row gap-10">
-                <div class="column w-full">
-                  <input
-                    type="text"
-                    name="name"
-                    id="contact-name"
-                    placeholder="Your name"
-                    class="form-input-text"
-                  />
-                </div>
-                <div class="column w-full">
-                  <input
-                    type="email"
-                    name="email"
-                    id="contact-email"
-                    placeholder="Your email"
-                    class="form-input-email"
-                  />
-                </div>
+                <input
+                  type="text"
+                  name="name"
+                  id="contact-name"
+                  placeholder="Your name"
+                  class="form-input-text w-50-100"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  id="contact-email"
+                  placeholder="Your email"
+                  class="form-input-email w-50-100"
+                />
               </div>
               <div class="row">
                 <input

@@ -5,5 +5,23 @@
     background-color: #ffffff;
     align-items: stretch;
     position: sticky;
-    top: 115px;
+    top: 129px;
+    height: fit-content;
+}
+
+#stock-chart-wrapper {
+    min-height: 80vh;
+}
+
+#quantity, #my-position {
+    font-size: 2em;
+    font-family: "effra-cc", sans-serif;
+}
+
+.icon-button {
+    font-size: 3em;
+    font-family: "effra-cc", sans-serif;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }

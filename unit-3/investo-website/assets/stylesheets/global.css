@@ -126,7 +126,7 @@ ul {
 /* Flex Classes */
 
 .row,
-.column, .responsive-row {
+.column, .responsive-row, .responsive-column {
   max-width: var(--max-content-width);
   margin: auto;
   z-index: 1;
@@ -207,6 +207,10 @@ ul {
   margin-bottom: 0;
 }
 
+.mb-10 {
+  margin-bottom: 10px;
+}
+
 .mb-50 {
   margin-bottom: 50px;
 }
@@ -217,6 +221,14 @@ ul {
 
 .mt-50 {
 margin-top: 50px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
 }
 
 /* Padding Classes*/
@@ -299,6 +311,26 @@ margin-top: 50px;
 .fancy-button-sm:hover {
   transform: translate(0px, 0px);
   box-shadow: 0px 0px black;
+  cursor: pointer;
+}
+
+.secondary-button {
+  background-color: white;
+  border: 5px solid black;
+  border-radius: 0;
+  font-family: "effra-cc", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.5em;
+  padding: 20px auto;
+  width: 100%;
+  cursor: pointer;
+  transition: .1s all;
+}
+
+.secondary-button:hover{
+  background-color: black;
+  color: white;
 }
 
 /* Image Classes */
@@ -321,15 +353,17 @@ margin-top: 50px;
   outline: none;
   border: none;
   border-bottom: 5px solid black;
-  line-height: 2.5em;
+  line-height: 1em;
   margin: 20px 0;
+  font-size: 2em;
+  font-family: var(--font-family-primary);
+  font-weight: 600;
+  font-style: normal;
 }
 
 
 ::placeholder {
   color: black;
-  font-size: 2em;
-  font-family: var(--font-family-primary);
 }
 
 
@@ -351,6 +385,12 @@ margin-top: 50px;
   border: 5px solid black;
   padding: 2rem;
   background-color: #ffffff;
+  transition: box-shadow 0.1s, transform 0.1s;
+}
+
+a.white-panel:hover {
+  box-shadow: 5px 5px black;
+  transform: translate(-5px, -5px);
 }
 
 .background-filter {

@@ -49,7 +49,6 @@
       <div id="articles-section" class="container">
         <div class="column gap-2rem">
           <a
-            id="article-link"
             href="article.html"
             class="article-card white-panel responsive-row m-0 gap-20 justify-between"
           >
@@ -66,7 +65,6 @@
             </div>
           </a>
           <a
-          id="article-link"
           href="article.html"
           class="article-card white-panel responsive-row m-0 gap-20 justify-between"
         >
@@ -83,13 +81,12 @@
           </div>
         </a>
         <a
-        id="article-link"
         href="article.html"
         class="article-card white-panel responsive-row m-0 gap-20 justify-between"
       >
         <div id="article-decription" class=" column justify-between m-0">
           <h3>Article Title</h3>
-          <h4>Read now</h4>
+          <h4 class="read-now">Read now</h4>
         </div>
         <div class="image-wrapper w-50-100">
           <img
@@ -110,28 +107,25 @@
           <div id="footer-links">
             <a href="index.html" class="logo-link">Investo</a>
           </div>
-          <div id="footer-contact-form">
+          <div id="footer-contact-form" class="w-50-100">
             <!-- Contact form will require js to do anything -->
+            <h3>Send us a message</h3>
             <form action="" id="contact-form" class="investo-form">
               <div class="responsive-row gap-10">
-                <div class="column w-full">
-                  <input
-                    type="text"
-                    name="name"
-                    id="contact-name"
-                    placeholder="Your name"
-                    class="form-input-text"
-                  />
-                </div>
-                <div class="column w-full">
-                  <input
-                    type="email"
-                    name="email"
-                    id="contact-email"
-                    placeholder="Your email"
-                    class="form-input-email"
-                  />
-                </div>
+                <input
+                  type="text"
+                  name="name"
+                  id="contact-name"
+                  placeholder="Your name"
+                  class="form-input-text w-50-100"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  id="contact-email"
+                  placeholder="Your email"
+                  class="form-input-email w-50-100"
+                />
               </div>
               <div class="row">
                 <input

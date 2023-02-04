@@ -17,3 +17,10 @@
     width: 50%;
 } */
 
+.article-card h4 {
+    transition: opacity .5s;
+}
+
+.article-card:hover h4 {
+    text-decoration: underline;
+}
