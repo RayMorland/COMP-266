@@ -1,3 +1,7 @@
+#learn-main-content {
+    background-color: whitesmoke;
+}
+
 .article-card img{
     object-fit: cover;
     height: 100%;
@@ -8,3 +12,8 @@
     height: auto;
     overflow: hidden;
 }
+
+/* .image-wrapper{
+    width: 50%;
+} */
+

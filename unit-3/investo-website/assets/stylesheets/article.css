@@ -1,3 +1,7 @@
+#article-main-content {
+    background-color: whitesmoke;
+}
+
 #article-masthead-image {
     height: 70vh;
     overflow: hidden;

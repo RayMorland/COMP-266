@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Investo: Invest</title>
     <link rel="stylesheet" href="./assets/stylesheets/global.css" />
+    <link rel="stylesheet" href="./assets/stylesheets/invest.css" />
   </head>
   <body>
     <!-- shared site header -->
@@ -21,13 +22,13 @@
                 <a href="invest.html" class="nav-link">Invest</a>
               </li>
               <li>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+              </li>
+              <li>
                 <a href="learn.html" class="nav-link">Learn</a>
               </li>
               <li>
                 <a href="about.html" class="nav-link">About</a>
-              </li>
-              <li>
-                <a href="portfolio.html" class="nav-link">Portfolio</a>
               </li>
             </ul>
           </nav>
@@ -41,7 +42,7 @@
     </header>
     <main id="invest-main-content">
       <div class="container">
-        <div class="row justify-between">
+        <div class="responsive-row gap-20 justify-between justify-between align-center">
           <div>
             <h1>Invest</h1>
           </div>
@@ -50,25 +51,60 @@
       </div>
       <div class="container">
         <div class="row">
-          <div id="invest-page-content">
-            <div id="market-wrapper">
-              <h3>Stocks</h3>
-              <div id="stocks">
-                <a href="stock.html" class="column white-panel">
-                  <div>
-                    <h3>Stock Symbol</h3>
-                    <h4>Company Name</h4>
-                  </div>
-                  <!-- Mini stock chart -->
-                  <div>
-                    <!-- <canvas></canvas> -->
-                  </div>
-                  <div>
-                    <h3>$10.20</h3>
-                    <h4>+0.28 (0.19%) USD</h4>
-                  </div>
-                </a>
+          <div id="invest-page-content" class="column w-full gap-10">
+            <h3>Stocks</h3>
+            <div id="stocks">
+              <a
+                href="stock.html"
+                class="responsive-row white-panel justify-between align-center"
+              >
+                <div class="column justify-center align-start">
+                  <h3 class="stock-symbol">AAPL</h3>
+                  <span class="stock-company-name">Apple Inc.</span>
+                </div>
+                <!-- Mini stock chart -->
+                <div>
+                  <canvas class="stock-chart-canvas"></canvas>
+                </div>
+                <div class="column">
+                  <span class="stock-price">$10.20</span>
+                  <span class="stock-change">+$0.28 (0.19%) USD</span>
+                </div>
+              </a>
+              <a
+              href="stock.html"
+              class="responsive-row white-panel justify-between align-center"
+            >
+              <div class="column justify-center align-start">
+                <h3 class="stock-symbol">AAPL</h3>
+                <span class="stock-company-name">Apple Inc.</span>
               </div>
+              <!-- Mini stock chart -->
+              <div>
+                <canvas class="stock-chart-canvas"></canvas>
+              </div>
+              <div class="column">
+                <span class="stock-price">$10.20</span>
+                <span class="stock-change">+$0.28 (0.19%) USD</span>
+              </div>
+            </a>
+            <a
+            href="stock.html"
+            class="responsive-row white-panel justify-between align-center"
+          >
+            <div class="column justify-center align-start">
+              <h3 class="stock-symbol">AAPL</h3>
+              <span class="stock-company-name">Apple Inc.</span>
+            </div>
+            <!-- Mini stock chart -->
+            <div>
+              <canvas class="stock-chart-canvas"></canvas>
+            </div>
+            <div class="column">
+              <span class="stock-price">$10.20</span>
+              <span class="stock-change">+$0.28 (0.19%) USD</span>
+            </div>
+          </a>
             </div>
           </div>
         </div>
