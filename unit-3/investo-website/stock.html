@@ -63,7 +63,7 @@
       </div>
       <div class="container" id="stock-content">
         <div class="responsive-row gap-20">
-          <div class="column gap-20 m-0">
+          <div class="column gap-20 m-0 w-70-100">
             <div id="stock-chart-wrapper" class="white-panel">
               <div class="row justify-between">
                 <!-- Placeholder text for stock information -->
@@ -78,45 +78,47 @@
             </div>
             <div id="stock-data" class="white-panel">
               <!-- Placeholder text. Actual stock data will be read in using js -->
-              <h3>Stock Data</h3>
-              <table id="stock-data-table">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Jan 10, 2023</th>
-                    <th>Jan 11, 2023</th>
-                    <th>Jan 12, 2023</th>
-                    <th>Jan 13, 2023</th>
-                    <th>Jan 16, 2023</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Opening Price</td>
-                    <td>$10.02</td>
-                    <td>$11.22</td>
-                    <td>$12.43</td>
-                    <td>$12.32</td>
-                    <td>$12.55</td>
-                  </tr>
-                  <tr>
-                    <td>Closing Price</td>
-                    <td>$10.02</td>
-                    <td>$11.22</td>
-                    <td>$12.43</td>
-                    <td>$12.32</td>
-                    <td>$12.55</td>
-                  </tr>
-                  <tr>
-                    <td>Change</td>
-                    <td>1.32%</td>
-                    <td>2.12%</td>
-                    <td>1.43%</td>
-                    <td>-1.56%</td>
-                    <td>-3.45%</td>
-                  </tr>
-                </tbody>
-              </table>
+              <h3 class="mb-20">Stock Data</h3>
+              <div>
+                <table id="stock-data-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Jan 10, 2023</th>
+                      <th>Jan 11, 2023</th>
+                      <th>Jan 12, 2023</th>
+                      <th>Jan 13, 2023</th>
+                      <th>Jan 16, 2023</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="row-name">Opening Price</td>
+                      <td>$10.02</td>
+                      <td>$11.22</td>
+                      <td>$12.43</td>
+                      <td>$12.32</td>
+                      <td>$12.55</td>
+                    </tr>
+                    <tr>
+                      <td class="row-name">Closing Price</td>
+                      <td>$10.02</td>
+                      <td>$11.22</td>
+                      <td>$12.43</td>
+                      <td>$12.32</td>
+                      <td>$12.55</td>
+                    </tr>
+                    <tr>
+                      <td class="row-name">Change</td>
+                      <td>1.32%</td>
+                      <td>2.12%</td>
+                      <td>1.43%</td>
+                      <td>-1.56%</td>
+                      <td>-3.45%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
           <div class="white-panel column gap-20 m-0" id="stock-actions-panel">
@@ -125,8 +127,9 @@
               class="responsive-row space-between justify-center align-center gap-20"
             >
               <h3>My position</h3>
-              <span id="my-position">10</span>
+              <span id="my-position">$1000</span>
             </div>
+            <h4 class="text-center">Number of Shares Owned: 10</h4>
             <div class="column mt-10">
               <h4 class="text-center">Quantity to Buy/Sell</h4>
               <div
@@ -135,9 +138,11 @@
               >
                 <button onclick="" class="icon-button">-</button>
                 <!-- Placeholder text for quantity that will be controlled with js -->
-                <span id="quantity">0</span>
+                <span id="quantity">1</span>
                 <button type="button" onclick="" class="icon-button">+</button>
               </div>
+
+              <h4 class="text-center">Total: $100</h4>
             </div>
             <div id="stock-buy-sell-buttons" class="column gap-20 w-full">
               <button
@@ -165,7 +170,7 @@
     <!-- shared site footer -->
     <footer id="site-footer">
       <!-- footer content container -->
-      <div class="container">
+      <div class="container  pb-40">
         <div id="footer-content" class="responsive-row justify-between">
           <div id="footer-links">
             <a href="index.html" class="logo-link">Investo</a>
@@ -206,12 +211,13 @@
         <div id="footer-info" class="responsive-row justify-between mt-50">
           <div id="author-info" class="row gap-10 justify-start m-0">
             <span id="author" class="fs-1"
-              >Raymond Morland January 11, 2023</span
+              >2023 Raymond Morland</span
             >
           </div>
           <div id="terms" class="responsive-row gap-10 justify-end m-0">
             <a href="" class="small-link">Terms</a>
             <a href="" class="small-link">Sitemap</a>
+            <a href="https://github.com/RayMorland/COMP-266" class="small-link">Github</a>
           </div>
         </div>
       </div>

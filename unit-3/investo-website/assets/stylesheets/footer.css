@@ -8,3 +8,7 @@
 #footer-contact-form {
     padding-top: 1em;
 }
+
+#author {
+    font-family: var(--font-family-secondary);
+}

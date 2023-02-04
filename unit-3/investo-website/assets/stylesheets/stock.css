@@ -24,4 +24,11 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    color: black;
 }
+
+table {
+    overflow-x: auto;
+    width: 100%;
+}
+
