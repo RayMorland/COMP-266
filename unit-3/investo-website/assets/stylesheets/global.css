@@ -197,6 +197,18 @@ td:first-child {
   align-items: flex-end;
 }
 
+.align-end-center {
+  text-align: center;
+}
+
+.align-start-center {
+  align-items: center;
+}
+
+.align-start-center * {
+  text-align: center;
+}
+
 .gap-2 {
   gap: 2px;
 }
@@ -470,6 +482,18 @@ a.white-panel:hover {
 
   .w-70-100 {
     width: 70%;
+  }
+
+  .align-start-center {
+    align-items: flex-start;
+  }
+
+  .align-end-center {
+    align-items: flex-end;
+  }
+  
+  .align-start-center * {
+    text-align: start;
   }
 }
 
