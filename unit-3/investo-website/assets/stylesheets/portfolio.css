@@ -10,9 +10,6 @@
     flex: 1
 }
 
-#portfolio-positions {
-}
-
 .portfolio-stock {
     font-size: 1em;
 }
@@ -25,13 +22,6 @@
   font-size: 2em;
   font-weight: 700;
 }
-
-.stock-change {
-}
-
-.stock-company-name {
-}
-
 .stock-chart-canvas {
   width: 100%;
 }

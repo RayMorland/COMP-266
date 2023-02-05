@@ -13,10 +13,6 @@
     overflow: hidden;
 }
 
-/* .image-wrapper{
-    width: 50%;
-} */
-
 .article-card h4 {
     transition: opacity .5s;
 }

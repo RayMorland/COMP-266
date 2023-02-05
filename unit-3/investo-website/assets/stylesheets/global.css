@@ -89,10 +89,6 @@ a {
   font-size: 2rem;
 }
 
-em {
-  font-weight: 900;
-}
-
 /* List Elements */
 
 ul {
@@ -100,9 +96,7 @@ ul {
   padding: 0;
 }
 
-table  * {
-  
-}
+/* Table Elements */
 
 th {
   font-family: var(--font-family-primary);
@@ -118,22 +112,14 @@ td:first-child {
   text-align: start;
 }
 
-.border-bottom {
-  border-bottom: 5px solid black;
-}
 
 #invest-page {
   background-color: #fff6c4;
 }
 
-.learn-article {
-  box-shadow: 0px 0px black;
-  transform: translate(0px, 0px);
-}
-
-.learn-article:hover {
-  box-shadow: 5px 5px black;
-  transform: translate(-5px, -5px);
+/* Misc. Elements */
+em {
+  font-weight: 900;
 }
 
 /* Text Classes */
@@ -259,7 +245,7 @@ td:first-child {
 }
 
 .mt-0 {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 
 .mt-50 {
@@ -317,6 +303,7 @@ margin-top: 50px;
 
 .small-link {
   font-size: 1em;
+  text-decoration: underline;
 }
 
 .small-link:hover {
@@ -392,10 +379,6 @@ margin-top: 50px;
 
 /* Form Classes */
 
-.investo-form {
-
-}
-
 .form-input-text, .form-input-email {
   background: none;
   outline: none;
@@ -409,11 +392,9 @@ margin-top: 50px;
   font-style: normal;
 }
 
-
 ::placeholder {
   color: black;
 }
-
 
 /* Misc. Styling Classes */
 
@@ -427,6 +408,10 @@ margin-top: 50px;
 
 .full-width {
   width: 100%;
+}
+
+.border-bottom {
+  border-bottom: 5px solid black;
 }
 
 .white-panel {
