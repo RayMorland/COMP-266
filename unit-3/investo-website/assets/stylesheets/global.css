@@ -209,6 +209,10 @@ td:first-child {
   gap: 20px;
 }
 
+.gap-50 {
+  gap: 50px
+}
+
 .gap-2rem {
   gap: 2rem;
 }

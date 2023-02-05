@@ -52,3 +52,14 @@
 #latest-article-content {
     padding: 20px 0;    
 }
+
+.author {
+    font-size: .75em;
+    margin: 0;
+}
+
+.article-date {
+    font-size: .5em;
+    margin: 0;
+    opacity: .6;
+}
