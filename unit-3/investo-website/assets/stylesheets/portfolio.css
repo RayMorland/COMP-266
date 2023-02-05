@@ -1,15 +1,41 @@
+#portfolio-main-content {
+    background-color: #fff6c4;
+}
+
 #portfolio-wrapper {
-    flex: 1;
-  }
-  
-  #portfolio-positions {
-  }
-  
-  .portfolio-stock {
-    border-bottom: 5px solid black;
-    padding: 5px;
-  }
-  
-  #portfolio-positions:last-child {
-    border-bottom: none;
-  }
+  flex: 1;
+}
+
+#portfolio-watchlist-wrapper {
+    flex: 1
+}
+
+#portfolio-positions {
+}
+
+.portfolio-stock {
+    font-size: 1em;
+}
+
+#portfolio-positions:last-child {
+  border-bottom: none;
+}
+
+.stock-price {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.stock-change {
+}
+
+.stock-company-name {
+}
+
+.stock-chart-canvas {
+  width: 100%;
+}
+
+.watchlist-stock:hover .watchlist-symbol{
+    text-decoration: underline;
+}

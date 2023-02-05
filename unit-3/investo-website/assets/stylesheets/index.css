@@ -35,6 +35,10 @@
 #latest-article {
 }
 
+#articles-section {
+   background-color: #fff6c4;
+}
+
 #latest-article-image {
   overflow: hidden;
 }

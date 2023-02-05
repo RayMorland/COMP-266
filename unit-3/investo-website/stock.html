@@ -42,7 +42,7 @@
     </header>
     <main id="stock-main-content">
       <div class="container" id="stock-masthead">
-        <div class="responsive-row justify-between align-center gap-20">
+        <div class="responsive-row justify-between align-start gap-20">
           <div>
             <!-- Placeholder text for stock information -->
             <!-- switched id to class -->
@@ -67,7 +67,7 @@
             <div id="stock-chart-wrapper" class="white-panel">
               <div class="row justify-between">
                 <!-- Placeholder text for stock information -->
-                <h4>Price Chart</h4>
+                <h3>Price Chart</h3>
                 <div class="column align-end m-0">
                   <h4>Current Price</h4>
                   <h2 id="price">$100.00</h2>
@@ -170,39 +170,43 @@
     <!-- shared site footer -->
     <footer id="site-footer">
       <!-- footer content container -->
-      <div class="container  pb-40">
+      <div class="container pb-40">
         <div id="footer-content" class="responsive-row justify-between">
           <div id="footer-links">
             <a href="index.html" class="logo-link">Investo</a>
           </div>
           <div id="footer-contact-form" class="w-50-100">
             <!-- Contact form will require js to do anything -->
-            <h3>Send us a message</h3>
+            <!-- <h3>Send us a message</h3> -->
             <form action="" id="contact-form" class="investo-form">
+              <div class="row">
+                <input
+                  type="text"
+                  name="message"
+                  id="contact-message"
+                  placeholder="Send us a message"
+                  class="form-input-text w-full"
+                />
+              </div>
               <div class="responsive-row gap-10">
                 <input
                   type="text"
                   name="name"
                   id="contact-name"
-                  placeholder="Your name"
+                  placeholder="Name"
                   class="form-input-text w-50-100"
                 />
                 <input
                   type="email"
                   name="email"
                   id="contact-email"
-                  placeholder="Your email"
+                  placeholder="Email"
                   class="form-input-email w-50-100"
                 />
               </div>
-              <div class="row">
-                <input
-                  type="text"
-                  name="message"
-                  id="contact-message"
-                  placeholder="Your message"
-                  class="form-input-text w-full"
-                />
+
+              <div class="row justify-end">
+                <button type="" class="secondary-button">Send it</button>
               </div>
             </form>
           </div>
@@ -210,14 +214,14 @@
         <!-- footer site info -->
         <div id="footer-info" class="responsive-row justify-between mt-50">
           <div id="author-info" class="row gap-10 justify-start m-0">
-            <span id="author" class="fs-1"
-              >2023 Raymond Morland</span
-            >
+            <span id="author" class="fs-1">2023 Raymond Morland</span>
           </div>
           <div id="terms" class="responsive-row gap-10 justify-end m-0">
             <a href="" class="small-link">Terms</a>
             <a href="" class="small-link">Sitemap</a>
-            <a href="https://github.com/RayMorland/COMP-266" class="small-link">Github</a>
+            <a href="https://github.com/RayMorland/COMP-266" class="small-link"
+              >Github</a
+            >
           </div>
         </div>
       </div>

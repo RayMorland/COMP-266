@@ -43,8 +43,17 @@
     <main id="article-main-content">
       <div class="container">
         <section id="article-masthead" class="row">
-          <div class="column w-full">
-            <h1 id="title" class="mb-50">Article Title</h1>
+          <div class="column w-full gap-20">
+            <div class="column gap-20 m-0">
+              
+              <h1 class="title">Article Title</h1>
+              <p class="author">By Raymond Morland</p>
+              <p class="article-date">January 30, 2023</p>
+              <div class="row gap-10 m-0 tags">
+                <span class="tag">stocks</span>
+                <span class="tag">strategy</span>
+              </div>
+            </div>
             <div id="article-masthead-image" class="w-full">
               <img
                 src="https://images.unsplash.com/photo-1669951584605-4deba095a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80"
@@ -55,8 +64,8 @@
             </div>
           </div>
         </section>
-        <section id="article-content" class="row">
-          <p id="content">
+        <section class="article-content" class="row">
+          <p>
             A stock, also known as a share or equity, represents a unit of
             ownership in a company. When a company wants to raise money, it can
             issue stocks and sell them to investors. In exchange for buying the
@@ -95,68 +104,74 @@
             stock can fluctuate widely over time.
           </p>
         </section>
-        <section id="next-article-links" class="responsive-row gap-20">
-          <a id="next-article-one" class="column flex-1 white-panel m-0">
+        <div id="next-article-links" class="responsive-row gap-20">
+          <a href="article.html" class="column flex-1 white-panel m-0 next-article">
             <img
               src="https://images.unsplash.com/photo-1669951584605-4deba095a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80"
               alt="coins"
               id="next-article-one-main-image"
             />
             <div id="next-article-one-description" class="article-description">
-              <h3>Stocks</h3>
-              <h4>Read</h4>
+              <p class="article-date">January 30, 2023</p>
+              <h4>Article Title</h4>
+              <p class="m-0 author">Raymond Morland</p>
             </div>
           </a>
-          <a id="next-article-two" class="column flex-1 white-panel m-0">
+          <a href="article.html" class="column flex-1 white-panel m-0 next-article">
             <img
               src="https://images.unsplash.com/photo-1669951584605-4deba095a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80"
               alt="coins"
               id="next-article-two-main-image"
             />
             <div id="next-article-two-description" class="article-description">
-              <h3>Stocks</h3>
-              <h4>Read</h4>
+              <p class="article-date">January 30, 2023</p>
+              <h4>Article Title</h4>
+              <p class="m-0 author">Raymond Morland</p>
             </div>
           </a>
-        </section>
+        </div>
       </div>
     </main>
     <!-- shared site footer -->
     <footer id="site-footer">
       <!-- footer content container -->
-      <div class="container  pb-40">
+      <div class="container pb-40">
         <div id="footer-content" class="responsive-row justify-between">
           <div id="footer-links">
             <a href="index.html" class="logo-link">Investo</a>
           </div>
           <div id="footer-contact-form" class="w-50-100">
             <!-- Contact form will require js to do anything -->
-            <h3>Send us a message</h3>
+            <!-- <h3>Send us a message</h3> -->
             <form action="" id="contact-form" class="investo-form">
+              <div class="row">
+                <input
+                  type="text"
+                  name="message"
+                  id="contact-message"
+                  placeholder="Send us a message"
+                  class="form-input-text w-full"
+                />
+              </div>
               <div class="responsive-row gap-10">
                 <input
                   type="text"
                   name="name"
                   id="contact-name"
-                  placeholder="Your name"
+                  placeholder="Name"
                   class="form-input-text w-50-100"
                 />
                 <input
                   type="email"
                   name="email"
                   id="contact-email"
-                  placeholder="Your email"
+                  placeholder="Email"
                   class="form-input-email w-50-100"
                 />
               </div>
-              <div class="row">
-                <input
-                  type="text"
-                  name="message"
-                  id="contact-message"
-                  placeholder="Your message"
-                  class="form-input-text w-full"
-                />
+
+              <div class="row justify-end">
+                <button type="" class="secondary-button">Send it</button>
               </div>
             </form>
           </div>
@@ -164,14 +179,14 @@
         <!-- footer site info -->
         <div id="footer-info" class="responsive-row justify-between mt-50">
           <div id="author-info" class="row gap-10 justify-start m-0">
-            <span id="author" class="fs-1"
-              >2023 Raymond Morland</span
-            >
+            <span id="author" class="fs-1">2023 Raymond Morland</span>
           </div>
           <div id="terms" class="responsive-row gap-10 justify-end m-0">
             <a href="" class="small-link">Terms</a>
             <a href="" class="small-link">Sitemap</a>
-            <a href="https://github.com/RayMorland/COMP-266" class="small-link">Github</a>
+            <a href="https://github.com/RayMorland/COMP-266" class="small-link"
+              >Github</a
+            >
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
 #article-main-content {
-    background-color: whitesmoke;
+    background-color: #f9f9f9;
 }
 
 #article-masthead-image {
-    height: 70vh;
+    height: 60vh;
     overflow: hidden;
 }
 
@@ -13,28 +13,59 @@
     width: 100%;
 }
 
-#next-article-two {
+.next-article {
     height: auto;
     overflow: hidden;
+    cursor: pointer;
 }
 
-#next-article-two img{
+.next-article img{
     object-fit: cover;
     height: 100%;
     width: 100%;
 }
 
-#next-article-one {
-    height: auto;
-    overflow: hidden;
+.next-article .author {
+    font-size: .75em;
+    margin: 0;
 }
 
-#next-article-one img{
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+.next-article .article-date {
+    font-size: .5em;
+    margin: 0;
+    opacity: .6;
 }
 
 .article-description {
     padding: 20px 0;   
+}
+
+.author {
+    font-size: 1.25em;
+    margin: 0;
+}
+
+.article-date {
+    font-size: 1em;
+    margin: 0;
+    opacity: .6;
+}
+
+.tag {
+    font-weight: 700;
+    font-size: 1em;
+    background-color: rgb(240, 240, 240);
+    padding: 10px 20px;
+    font-family: "effra-cc", sans-serif;
+}
+
+.article-content {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 10vw;
+}
+
+.article-content p {
+    text-indent: 50px;
+    font-size: 1.5em;
 }

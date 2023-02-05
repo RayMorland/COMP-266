@@ -1,5 +1,5 @@
 #learn-main-content {
-    background-color: whitesmoke;
+    background-color: #f9f9f9;
 }
 
 .article-card img{
@@ -23,4 +23,23 @@
 
 .article-card:hover h4 {
     text-decoration: underline;
+}
+
+.author {
+    font-size: .75em;
+    margin: 0;
+}
+
+.article-date {
+    font-size: .5em;
+    margin: 0;
+    opacity: .6;
+}
+
+.tag {
+    font-weight: 700;
+    font-size: .5em;
+    background-color: rgb(240, 240, 240);
+    padding: 10px 20px;
+    font-family: "effra-cc", sans-serif;
 }

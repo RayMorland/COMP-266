@@ -12,3 +12,14 @@
 #author {
     font-family: var(--font-family-secondary);
 }
+
+#footer-contact-form button {
+    margin: 20px 0;
+    padding: 10px 30px;
+    background-color: transparent;
+    font-size: 2em;
+}
+
+#footer-contact-form button:hover {
+    background-color: black;
+}

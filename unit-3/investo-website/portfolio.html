@@ -42,22 +42,105 @@
     </header>
     <main id="portfolio-main-content">
       <div class="container">
-        <div id="portfolio-masthead" class="row">
-          <h1 class="mb-50">My Portfolio</h1>
+        <div
+          id="portfolio-masthead"
+          class="responsive-row justify-between align-start gap-20"
+        >
+          <div class="column align-start m-0">
+            <h1>My Portfolio</h1>
+            <p>Manage your stock portfolio</p>
+          </div>
+          <div class="column justify-start align-end m-0">
+            <h1>$1000</h1>
+            <h5>Portfolio Value</h5>
+          </div>
         </div>
+      </div>
+      <div class="container">
         <div id="portfolio-content" class="responsive-row gap-20">
-          <div id="portfolio-positions-wrapper" class="column gap-20">
+          <div
+            id="portfolio-positions-wrapper"
+            class="column gap-20 m-0 w-70-100"
+          >
             <h3>Stocks</h3>
-            <div id="portfolio-positions" class="column">
-              <a href="stock.html" class="white-panel">
-                <h3>Stock Name Quantity in Portfolio</h3></a
+            <div id="portfolio-positions" class="column w-full m-0 gap-20">
+              <a
+                href="stock.html"
+                class="portfolio-stock white-panel responsive-row justify-between m-0"
               >
+                <div class="column m-0 justify-start align-start">
+                  <h3 class="stock-symbol">AAPL</h3>
+                  <h5 class="stock-company-name">Apple Inc.</h5>
+                </div>
+                <div class="row justify-end align-start m-0 gap-20">
+                  <div class="column justify-start align-end m-0 gap-2">
+                    <h5>My position</h5>
+                    <h4 class="stock-price">$1000</h4>
+                    <h5 class="stock-change">10 shares</h5>
+                  </div>
+                  <div class="column justify-start align-end m-0 gap-2">
+                    <h5>Stock info</h5>
+                    <h4 class="stock-price">$10.20</h4>
+                    <h5 class="stock-change">+$0.28 USD</h5>
+                  </div>
+                </div>
+              </a>
+              <a
+                href="stock.html"
+                class="portfolio-stock white-panel responsive-row justify-between m-0"
+              >
+                <div class="column m-0 justify-start align-start">
+                  <h3 class="stock-symbol">APPL</h3>
+                  <h5 class="stock-company-name">Apple Inc.</h5>
+                </div>
+                <div class="row justify-end align-start m-0 gap-20">
+                  <div class="column justify-start align-end m-0 gap-2">
+                    <h5>My position</h5>
+                    <h4 class="stock-price">$1000</h4>
+                    <h5 class="stock-change">10 shares</h5>
+                  </div>
+                  <div class="column justify-start align-end m-0 gap-2">
+                    <h5>Stock info</h5>
+                    <h4 class="stock-price">$10.20</h4>
+                    <h5 class="stock-change">+$0.28 USD</h5>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
           <div id="portfolio-watchlist-wrapper" class="column gap-20 m-0">
             <h3>Watchlist</h3>
-            <div id="portfolio-watchlist" class="white-panel">
-              <a href="stock.html">Stock Symbol</a>
+            <div id="portfolio-watchlist" class="white-panel column gap-20 m-0">
+              <div class="row justify-between w-full">
+                <h5>Symbol</h5>
+                <h5>Price</h5>
+              </div>
+              <div class="column gap-20 m-0">
+                <a
+                  href="stock.html"
+                  class="watchlist-stock row justify-between w-full"
+                >
+                  <h4 class="watchlist-symbol">APPL</h4>
+                  <h4 class="watchlist-price">$100</h4>
+                </a>
+                <a
+                  href="stock.html"
+                  class="watchlist-stock row justify-between w-full"
+                >
+                  <h4 class="watchlist-symbol">META</h4>
+                  <h4 class="watchlist-price">$100</h4>
+                </a>
+                <a
+                  href="stock.html"
+                  class="watchlist-stock row justify-between w-full"
+                >
+                  <h4 class="watchlist-symbol">GOOG</h4>
+                  <h4 class="watchlist-price">$100</h4>
+                </a>
+                <a href="invest.html" class="small-link text-center"
+                  >Find more stocks</a
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -66,39 +149,43 @@
     <!-- shared site footer -->
     <footer id="site-footer">
       <!-- footer content container -->
-      <div class="container  pb-40">
+      <div class="container pb-40">
         <div id="footer-content" class="responsive-row justify-between">
           <div id="footer-links">
             <a href="index.html" class="logo-link">Investo</a>
           </div>
           <div id="footer-contact-form" class="w-50-100">
             <!-- Contact form will require js to do anything -->
-            <h3>Send us a message</h3>
+            <!-- <h3>Send us a message</h3> -->
             <form action="" id="contact-form" class="investo-form">
+              <div class="row">
+                <input
+                  type="text"
+                  name="message"
+                  id="contact-message"
+                  placeholder="Send us a message"
+                  class="form-input-text w-full"
+                />
+              </div>
               <div class="responsive-row gap-10">
                 <input
                   type="text"
                   name="name"
                   id="contact-name"
-                  placeholder="Your name"
+                  placeholder="Name"
                   class="form-input-text w-50-100"
                 />
                 <input
                   type="email"
                   name="email"
                   id="contact-email"
-                  placeholder="Your email"
+                  placeholder="Email"
                   class="form-input-email w-50-100"
                 />
               </div>
-              <div class="row">
-                <input
-                  type="text"
-                  name="message"
-                  id="contact-message"
-                  placeholder="Your message"
-                  class="form-input-text w-full"
-                />
+
+              <div class="row justify-end">
+                <button type="" class="secondary-button">Send it</button>
               </div>
             </form>
           </div>
@@ -106,14 +193,14 @@
         <!-- footer site info -->
         <div id="footer-info" class="responsive-row justify-between mt-50">
           <div id="author-info" class="row gap-10 justify-start m-0">
-            <span id="author" class="fs-1"
-              >2023 Raymond Morland</span
-            >
+            <span id="author" class="fs-1">2023 Raymond Morland</span>
           </div>
           <div id="terms" class="responsive-row gap-10 justify-end m-0">
             <a href="" class="small-link">Terms</a>
             <a href="" class="small-link">Sitemap</a>
-            <a href="https://github.com/RayMorland/COMP-266" class="small-link">Github</a>
+            <a href="https://github.com/RayMorland/COMP-266" class="small-link"
+              >Github</a
+            >
           </div>
         </div>
       </div>

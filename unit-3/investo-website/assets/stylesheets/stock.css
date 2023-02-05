@@ -1,3 +1,7 @@
+#stock-main-content {
+    background-color: #fff6c4;
+}
+
 #stock-actions-panel {
     flex: 1;
     border: 5px solid black;
