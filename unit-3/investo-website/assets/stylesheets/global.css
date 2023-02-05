@@ -31,7 +31,6 @@ body {
   box-sizing: border-box;
   font-size: var(--font-size-default);
   color: var(--font-color-primary);
-  overflow-x: hidden;
 }
 
 main {
