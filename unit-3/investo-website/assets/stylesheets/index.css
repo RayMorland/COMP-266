@@ -27,16 +27,8 @@
   height: 80vh;
 }
 
-#learn-section {
-  /* background: linear-gradient(to right,#dff44e, #b0fa04); */
-  /* background: linear-gradient(74.84deg, #00c805 18.12%, #c3f53c 81.46%); */
-}
-
-#latest-article {
-}
-
 #articles-section {
-   background-color: #fff6c4;
+  background-color: #fff6c4;
 }
 
 #latest-article-image {
@@ -45,21 +37,22 @@
 
 #latest-article-image img {
   overflow: hidden;
+  -o-object-fit: cover;
   object-fit: cover;
   width: 100%;
 }
 
 #latest-article-content {
-    padding: 20px 0;    
+  padding: 20px 0;
 }
 
 .author {
-    font-size: .75em;
-    margin: 0;
+  font-size: 0.75em;
+  margin: 0;
 }
 
 .article-date {
-    font-size: .5em;
-    margin: 0;
-    opacity: .6;
+  font-size: 0.5em;
+  margin: 0;
+  opacity: 0.6;
 }

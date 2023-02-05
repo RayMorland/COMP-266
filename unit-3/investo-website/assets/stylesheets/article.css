@@ -1,71 +1,73 @@
 #article-main-content {
-    background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 #article-masthead-image {
-    height: 60vh;
-    overflow: hidden;
+  height: 60vh;
+  overflow: hidden;
 }
 
-#article-masthead-image img{
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+#article-masthead-image img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .next-article {
-    height: auto;
-    overflow: hidden;
-    cursor: pointer;
+  height: auto;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.next-article img{
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+.next-article img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .next-article .author {
-    font-size: .75em;
-    margin: 0;
+  font-size: 0.75em;
+  margin: 0;
 }
 
 .next-article .article-date {
-    font-size: .5em;
-    margin: 0;
-    opacity: .6;
+  font-size: 0.5em;
+  margin: 0;
+  opacity: 0.6;
 }
 
 .article-description {
-    padding: 20px 0;   
+  padding: 20px 0;
 }
 
 .author {
-    font-size: 1.25em;
-    margin: 0;
+  font-size: 1.25em;
+  margin: 0;
 }
 
 .article-date {
-    font-size: 1em;
-    margin: 0;
-    opacity: .6;
+  font-size: 1em;
+  margin: 0;
+  opacity: 0.6;
 }
 
 .tag {
-    font-weight: 700;
-    font-size: 1em;
-    background-color: rgb(240, 240, 240);
-    padding: 10px 20px;
-    font-family: "effra-cc", sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+  background-color: rgb(240, 240, 240);
+  padding: 10px 20px;
+  font-family: "effra-cc", sans-serif;
 }
 
 .article-content {
-    max-width: 900px;
-    margin: auto;
-    padding: 50px 10vw;
+  max-width: 900px;
+  margin: auto;
+  padding: 50px 10vw;
 }
 
 .article-content p {
-    text-indent: 50px;
-    font-size: 1.5em;
+  text-indent: 50px;
+  font-size: 1.5em;
 }

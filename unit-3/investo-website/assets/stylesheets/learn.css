@@ -1,41 +1,42 @@
 #learn-main-content {
-    background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
-.article-card img{
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+.article-card img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .article-card {
-    height: auto;
-    overflow: hidden;
+  height: auto;
+  overflow: hidden;
 }
 
 .article-card h4 {
-    transition: opacity .5s;
+  transition: opacity 0.5s;
 }
 
 .article-card:hover h4 {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .author {
-    font-size: .75em;
-    margin: 0;
+  font-size: 0.75em;
+  margin: 0;
 }
 
 .article-date {
-    font-size: .5em;
-    margin: 0;
-    opacity: .6;
+  font-size: 0.5em;
+  margin: 0;
+  opacity: 0.6;
 }
 
 .tag {
-    font-weight: 700;
-    font-size: .5em;
-    background-color: rgb(240, 240, 240);
-    padding: 10px 20px;
-    font-family: "effra-cc", sans-serif;
+  font-weight: 700;
+  font-size: 0.5em;
+  background-color: rgb(240, 240, 240);
+  padding: 10px 20px;
+  font-family: "effra-cc", sans-serif;
 }

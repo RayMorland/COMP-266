@@ -1,5 +1,5 @@
 #portfolio-main-content {
-    background-color: #fff6c4;
+  background-color: #fff6c4;
 }
 
 #portfolio-wrapper {
@@ -7,11 +7,11 @@
 }
 
 #portfolio-watchlist-wrapper {
-    flex: 1
+  flex: 1;
 }
 
 .portfolio-stock {
-    font-size: 1em;
+  font-size: 1em;
 }
 
 #portfolio-positions:last-child {
@@ -26,6 +26,6 @@
   width: 100%;
 }
 
-.watchlist-stock:hover .watchlist-symbol{
-    text-decoration: underline;
+.watchlist-stock:hover .watchlist-symbol {
+  text-decoration: underline;
 }

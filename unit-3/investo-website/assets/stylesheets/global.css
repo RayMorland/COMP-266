@@ -11,7 +11,7 @@
   --font-size-lg: 18px;
   --font-size-xl: 18px;
   --font-color-primary: black;
-  --font-color-secondary: rgb(60, 60, 60);;
+  --font-color-secondary: rgb(60, 60, 60);
   --font-family-primary: "effra-cc";
   --font-family-secondary: "navigo";
   --font-family-heading-primary: "effra-cc";
@@ -53,7 +53,6 @@ h5 {
 
 h1 {
   font-size: 6em;
-  
 }
 
 h2 {
@@ -65,9 +64,8 @@ h3 {
 }
 
 h5 {
-  opacity: .6;
+  opacity: 0.6;
 }
-
 
 p {
   font-size: 1em;
@@ -111,7 +109,6 @@ td:first-child {
   text-align: start;
 }
 
-
 #invest-page {
   background-color: #fff6c4;
 }
@@ -134,7 +131,9 @@ em {
 /* Flex Classes */
 
 .row,
-.column, .responsive-row, .responsive-column {
+.column,
+.responsive-row,
+.responsive-column {
   max-width: var(--max-content-width);
   margin: auto;
   z-index: 1;
@@ -208,7 +207,7 @@ em {
 }
 
 .gap-50 {
-  gap: 50px
+  gap: 50px;
 }
 
 .gap-2rem {
@@ -248,7 +247,7 @@ em {
 }
 
 .mt-50 {
-margin-top: 50px;
+  margin-top: 50px;
 }
 
 .mt-10 {
@@ -276,7 +275,6 @@ margin-top: 50px;
 .pt-0 {
   padding-top: 0;
 }
-
 
 /* Content Wrapper Elements */
 
@@ -359,10 +357,10 @@ margin-top: 50px;
   padding: 20px auto;
   width: 100%;
   cursor: pointer;
-  transition: .1s all;
+  transition: 0.1s all;
 }
 
-.secondary-button:hover{
+.secondary-button:hover {
   background-color: black;
   color: white;
 }
@@ -372,13 +370,15 @@ margin-top: 50px;
 .fancy-img {
   border: 7px solid black;
   box-shadow: 7px 7px rgb(26, 26, 26);
+  -o-object-fit: cover;
   object-fit: cover;
   height: 60vh;
 }
 
 /* Form Classes */
 
-.form-input-text, .form-input-email {
+.form-input-text,
+.form-input-email {
   background: none;
   outline: none;
   border: none;
@@ -389,6 +389,22 @@ margin-top: 50px;
   font-family: var(--font-family-primary);
   font-weight: 600;
   font-style: normal;
+}
+
+::-webkit-input-placeholder {
+  color: black;
+}
+
+::-moz-placeholder {
+  color: black;
+}
+
+:-ms-input-placeholder {
+  color: black;
+}
+
+::-ms-input-placeholder {
+  color: black;
 }
 
 ::placeholder {
@@ -433,7 +449,7 @@ a.white-panel:hover {
   height: 100%;
   z-index: 0;
   background-color: rgb(71 64 48 / 40%);
-    /* backdrop-filter: blur(2px); */
+  /* backdrop-filter: blur(2px); */
 }
 
 .w-50-100 {
@@ -476,7 +492,7 @@ a.white-panel:hover {
   .align-end-center {
     align-items: flex-end;
   }
-  
+
   .align-start-center * {
     text-align: start;
   }

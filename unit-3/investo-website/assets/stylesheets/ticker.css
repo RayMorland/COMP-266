@@ -1,10 +1,10 @@
 .ticker {
-    position: relative;
-    width: 100vw;
-    overflow: hidden;
-    background-color: black;
-    height: 35px;
-    border-top: 5px solid black;
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+  background-color: black;
+  height: 35px;
+  border-top: 5px solid black;
 }
 
 .ticker-wrapper {
@@ -22,11 +22,11 @@
   justify-content: space-between;
   gap: 20px;
   flex-wrap: nowrap;
-  
 }
 
 .ticker:hover .ticker-wrapper {
-    animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 .ticker-symbol {
@@ -46,8 +46,8 @@
 }
 
 .ticker-symbol:hover {
-    border-bottom: 1px solid white;
-    cursor: pointer;
+  border-bottom: 1px solid white;
+  cursor: pointer;
 }
 
 .green {
@@ -58,28 +58,48 @@
   color: #a33131;
 }
 
-.ticker-wrapper.primary{
-    animation: primary 20s linear infinite;
+.ticker-wrapper.primary {
+  -webkit-animation: primary 20s linear infinite;
+  animation: primary 20s linear infinite;
 }
 
 .ticker-wrapper.secondary {
-    animation: secondary 20s linear infinite;
+  -webkit-animation: secondary 20s linear infinite;
+  animation: secondary 20s linear infinite;
+}
+
+@-webkit-keyframes primary {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -1760px;
+  }
 }
 
 @keyframes primary {
-    from {
-        left: 0%;
-    }
-    to {
-        left: -1760px;
-    }
+  from {
+    left: 0%;
+  }
+  to {
+    left: -1760px;
+  }
+}
+
+@-webkit-keyframes secondary {
+  from {
+    left: 1760px;
+  }
+  to {
+    left: 0%;
+  }
 }
 
 @keyframes secondary {
-    from {
-        left: 1760px;
-    }
-    to {
-        left: 0%;
-    }
+  from {
+    left: 1760px;
+  }
+  to {
+    left: 0%;
+  }
 }
