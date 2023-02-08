@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Investo: Learn</title>
+    <link rel="stylesheet" href="./assets/stylesheets/global.css" />
+    <link rel="stylesheet" href="./assets/stylesheets/learn.css" />
+  </head>
+  <body>
+    <!-- shared site header -->
+    <header id="site-header">
+      <div class="navbar">
+        <div class="nav-left">
+          <a href="index.html" class="logo-link nav-link">Investo</a>
+        </div>
+        <div class="nav-right">
+          <nav class="nav-links">
+            <ul class="nav-links-list">
+              <li>
+                <a href="invest.html" class="nav-link">Invest</a>
+              </li>
+              <li>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+              </li>
+              <li>
+                <a href="learn.html" class="nav-link">Learn</a>
+              </li>
+              <li>
+                <a href="about.html" class="nav-link">About</a>
+              </li>
+            </ul>
+          </nav>
+          <button onclick="" id="header-menu-button" class="menu-button">
+            <span class="menu-button-bar"></span>
+            <span class="menu-button-bar"></span>
+            <span class="menu-button-bar"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="learn-main-content">
+      <div id="articles-masthead" class="container">
+        <div class="row">
+          <div class="column align-start m-0">
+            <h1>Learn to Invest</h1>
+            <p>Read some of our informative articles</p>
+          </div>
+        </div>
+      </div>
+      <div id="articles-section" class="container">
+        <div class="column gap-2rem">
+          <a
+            href="article.html"
+            class="article-card white-panel responsive-row m-0 gap-20 justify-between"
+          >
+            <div id="article-decription" class="column justify-between gap-20 m-0">
+              <div class="column gap-10 m-0">
+                <p class="article-date">January 30, 2023</p>
+                <h3>Article Title</h3>
+                <p class="m-0 author">Raymond Morland</p>
+              </div>
+              <div class="row gap-10 m-0 tags">
+                <span class="tag">stocks</span>
+                <span class="tag">strategy</span>
+              </div>
+            </div>
+            <div class="image-wrapper w-50-100">
+              <img
+                src="https://images.unsplash.com/photo-1669951584605-4deba095a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80"
+                alt=""
+                id="article-main-image"
+              />
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+    <!-- shared site footer -->
+    <footer id="site-footer">
+      <!-- footer content container -->
+      <div class="container pb-40">
+        <div id="footer-content" class="responsive-row justify-between">
+          <div id="footer-links">
+            <a href="index.html" class="logo-link">Investo</a>
+          </div>
+          <div id="footer-contact-form" class="w-50-100">
+            <!-- Contact form will require js to do anything -->
+            <!-- <h3>Send us a message</h3> -->
+            <form id="contact-form" class="investo-form">
+              <div class="row">
+                <input
+                  type="text"
+                  name="message"
+                  id="contact-message"
+                  placeholder="Send us a message"
+                  class="form-input-text w-full"
+                />
+              </div>
+              <div class="responsive-row gap-10">
+                <input
+                  type="text"
+                  name="name"
+                  id="contact-name"
+                  placeholder="Name"
+                  class="form-input-text w-50-100"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  id="contact-email"
+                  placeholder="Email"
+                  class="form-input-email w-50-100"
+                />
+              </div>
+
+              <div class="row justify-end">
+                <button type="submit" class="secondary-button">Send it</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- footer site info -->
+        <div id="footer-info" class="responsive-row justify-between align-center mt-50 gap-20">
+          <div id="author-info" class="row gap-10 justify-start m-0">
+            <span id="author" class="fs-1">2023 Raymond Morland</span>
+          </div>
+          <div id="terms" class="responsive-row gap-10 justify-end m-0">
+            <a href="" class="small-link">Terms</a>
+            <a href="" class="small-link">Sitemap</a>
+            <a href="https://github.com/RayMorland/COMP-266" class="small-link"
+              >Github</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
