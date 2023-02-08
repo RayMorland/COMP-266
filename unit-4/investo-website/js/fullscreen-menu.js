@@ -3,7 +3,7 @@
     https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp
     on February 7, 2023
 
-    Critique of this code
+    Explanation of Code
     This is a very simple piece of Javascript that uses the document interface 
     to retrieve an element on the page according to the value of it's id attribute 
     (which, in this case, is "myNav") and then one of that elements style attributes. 
@@ -11,6 +11,8 @@
     notation to first access the elements style and then style's
     display attribute. Then myNav's display is set to "block" or "none" depending on which
     function is called, openNav() or closeNav().
+
+    Critique of this code
 */
 // function openNav() {
 //   document.getElementById("myNav").style.display = "block";
@@ -22,6 +24,8 @@
 
 /*
     My Implementation
+    I will be using this code to display my full screen menu when the user
+    is using a smaller width device.
     To implement this code it is required that it be embedded into
     each page using a <script> tag. I also had to change the ID passed
     to the getElementById function. Also, because I defined my full screen
@@ -38,7 +42,6 @@
 
 function openMenu() {
   document.getElementById("full-screen-menu").style.display = "flex";
-  console.log("hello");
 }
 
 function closeMenu() {

@@ -9,6 +9,10 @@
   font-family: var(--font-family-secondary);
 }
 
+#footer-contact-form {
+  overflow: hidden;
+}
+
 #footer-contact-form button {
   margin: 20px 0;
   padding: 10px 30px;
@@ -19,3 +23,5 @@
 #footer-contact-form button:hover {
   background-color: black;
 }
+
+#
