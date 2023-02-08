@@ -19,9 +19,9 @@ app.use('/unit-4/investo-website', require('./unit-4/unit4'));
 
 // app.use('/api', unit4Routes);
 
-// app.get('*', (req, res) => {
-//   res.sendFile(__dirname + "/404.html");
-// })
+app.get('*', (req, res) => {
+  res.sendFile(__dirname + "/404.html");
+})
   
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

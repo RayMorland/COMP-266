@@ -7,21 +7,20 @@ unit4.use(
   express.static(path.join(__dirname, "/investo-website/assets"))
 );
 
-// unit4.use(
-//     express.static(path.join(__dirname, "/investo-website"))
-//   );
+unit4.use(
+    express.static(path.join(__dirname, "/investo-website"))
+  );
 
-// unit4.get("/index.html", (req, res) => {
-//   res.redirect(__dirname + "/investo-website/index.html");
-// });
+unit4.get("/index.html", (req, res) => {
+  res.redirect(__dirname + "/investo-website/index.html");
+});
 
 unit4.get("/", (req, res) => {
   res.sendFile(__dirname + "/investo-website/index.html");
 });
 
 unit4.get("/learn", (req, res) => {
-    res.send("hello");
-//   res.sendFile(__dirname + "/investo-website/learn.html");
+  res.sendFile(__dirname + "/investo-website/learn.html");
 });
 
 unit4.get("/learn/article", (req, res) => {
