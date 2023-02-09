@@ -69,7 +69,6 @@ const emailRegExp =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 function testEmail(email, event) {
-  console.log(event);
   var isValid = true;
   if (event == "submit") {
     isValid = emailRegExp.test(email.value);
@@ -88,7 +87,6 @@ function testEmail(email, event) {
 }
 
 function testName(name, event) {
-  console.log(event);
   let isValid = true;
   if (event == "submit") {
     isValid = name.value.length != 0;
@@ -106,7 +104,6 @@ function testName(name, event) {
 }
 
 function testMessage(message, event) {
-  console.log(event);
   let isValid = true;
   if (event == "submit") {
     isValid = message.value.length != 0;
@@ -124,7 +121,6 @@ function testMessage(message, event) {
 }
 
 window.addEventListener("load", (event) => {
-
   testEmail(email, event.type);
   testName(contactName, event.type);
   testMessage(contactMessage, event.type);

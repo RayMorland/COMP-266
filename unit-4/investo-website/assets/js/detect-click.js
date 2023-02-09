@@ -34,8 +34,7 @@ document.addEventListener("click", (evt) => {
     // Go up the DOM
     targetEl = targetEl.parentNode;
   } while (targetEl);
-  
-  console.log("Clicked outside!");
+
   testEmail(email, "input");
   testMessage(contactMessage, "input");
   testName(contactName, "input");

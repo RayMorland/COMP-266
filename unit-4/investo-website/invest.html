@@ -5,8 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Investo: Invest</title>
-    <link rel="stylesheet" href="/unit-4/investo-website/assets/stylesheets/global.css" />
-    <link rel="stylesheet" href="/unit-4/investo-website/assets/stylesheets/invest.css" />
+    <link
+      rel="stylesheet"
+      href="/unit-4/investo-website/assets/stylesheets/global.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/unit-4/investo-website/assets/stylesheets/invest.css"
+    />
   </head>
   <body>
     <header id="site-header">
@@ -110,7 +116,24 @@
             <h3>Stocks</h3>
             <div id="stocks">
               <a
-                href="invest/stock"
+                href="invest/stock/MSFT"
+                class="invest-stock responsive-row white-panel justify-between align-center m-0"
+              >
+                <div class="column m-0 justify-center align-start">
+                  <h3 class="stock-symbol">MSFT</h3>
+                  <h5 class="stock-company-name">Microsoft Inc.</h5>
+                </div>
+                <!-- Mini stock chart -->
+                <!-- <div>
+                  <canvas class="stock-chart-canvas"></canvas>
+                </div> -->
+                <div class="column m-0 align-end">
+                  <h3 class="stock-price">$10.20</h3>
+                  <h5 class="stock-change">+$0.28 USD</h5>
+                </div>
+              </a>
+              <a
+                href="invest/stock/AAPL"
                 class="invest-stock responsive-row white-panel justify-between align-center m-0"
               >
                 <div class="column m-0 justify-center align-start">
@@ -127,29 +150,12 @@
                 </div>
               </a>
               <a
-                href="invest/stock"
+                href="invest/stock/QCOM"
                 class="invest-stock responsive-row white-panel justify-between align-center m-0"
               >
                 <div class="column m-0 justify-center align-start">
-                  <h3 class="stock-symbol">AAPL</h3>
-                  <h5 class="stock-company-name">Apple Inc.</h5>
-                </div>
-                <!-- Mini stock chart -->
-                <!-- <div>
-                  <canvas class="stock-chart-canvas"></canvas>
-                </div> -->
-                <div class="column m-0 align-end">
-                  <h3 class="stock-price">$10.20</h3>
-                  <h5 class="stock-change">+$0.28 USD</h5>
-                </div>
-              </a>
-              <a
-                href="invest/stock"
-                class="invest-stock responsive-row white-panel justify-between align-center m-0"
-              >
-                <div class="column m-0 justify-center align-start">
-                  <h3 class="stock-symbol">AAPL</h3>
-                  <h5 class="stock-company-name">Apple Inc.</h5>
+                  <h3 class="stock-symbol">QCOM</h3>
+                  <h5 class="stock-company-name">Qualcomm Inc.</h5>
                 </div>
                 <!-- Mini stock chart -->
                 <!-- <div>
@@ -234,18 +240,19 @@
             <a href="https://github.com/RayMorland/COMP-266" class="small-link"
               >Github</a
             >
+            <a href="/" class="small-link">Portfolio Home</a>
           </div>
         </div>
       </div>
     </footer>
     <script
-    type="text/javascript"
-    src="/unit-4/investo-website/assets/js/fullscreen-menu.js"
-  ></script>
-  <script
-    type="text/javascript"
-    src="/unit-4/investo-website/assets/js/window-resize.js"
-  ></script>
+      type="text/javascript"
+      src="/unit-4/investo-website/assets/js/fullscreen-menu.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/unit-4/investo-website/assets/js/window-resize.js"
+    ></script>
     <script
       type="text/javascript"
       src="/unit-4/investo-website/assets/js/form-validation.js"

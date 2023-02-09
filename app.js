@@ -37,5 +37,5 @@ app.get('*', (req, res) => {
 })
   
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`COMP 266 Portfolio app listening on port ${port}`)
 })

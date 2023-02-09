@@ -1,0 +1,17 @@
+module.exports = [
+  "AAPL",
+  "MSFT",
+  "GOOG",
+  "AMZN",
+  "TSLA",
+  "TSM",
+  "NVDA",
+  "META",
+  "CSCO",
+  "ORCL",
+  "TXN",
+  "ADBE",
+  "NFLX",
+  "IBM",
+  "QCOM",
+];

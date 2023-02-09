@@ -4,9 +4,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Investo: About</title>
-    <link rel="stylesheet" href="/unit-4/investo-website/assets/stylesheets/global.css" />
-    <link rel="stylesheet" href="/unit-4/investo-website/assets/stylesheets/about.css" />
+    <title>Investo: Stock Symbol</title>
+    <link
+      rel="stylesheet"
+      href="/unit-4/investo-website/assets/stylesheets/global.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/unit-4/investo-website/assets/stylesheets/stock.css"
+    />
   </head>
   <body>
     <header id="site-header">
@@ -92,23 +98,129 @@
         </ul>
       </nav>
     </div>
-    <main id="about-main-content">
-      <div class="container">
-        <div class="row">
-          <div id="about-masthead">
-            <h1>About Investo</h1>
+    <main id="stock-main-content">
+      <div class="container" id="stock-masthead">
+        <div class="responsive-row justify-between align-start-center gap-20">
+          <div>
+            <!-- Placeholder text for stock information -->
+            <!-- switched id to class -->
+            <h1 class="stock-symbol mb-10">APPL</h1>
+            <!-- switched id to class -->
+            <h3 class="stock-name mb-10">Apple Inc.</h3>
+            <a
+              class="stock-investor-site small-link"
+              href="https://investor.apple.com/investor-relations/default.aspx"
+              >Investor Website</a
+            >
           </div>
+          <!-- added class -->
+          <button class="fancy-button" id="watch-list-button">
+            Add to Watchlist
+          </button>
         </div>
-        <div class="row">
-          <div id="about-content">
-            <div>
-              <p>
-                Investo is an online platform for learning about stock investing
-                in a safe and conveinient way. Investo offers a stock portfolio
-                simulator as well as numerous articles on investing and money
-                management.
-              </p>
+      </div>
+      <div class="container" id="stock-content">
+        <div class="responsive-row gap-20">
+          <div class="column gap-20 m-0 w-70-100">
+            <div id="stock-chart-wrapper" class="white-panel">
+              <div class="row justify-between">
+                <!-- Placeholder text for stock information -->
+                <h3>Price Chart</h3>
+                <div class="column align-end m-0">
+                  <h5>Current Price</h5>
+                  <h2 id="price">$100.00</h2>
+                </div>
+              </div>
+              <!-- Canvas will be required for displaying chart with js -->
+              <!-- <canvas id="stock-chart"></canvas> -->
             </div>
+            <div id="stock-data" class="white-panel">
+              <!-- Placeholder text. Actual stock data will be read in using js -->
+              <h3 class="mb-20">Stock Data</h3>
+              <div>
+                <table id="stock-data-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Jan 10, 2023</th>
+                      <th>Jan 11, 2023</th>
+                      <th>Jan 12, 2023</th>
+                      <th>Jan 13, 2023</th>
+                      <th>Jan 16, 2023</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="row-name">Opening Price</td>
+                      <td>$10.02</td>
+                      <td>$11.22</td>
+                      <td>$12.43</td>
+                      <td>$12.32</td>
+                      <td>$12.55</td>
+                    </tr>
+                    <tr>
+                      <td class="row-name">Closing Price</td>
+                      <td>$10.02</td>
+                      <td>$11.22</td>
+                      <td>$12.43</td>
+                      <td>$12.32</td>
+                      <td>$12.55</td>
+                    </tr>
+                    <tr>
+                      <td class="row-name">Change</td>
+                      <td>1.32%</td>
+                      <td>2.12%</td>
+                      <td>1.43%</td>
+                      <td>-1.56%</td>
+                      <td>-3.45%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="white-panel column gap-20 m-0" id="stock-actions-panel">
+            <!-- Placeholder text for portfolio data -->
+            <div
+              class="responsive-row space-between justify-center align-center gap-20"
+            >
+              <h3>My position</h3>
+              <span id="my-position">$1000</span>
+            </div>
+            <h4 class="text-center">Number of Shares Owned: 10</h4>
+            <div class="column mt-10">
+              <h4 class="text-center">Quantity to Buy/Sell</h4>
+              <div
+                id="stock-quantity-buttons"
+                class="row align-center justify-center gap-20"
+              >
+                <button onclick="" class="icon-button">-</button>
+                <!-- Placeholder text for quantity that will be controlled with js -->
+                <span id="quantity">1</span>
+                <button type="button" onclick="" class="icon-button">+</button>
+              </div>
+
+              <h4 class="text-center">Total: $100</h4>
+            </div>
+            <div id="stock-buy-sell-buttons" class="column gap-20 w-full">
+              <button
+                type="button"
+                onclick="buyStock()"
+                class="secondary-button"
+              >
+                Buy
+              </button>
+              <button
+                type="button"
+                onclick="sellStock()"
+                class="secondary-button"
+              >
+                Sell
+              </button>
+            </div>
+            <a href="/unit-4/investo-website/invest/portfolio" class="small-link text-center"
+              >Go to portfolio</a
+            >
           </div>
         </div>
       </div>
@@ -188,13 +300,13 @@
       </div>
     </footer>
     <script
-    type="text/javascript"
-    src="/unit-4/investo-website/assets/js/fullscreen-menu.js"
-  ></script>
-  <script
-    type="text/javascript"
-    src="/unit-4/investo-website/assets/js/window-resize.js"
-  ></script>
+      type="text/javascript"
+      src="/unit-4/investo-website/assets/js/fullscreen-menu.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/unit-4/investo-website/assets/js/window-resize.js"
+    ></script>
     <script
       type="text/javascript"
       src="/unit-4/investo-website/assets/js/form-validation.js"

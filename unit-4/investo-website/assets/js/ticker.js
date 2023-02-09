@@ -23,8 +23,6 @@ let secondaryTicker = document.getElementById("secondary-ticker");
 
 // use loop to create 15 ticker symbols for both tickers
 for (i = 0; i < stockData.length; i++) {
-  console.log(Object.keys(stockData[i].prices).length - 1);
-
   closePrice =
     stockData[i].prices[Object.keys(stockData[i].prices)[0]]["4. close"];
 
@@ -34,8 +32,6 @@ for (i = 0; i < stockData.length; i++) {
         Object.keys(stockData[i].prices).length - 1
       ]
     ]["1. open"];
-  console.log(openPrice);
-  console.log(closePrice);
 
   priceChange = (((closePrice - openPrice) / openPrice) * 100).toFixed(2);
 
@@ -46,16 +42,15 @@ for (i = 0; i < stockData.length; i++) {
     change = "red";
   }
 
-  console.log(priceChange);
   // create a new anchor element
   let tickerSymbol = document.createElement("a");
   let secondaryTickerSymbol = document.createElement("a");
 
   // set the properties of the tickerSymbol and secondaryTickerSymbol to be the same
-  tickerSymbol.href = "invest/stock";
+  tickerSymbol.href = `invest/stock/${stockData[i].symbol}`;
   tickerSymbol.classList = ["ticker-symbol"];
   tickerSymbol.innerHTML = `${stockData[i].symbol}<span class='${change}'>${priceChange}%</span>`;
-  secondaryTickerSymbol.href = "invest/stock";
+  secondaryTickerSymbol.href = `invest/stock/${stockData[i].symbol}`;
   secondaryTickerSymbol.classList = ["ticker-symbol"];
   secondaryTickerSymbol.innerHTML = `${stockData[i].symbol}<span class='${change}'>${priceChange}%</span>`;
 
