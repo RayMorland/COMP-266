@@ -7,9 +7,7 @@ unit4.use(
   express.static(path.join(__dirname, "/investo-website/assets"))
 );
 
-unit4.use(
-    express.static(path.join(__dirname, "/investo-website"))
-  );
+unit4.use(express.static(path.join(__dirname, "/investo-website")));
 
 unit4.get("/index.html", (req, res) => {
   res.redirect(__dirname + "/investo-website/index.html");
@@ -36,7 +34,7 @@ unit4.get("/invest/portfolio", (req, res) => {
 });
 
 unit4.get("/invest/stock", (req, res) => {
-  res.sendFile(__dirname + "/investo-website/stock.html");
+  res.sendFile(__dirname + "/investo-website/stocks/stock.html");
 });
 
 unit4.get("/about", (req, res) => {
