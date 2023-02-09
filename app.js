@@ -1,9 +1,22 @@
-const express = require('express')
+const express = require('express');
 const cors = require("cors");
+require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 8081;
 
 app.use(cors());
+
+app.use(function (req, res, next) {
+  if (process.env.NODE_ENV === 'production') {
+    if ((!req.secure) && (req.get('X-Forwarded-Proto') !== 'https')) {
+      res.redirect('https://' + req.get('Host') + req.url);
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + "/index.html");
