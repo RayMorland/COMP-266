@@ -21,29 +21,40 @@
   <body>
     <div id="stock-ticker" class="ticker">
       <div id="ticker" class="ticker-wrapper primary"></div>
-      <div id="secondary-ticker" class="ticker-wrapper secondary">
-      </div>
+      <div id="secondary-ticker" class="ticker-wrapper secondary"></div>
     </div>
     <!-- shared site header -->
     <header id="site-header">
       <div class="navbar">
         <div class="nav-left">
-          <a href="/unit-4/investo-website/" class="logo-link nav-link">Investo</a>
+          <a href="/unit-4/investo-website/" class="logo-link nav-link"
+            >Investo</a
+          >
         </div>
         <div class="nav-right">
           <nav class="nav-links">
             <ul class="nav-links-list">
               <li>
-                <a href="/unit-4/investo-website/invest" class="nav-link">Invest</a>
+                <a href="/unit-4/investo-website/invest" class="nav-link"
+                  >Invest</a
+                >
               </li>
               <li>
-                <a href="/unit-4/investo-website/invest/portfolio" class="nav-link">Portfolio</a>
+                <a
+                  href="/unit-4/investo-website/invest/portfolio"
+                  class="nav-link"
+                  >Portfolio</a
+                >
               </li>
               <li>
-                <a href="/unit-4/investo-website/learn" class="nav-link">Learn</a>
+                <a href="/unit-4/investo-website/learn" class="nav-link"
+                  >Learn</a
+                >
               </li>
               <li>
-                <a href="/unit-4/investo-website/about" class="nav-link">About</a>
+                <a href="/unit-4/investo-website/about" class="nav-link"
+                  >About</a
+                >
               </li>
             </ul>
           </nav>
@@ -76,7 +87,11 @@
       <nav class="full-screen-nav-links">
         <ul class="nav-links-list column gap-20">
           <li>
-            <a href="/unit-4/investo-website/invest" class="nav-link full-screen-link">Invest</a>
+            <a
+              href="/unit-4/investo-website/invest"
+              class="nav-link full-screen-link"
+              >Invest</a
+            >
           </li>
           <li>
             <a href="/unit-4/investo-website/learn" class="nav-link">Learn</a>
@@ -85,7 +100,9 @@
             <a href="/unit-4/investo-website/about" class="nav-link">About</a>
           </li>
           <li>
-            <a href="/unit-4/investo-website/portfolio" class="nav-link">Portfolio</a>
+            <a href="/unit-4/investo-website/portfolio" class="nav-link"
+              >Portfolio</a
+            >
           </li>
         </ul>
       </nav>
@@ -161,8 +178,12 @@
           <div id="footer-contact-form" class="w-50-100">
             <!-- Contact form will require js to do anything -->
             <!-- <h3>Send us a message</h3> -->
-            <form id="contact-form" class="investo-form">
-              <div class="row">
+            <form
+              onsubmit="console.log('form submitted')"
+              id="contact-form"
+              class="investo-form gap-20 column"
+            >
+              <div class="column w-full">
                 <input
                   type="text"
                   name="message"
@@ -170,25 +191,32 @@
                   placeholder="Send us a message"
                   class="form-input-text w-full"
                 />
+                <span class="error" aria-live="polite"></span>
               </div>
-              <div class="responsive-row gap-10">
+
+              <div class="column w-full">
                 <input
                   type="text"
                   name="name"
                   id="contact-name"
                   placeholder="Name"
-                  class="form-input-text w-50-100"
+                  class="form-input-text"
                 />
+                <span class="error" aria-live="polite"></span>
+              </div>
+
+              <div class="column w-full">
                 <input
                   type="email"
                   name="email"
                   id="contact-email"
                   placeholder="Email"
-                  class="form-input-email w-50-100"
+                  class="form-input-email"
                 />
+                <span class="error" aria-live="polite"></span>
               </div>
 
-              <div class="row justify-end">
+              <div class="row justify-end w-full">
                 <button type="submit" class="secondary-button">Send it</button>
               </div>
             </form>
@@ -223,6 +251,14 @@
     <script
       type="text/javascript"
       src="/unit-4/investo-website/assets/js/ticker.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/unit-4/investo-website/assets/js/form-validation.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/unit-4/investo-website/assets/js/detect-click.js"
     ></script>
   </body>
 </html>

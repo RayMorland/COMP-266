@@ -390,7 +390,7 @@ em {
   border: none;
   border-bottom: 5px solid black;
   line-height: 1em;
-  margin: 20px 0;
+  /* margin: 20px 0; */
   font-size: 2em;
   font-family: var(--font-family-primary);
   font-weight: 600;
