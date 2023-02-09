@@ -26,11 +26,6 @@ unit4.get("/learn", (req, res) => {
 
 unit4.get("/learn/article", (req, res) => {
   res.redirect("/unit-4/investo-website/learn");
-  res.sendFile(__dirname + "/investo-website/articles/article.html");
-});
-
-unit4.get("/learn/article", (req, res) => {
-  res.redirect("/unit-4/investo-website/learn");
 });
 
 unit4.get("/learn/article/*", (req, res) => {
