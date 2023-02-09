@@ -48,7 +48,7 @@
   a parent (ticker) using a loop, it adds quite a bit more content to that child element than a '!'.
   To make this work I had to bring in some actual data (more on this later). This data is in the form
   of an array of objects called stockData and is in the stock-data.js file in the data folder. The
-  stock-data.js must be embedded in the page along with this script. !!!!!!!Left of Here!!!!!!
+  stock-data.js must be embedded in the page along with this script. !!!!!!!Left off Here!!!!!!
  */
 
 // retrieve the ticker and secondary ticker elements
@@ -81,10 +81,10 @@ for (i = 0; i < stockData.length; i++) {
   let secondaryTickerSymbol = document.createElement("a");
 
   // set the properties of the tickerSymbol and secondaryTickerSymbol to be the same
-  tickerSymbol.href = `invest/stock/${stockData[i].symbol}`;
+  tickerSymbol.href = `invest/stock/${stockData[i].symbol}.html`;
   tickerSymbol.classList = ["ticker-symbol"];
   tickerSymbol.innerHTML = `${stockData[i].symbol}<span class='${change}'>${priceChange}%</span>`;
-  secondaryTickerSymbol.href = `invest/stock/${stockData[i].symbol}`;
+  secondaryTickerSymbol.href = `invest/stock/${stockData[i].symbol}.html`;
   secondaryTickerSymbol.classList = ["ticker-symbol"];
   secondaryTickerSymbol.innerHTML = `${stockData[i].symbol}<span class='${change}'>${priceChange}%</span>`;
 

@@ -20,6 +20,10 @@ app.use(function (req, res, next) {
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + "/index.html");
+});
+
+app.get('/index.html', (req, res) => {
+  res.sendFile(__dirname + "/index.html");
 })
 
 // app.use('/unit-1/investo-website', require('./unit-1/unit1'));

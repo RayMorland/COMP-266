@@ -28,7 +28,7 @@ unit4.get("/learn/article", (req, res) => {
   res.redirect("/unit-4/investo-website/learn");
 });
 
-unit4.get("/learn/article/*", (req, res) => {
+unit4.get("/learn/article/*", (req, res, next) => {
   let slug = req.url.split("/")[3];
 
   if (articleList.indexOf(slug) >= 0) {
