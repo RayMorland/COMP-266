@@ -20,12 +20,12 @@ unit4.get("/", (req, res) => {
   res.sendFile(__dirname + "/investo-website/index.html");
 });
 
-unit4.get("/learn", (req, res) => {
+unit4.get("/learn.html", (req, res) => {
   res.sendFile(__dirname + "/investo-website/learn.html");
 });
 
 unit4.get("/learn/article", (req, res) => {
-  res.redirect("/unit-4/investo-website/learn");
+  res.redirect("/unit-4/investo-website/learn.html");
 });
 
 unit4.get("/learn/article/*", (req, res, next) => {
@@ -38,16 +38,16 @@ unit4.get("/learn/article/*", (req, res, next) => {
   }
 });
 
-unit4.get("/invest", (req, res) => {
+unit4.get("/invest.html", (req, res) => {
   res.sendFile(__dirname + "/investo-website/invest.html");
 });
 
-unit4.get("/invest/portfolio", (req, res) => {
-  res.sendFile(__dirname + "/investo-website/portfolio.html");
+unit4.get("/invest/portfolio.html", (req, res) => {
+  res.sendFile(__dirname + "/investo-website/invest/portfolio.html");
 });
 
 unit4.get("/invest/stock", (req, res) => {
-  res.redirect("/unit-4/investo-website/invest");
+  res.redirect("/unit-4/investo-website/invest.html");
 });
 
 unit4.get("/invest/stock/*", (req, res, next) => {
@@ -60,7 +60,7 @@ unit4.get("/invest/stock/*", (req, res, next) => {
   }
 });
 
-unit4.get("/about", (req, res) => {
+unit4.get("/about.html", (req, res) => {
   res.sendFile(__dirname + "/investo-website/about.html");
 });
 
