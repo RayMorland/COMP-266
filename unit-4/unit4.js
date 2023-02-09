@@ -22,7 +22,7 @@ unit4.get("/learn", (req, res) => {
 });
 
 unit4.get("/learn/article", (req, res) => {
-  res.sendFile(__dirname + "/investo-website/article.html");
+  res.sendFile(__dirname + "/investo-website/articles/article.html");
 });
 
 unit4.get("/invest", (req, res) => {
