@@ -48,7 +48,10 @@
   a parent (ticker) using a loop, it adds quite a bit more content to that child element than a '!'.
   To make this work I had to bring in some actual data (more on this later). This data is in the form
   of an array of objects called stockData and is in the stock-data.js file in the data folder. The
-  stock-data.js must be embedded in the page along with this script. !!!!!!!Left off Here!!!!!!
+  stock-data.js must be embedded in the page before this script. For each of the stock symbols I 
+  create two "a" elements, one for the primary ticker and another for the secondary ticker. The 
+  price change is calculated between the beginning of the day and the end of day and is also added
+  to the symbol. If the change is 0 or above the green class is added else the red class is added.
  */
 
 // retrieve the ticker and secondary ticker elements
@@ -57,9 +60,18 @@ let secondaryTicker = document.getElementById("secondary-ticker");
 
 // use loop to create 15 ticker symbols for both tickers
 for (i = 0; i < stockData.length; i++) {
+
+  // calculate the closing price of the stock
+  // Object.keys() is used because the stock data is an object of objects so the 
+  // keys are turned into an array, the first one, index 0, is retrieved (which is the closing
+  // time), and the close price at that time corresponds to the close price for the
+  // day
   closePrice =
     stockData[i].prices[Object.keys(stockData[i].prices)[0]]["4. close"];
 
+  // the open price is calculated similarly except the opening time is the last object
+  // in the list for which the index is one less than the length of the Object.keys()
+  // array
   openPrice =
     stockData[i].prices[
       Object.keys(stockData[i].prices)[
@@ -67,8 +79,12 @@ for (i = 0; i < stockData.length; i++) {
       ]
     ]["1. open"];
 
+  // the price change is calculated as the change relative to the opening price
+  // this change is converted to a percentage and then fixed to 2 decimal places
   priceChange = (((closePrice - openPrice) / openPrice) * 100).toFixed(2);
 
+  // if the price change  is greater than or equal to 0 than set the change class to green
+  // else change it to red
   let change;
   if (priceChange >= 0) {
     change = "green";
@@ -76,17 +92,24 @@ for (i = 0; i < stockData.length; i++) {
     change = "red";
   }
 
-  // create a new anchor element
+  // create a new anchor element for the symbol and secondary symbol
   let tickerSymbol = document.createElement("a");
   let secondaryTickerSymbol = document.createElement("a");
 
+
+  // these properties are set using template strings that allow for string interpolation
+  // this means we can add javascript variables directly in the string using `` and ${}
+  let href = `invest/stock/${stockData[i].symbol}.html`;
+  let classList = ["ticker-symbol"];
+  let innerHTML = `${stockData[i].symbol}<span class='${change}'>${priceChange}%</span>`;
+
   // set the properties of the tickerSymbol and secondaryTickerSymbol to be the same
-  tickerSymbol.href = `invest/stock/${stockData[i].symbol}.html`;
-  tickerSymbol.classList = ["ticker-symbol"];
-  tickerSymbol.innerHTML = `${stockData[i].symbol}<span class='${change}'>${priceChange}%</span>`;
-  secondaryTickerSymbol.href = `invest/stock/${stockData[i].symbol}.html`;
-  secondaryTickerSymbol.classList = ["ticker-symbol"];
-  secondaryTickerSymbol.innerHTML = `${stockData[i].symbol}<span class='${change}'>${priceChange}%</span>`;
+  tickerSymbol.href = href;
+  tickerSymbol.classList = classList;
+  tickerSymbol.innerHTML = innerHTML;
+  secondaryTickerSymbol.href = href;
+  secondaryTickerSymbol.classList = classList;
+  secondaryTickerSymbol.innerHTML = innerHTML;
 
   // add the ticker symbols to the corresponding tickers
   ticker.appendChild(tickerSymbol);

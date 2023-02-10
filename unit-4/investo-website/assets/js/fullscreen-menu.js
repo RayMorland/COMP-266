@@ -29,7 +29,7 @@
   vanilla way to add and change a style on an HTML element. The names of the functions make 
   it clear exactly what they are for. The only thing that I'm not a fan of is the use of 
   camelcase (thisIsACamel) for id names. I prefer kebab case (this-is-a-kebab) for ids 
-  and classes in HTML and CSS (makes it easy to use String.split('-'))
+  and classes in HTML and CSS (makes it easy to use String.split('-')).
 */
 
 /*
