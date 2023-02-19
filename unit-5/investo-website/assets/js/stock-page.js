@@ -53,65 +53,80 @@ investorLink.setAttribute(
   stockInfo.find((stk) => stk.symbol == thisStock.symbol).investorWebsite
 );
 
-document.title = `Investo: ${thisStock.symbol}`;
+function loadStockPage() {
+  document.title = `Investo: ${thisStock.symbol}`;
 
-stockSymbol.textContent = thisStock.symbol;
-businessName.textContent = thisStock.company;
+  stockSymbol.textContent = thisStock.symbol;
+  businessName.textContent = thisStock.company;
 
-price = thisStock.prices[Object.keys(thisStock.prices)[99]]["4. close"];
+  price = thisStock.prices[Object.keys(thisStock.prices)[99]]["4. close"];
 
-priceDates = Object.keys(thisStock.prices).slice(-6, -1);
+  priceDates = Object.keys(thisStock.prices).slice(-6, -1);
 
-openingPrices = priceDates.map((date) => {
-  return thisStock.prices[date]["1. open"];
-});
+  openingPrices = priceDates.map((date) => {
+    return thisStock.prices[date]["1. open"];
+  });
 
-closingPrices = priceDates.map((date) => {
-  return thisStock.prices[date]["4. close"];
-});
+  closingPrices = priceDates.map((date) => {
+    return thisStock.prices[date]["4. close"];
+  });
 
-changes = openingPrices.map((price, index) => {
-  return (closingPrices[index] - price).toFixed(2);
-});
+  changes = openingPrices.map((price, index) => {
+    return (closingPrices[index] - price).toFixed(2);
+  });
 
-priceDates.forEach((date) => {
-  let cell = document.createElement("td");
-  let dateArray = date.split(" ")[0].split("-");
-  let year = dateArray[0];
-  let month = Number(dateArray[1]);
-  console.log(dateArray);
-  let day = dateArray[2][0] == '0' ? dateArray[2][1] : dateArray[2];
-  let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-  cell.textContent =  months[month-1] + " " + day + ", " + year;
-  tableDates.appendChild(cell);
-});
+  priceDates.forEach((date) => {
+    let cell = document.createElement("td");
+    let dateArray = date.split(" ")[0].split("-");
+    let year = dateArray[0];
+    let month = Number(dateArray[1]);
+    console.log(dateArray);
+    let day = dateArray[2][0] == "0" ? dateArray[2][1] : dateArray[2];
+    let months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    cell.textContent = months[month - 1] + " " + day + ", " + year;
+    tableDates.appendChild(cell);
+  });
 
-openingPrices.forEach((price) => {
-  let cell = document.createElement("td");
-  cell.textContent = `$${Number(price).toFixed(2)}`;
-  tableOpenings.appendChild(cell);
-});
+  openingPrices.forEach((price) => {
+    let cell = document.createElement("td");
+    cell.textContent = `$${Number(price).toFixed(2)}`;
+    tableOpenings.appendChild(cell);
+  });
 
-closingPrices.forEach((price) => {
-  let cell = document.createElement("td");
-  cell.textContent = `$${Number(price).toFixed(2)}`;
-  tableClosings.appendChild(cell);
-});
+  closingPrices.forEach((price) => {
+    let cell = document.createElement("td");
+    cell.textContent = `$${Number(price).toFixed(2)}`;
+    tableClosings.appendChild(cell);
+  });
 
-changes.forEach((change) => {
-  let cell = document.createElement("td");
-  cell.textContent = `${change}%`;
-  tableChanges.appendChild(cell);
-});
+  changes.forEach((change) => {
+    let cell = document.createElement("td");
+    cell.textContent = `${change}%`;
+    tableChanges.appendChild(cell);
+  });
 
-priceEl.textContent = `$${Number(price).toFixed(2)}`;
+  priceEl.textContent = `$${Number(price).toFixed(2)}`;
 
-if (getStockFromPortfolio(stock)) {
-  let stk = portfolio.find((stk) => stk.symbol == thisStock.symbol).quantity;
-  myPosition.textContent = `$${(stk * price).toFixed(2)}`;
-  myPositionQuantity.textContent = stk;
-} else {
-  myPosition.textContent = `$${0}`;
+  if (getStockFromPortfolio(stock)) {
+    let stk = portfolio.find((stk) => stk.symbol == thisStock.symbol).quantity;
+    myPosition.textContent = `$${(stk * price).toFixed(2)}`;
+    myPositionQuantity.textContent = stk;
+  } else {
+    myPosition.textContent = `$${0}`;
+  }
 }
 
 async function buy() {
@@ -133,9 +148,7 @@ async function sell() {
   let stk = getStockFromPortfolio(stock);
 
   if (stk) {
-    myPosition.textContent = `$${(
-      stk.quantity * price
-    ).toFixed(2)}`;
+    myPosition.textContent = `$${(stk.quantity * price).toFixed(2)}`;
     myPositionQuantity.textContent = stk.quantity;
   } else {
     myPositionQuantity.textContent = 0;
@@ -163,3 +176,5 @@ const setWatchlistButtonContent = () => {
   }
 };
 setWatchlistButtonContent();
+
+loadStockPage();

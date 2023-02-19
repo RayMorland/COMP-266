@@ -19,7 +19,9 @@ function getStockFromPortfolio(symbol) {
 }
 
 function resetPortfolio() {
-  sessionStorage.setItem("portfolio", JSON.stringify([]));
+    console.log("Resetting");
+    sessionStorage.setItem("portfolio", JSON.stringify([]));
+    sessionStorage.setItem("watchlist", JSON.stringify([]));
 }
 
 function getStock(symbol) {
@@ -114,3 +116,4 @@ function removeFromWatchlist(symbol) {
     sessionStorage.setItem("watchlist", JSON.stringify(watchlist));
   }
 }
+
