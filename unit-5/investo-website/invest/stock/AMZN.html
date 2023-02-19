@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Investo: Stock Symbol</title>
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/global.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/stylesheets/stock.css"
+    />
+  </head>
+  <body>
+    <!-- shared site header -->
+    <header id="site-header">
+      <div class="navbar">
+        <div class="nav-left">
+          <a href="../../index.html" class="logo-link nav-link">Investo</a>
+        </div>
+        <div class="nav-right">
+          <nav class="nav-links">
+            <ul class="nav-links-list">
+              <li>
+                <a href="../../invest.html" class="nav-link">Invest</a>
+              </li>
+              <li>
+                <a href="../../invest/portfolio.html" class="nav-link"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a href="../../learn.html" class="nav-link">Learn</a>
+              </li>
+              <li>
+                <a href="../../about.html" class="nav-link">About</a>
+              </li>
+            </ul>
+          </nav>
+          <button
+            onclick="openMenu()"
+            id="header-menu-button"
+            class="menu-button"
+          >
+            <span class="menu-button-bar"></span>
+            <span class="menu-button-bar"></span>
+            <span class="menu-button-bar"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- will need js to build out the full screen menu for small screens -->
+    <div id="full-screen-menu">
+      <button id="full-menu-button" class="menu-button" onclick="closeMenu()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+          />
+        </svg>
+      </button>
+      <nav class="full-screen-nav-links">
+        <ul class="nav-links-list column gap-20">
+          <li>
+            <a href="../../invest.html" class="nav-link full-screen-link"
+              >Invest</a
+            >
+          </li>
+          <li>
+            <a href="../../invest/portfolio.html" class="nav-link">Portfolio</a>
+          </li>
+          <li>
+            <a href="../../learn.html" class="nav-link">Learn</a>
+          </li>
+          <li>
+            <a href="../../about.html" class="nav-link">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <main id="stock-main-content">
+      <div class="container" id="stock-masthead">
+        <div class="responsive-row justify-between align-start-center gap-20">
+          <div>
+            <!-- Placeholder text for stock information -->
+            <!-- switched id to class -->
+            <h1 class="stock-symbol mb-10">AMZN</h1>
+            <!-- switched id to class -->
+            <h3 class="stock-name mb-10">Amazon.com</h3>
+            <a
+              class="stock-investor-site small-link"
+              href="https://investor.apple.com/investor-relations/default.aspx"
+              >Investor Website</a
+            >
+          </div>
+          <!-- added class -->
+          <button class="fancy-button" id="watch-list-button">
+            Add to Watchlist
+          </button>
+        </div>
+      </div>
+      <div class="container" id="stock-content">
+        <div class="responsive-row gap-20">
+          <div class="column gap-20 m-0 w-70-100">
+            <div id="stock-chart-wrapper" class="white-panel">
+              <div class="row justify-between">
+                <!-- Placeholder text for stock information -->
+                <h3>Price Chart</h3>
+                <div class="column align-end m-0">
+                  <h5>Current Price</h5>
+                  <h2 id="price">$100.00</h2>
+                </div>
+              </div>
+              <!-- Canvas will be required for displaying chart with js -->
+              <!-- <canvas id="stock-chart"></canvas> -->
+            </div>
+            <div id="stock-data" class="white-panel">
+              <!-- Placeholder text. Actual stock data will be read in using js -->
+              <h3 class="mb-20">Stock Data</h3>
+              <div>
+                <table id="stock-data-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Jan 10, 2023</th>
+                      <th>Jan 11, 2023</th>
+                      <th>Jan 12, 2023</th>
+                      <th>Jan 13, 2023</th>
+                      <th>Jan 16, 2023</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="row-name">Opening Price</td>
+                      <td>$10.02</td>
+                      <td>$11.22</td>
+                      <td>$12.43</td>
+                      <td>$12.32</td>
+                      <td>$12.55</td>
+                    </tr>
+                    <tr>
+                      <td class="row-name">Closing Price</td>
+                      <td>$10.02</td>
+                      <td>$11.22</td>
+                      <td>$12.43</td>
+                      <td>$12.32</td>
+                      <td>$12.55</td>
+                    </tr>
+                    <tr>
+                      <td class="row-name">Change</td>
+                      <td>1.32%</td>
+                      <td>2.12%</td>
+                      <td>1.43%</td>
+                      <td>-1.56%</td>
+                      <td>-3.45%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="white-panel column gap-20 m-0" id="stock-actions-panel">
+            <!-- Placeholder text for portfolio data -->
+            <div
+              class="responsive-row space-between justify-center align-center gap-20"
+            >
+              <h3>My position</h3>
+              <span id="my-position">$1000</span>
+            </div>
+            <h4 class="text-center">Number of Shares Owned: 10</h4>
+            <div class="column mt-10">
+              <h4 class="text-center">Quantity to Buy/Sell</h4>
+              <div
+                id="stock-quantity-buttons"
+                class="row align-center justify-center gap-20"
+              >
+                <button onclick="" class="icon-button">-</button>
+                <!-- Placeholder text for quantity that will be controlled with js -->
+                <span id="quantity">1</span>
+                <button type="button" onclick="" class="icon-button">+</button>
+              </div>
+
+              <h4 class="text-center">Total: $100</h4>
+            </div>
+            <div id="stock-buy-sell-buttons" class="column gap-20 w-full">
+              <button
+                type="button"
+                onclick="buyStock()"
+                class="secondary-button"
+              >
+                Buy
+              </button>
+              <button
+                type="button"
+                onclick="sellStock()"
+                class="secondary-button"
+              >
+                Sell
+              </button>
+            </div>
+            <a
+              href="../../invest/portfolio.html"
+              class="small-link text-center"
+              >Go to portfolio</a
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- shared site footer -->
+    <footer id="site-footer">
+      <!-- footer content container -->
+      <div class="container pb-40">
+        <div id="footer-content" class="responsive-row justify-between">
+          <div id="footer-links">
+            <a href="../../index.html" class="logo-link">Investo</a>
+          </div>
+          <div id="footer-contact-form" class="w-50-100">
+            <!-- Contact form will require js to do anything -->
+            <!-- <h3>Send us a message</h3> -->
+            <form
+              onsubmit="console.log('form submitted')"
+              id="contact-form"
+              class="investo-form gap-20 column"
+            >
+              <div class="column w-full">
+                <input
+                  type="text"
+                  name="message"
+                  id="contact-message"
+                  placeholder="Send us a message"
+                  class="form-input-text w-full"
+                />
+                <span class="error" aria-live="polite"></span>
+              </div>
+
+              <div class="column w-full">
+                <input
+                  type="text"
+                  name="name"
+                  id="contact-name"
+                  placeholder="Name"
+                  class="form-input-text"
+                />
+                <span class="error" aria-live="polite"></span>
+              </div>
+
+              <div class="column w-full">
+                <input
+                  type="email"
+                  name="email"
+                  id="contact-email"
+                  placeholder="Email"
+                  class="form-input-email"
+                />
+                <span class="error" aria-live="polite"></span>
+              </div>
+
+              <div class="row justify-end w-full">
+                <button type="submit" class="secondary-button">Send it</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- footer site info -->
+        <div
+          id="footer-info"
+          class="responsive-row justify-between align-center mt-50 gap-20"
+        >
+          <div id="author-info" class="row gap-10 justify-start m-0">
+            <a
+              href="https://raymondmorland.com"
+              id="author"
+              class="fs-1 small-link"
+              >2023 Raymond Morland</a
+            >
+          </div>
+          <div
+            id="terms"
+            class="responsive-row gap-10 justify-end align-center m-0"
+          >
+            <a href="" class="small-link">Terms</a>
+            <a href="" class="small-link">Sitemap</a>
+            <a href="https://github.com/RayMorland/COMP-266" class="small-link"
+              >Github</a
+            >
+            <a href="../../../../" class="small-link">Portfolio Home</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      type="text/javascript"
+      src="../../assets/js/fullscreen-menu.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../../assets/js/window-resize.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../../assets/js/form-validation.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../../assets/js/detect-click.js"
+    ></script>
+  </body>
+</html>
