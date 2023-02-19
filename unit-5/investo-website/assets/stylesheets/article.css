@@ -71,6 +71,16 @@
   text-indent: 50px;
   font-size: 1.5em;
 }
+ol p {
+  text-indent: 0px !important;
+}
+
+ol li::marker {
+  font-family: var(--font-family-secondary);
+  font-weight: 300;
+  font-style: normal;
+  font-size: var(--font-size-default);
+}
 
 @media (min-width: 640px) {
   .article-content {

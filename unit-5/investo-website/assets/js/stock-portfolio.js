@@ -57,7 +57,7 @@ async function sellStock(symbol, quantity) {
   let indexOfStock = portfolio.findIndex(stk =>  stk.symbol == symbol);
 
   if (stock) {
-    if (quantity < 0) {
+    if (quantity <= 0) {
       alert("Must be more than 0");
     } else if (quantity > stock.quantity) {
       alert("You don't have that many");

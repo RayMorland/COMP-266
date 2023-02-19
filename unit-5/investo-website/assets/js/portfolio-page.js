@@ -3,6 +3,7 @@ let watchlist = JSON.parse(sessionStorage.getItem("watchlist"));
 let portfolioPositions = document.getElementById("portfolio-positions");
 let watchlistStocks = document.getElementById("watchlist-stocks");
 let portfolioValueEl = document.getElementById("portfolio-value");
+portfolioValueEl.textContent = "$0";
 
 let portfolioValue = 0;
 
