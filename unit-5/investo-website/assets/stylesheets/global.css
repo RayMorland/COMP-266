@@ -435,6 +435,10 @@ em {
   border-bottom: 5px solid black;
 }
 
+.primary-font {
+  font-family: var(--font-family-primary);
+}
+
 .white-panel {
   border: 5px solid black;
   padding: 2rem;

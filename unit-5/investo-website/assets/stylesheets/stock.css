@@ -39,3 +39,7 @@ table {
   overflow-x: auto;
   width: 100%;
 }
+
+#table-dates td {
+  font-family: var(--font-family-primary) !important;
+}

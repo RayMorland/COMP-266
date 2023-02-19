@@ -76,7 +76,13 @@ changes = openingPrices.map((price, index) => {
 
 priceDates.forEach((date) => {
   let cell = document.createElement("td");
-  cell.textContent = date.split(" ")[0];
+  let dateArray = date.split(" ")[0].split("-");
+  let year = dateArray[0];
+  let month = Number(dateArray[1]);
+  console.log(dateArray);
+  let day = dateArray[2][0] == '0' ? dateArray[2][1] : dateArray[2];
+  let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  cell.textContent =  months[month-1] + " " + day + ", " + year;
   tableDates.appendChild(cell);
 });
 
