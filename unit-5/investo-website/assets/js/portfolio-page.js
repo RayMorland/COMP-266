@@ -1,11 +1,10 @@
 let portfolioPositions = document.getElementById("portfolio-positions");
 let watchlistStocks = document.getElementById("watchlist-stocks");
 let portfolioValueEl = document.getElementById("portfolio-value");
-portfolioValueEl.textContent = "$0";
-
-let portfolioValue = 0;
 
 function loadPortfolioPage() {
+  portfolioValueEl.textContent = "$0";
+  let portfolioValue = 0;
   let portfolio = JSON.parse(sessionStorage.getItem("portfolio"));
   let watchlist = JSON.parse(sessionStorage.getItem("watchlist"));
   if (portfolio.length > 0) {
