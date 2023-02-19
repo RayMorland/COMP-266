@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Investo: Stock Symbol</title>
+    <title>Investo: Stock</title>
     <link
       rel="stylesheet"
       href="../../assets/stylesheets/global.css"
@@ -91,12 +91,13 @@
           <div>
             <!-- Placeholder text for stock information -->
             <!-- switched id to class -->
-            <h1 class="stock-symbol mb-10" id="symbol">APPL</h1>
+            <h1 class="stock-symbol mb-10" id="symbol"></h1>
             <!-- switched id to class -->
-            <h3 class="stock-name mb-10" id="business-name">Apple Inc.</h3>
+            <h3 class="stock-name mb-10" id="business-name"></h3>
             <a
               class="stock-investor-site small-link"
-              href="https://investor.apple.com/investor-relations/default.aspx"
+              href=""
+              id="investor-link"
               >Investor Website</a
             >
           </div>
@@ -152,7 +153,7 @@
               class="responsive-row space-between justify-center align-center gap-20"
             >
               <h3>My position</h3>
-              <span id="my-position">$1000</span>
+              <span id="my-position"></span>
             </div>
             <h4 class="text-center">Number of Shares Owned: <span id="position-quantity"></span></h4>
             <div class="column mt-10">
@@ -167,7 +168,7 @@
                 <button type="button" onclick="increase()" class="icon-button">+</button>
               </div>
 
-              <h4 class="text-center">Total: $100</h4>
+              <h4 class="text-center">Total: <span id="buy-sell-total"></span></h4>
             </div>
             <div id="stock-buy-sell-buttons" class="column gap-20 w-full">
               <button
@@ -293,6 +294,7 @@
       src="../../assets/js/detect-click.js"
     ></script>
     <script type="text/javascript" src="../../data/stock-data.js"></script>
+    <script type="text/javascript" src="../../data/stock-info-data.js"></script>
     <script type="text/javascript" src="../../assets/js/stock-portfolio.js"></script>
     <script type="text/javascript" src="../../assets/js/stock-page.js"></script>
       

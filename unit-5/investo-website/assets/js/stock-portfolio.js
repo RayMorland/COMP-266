@@ -12,6 +12,7 @@ function getPortfolio() {
 }
 
 function getStockFromPortfolio(symbol) {
+  console.log(symbol);
   const portfolio = getPortfolio();
   const stock = portfolio.find((item) => item.symbol === symbol);
   return stock;
@@ -21,7 +22,7 @@ function resetPortfolio() {
   sessionStorage.setItem("portfolio", JSON.stringify([]));
 }
 
-async function getStock(symbol) {
+function getStock(symbol) {
   let stock;
   stock = stockData.find((stock) => stock.symbol === symbol);
   return stock;
@@ -30,9 +31,7 @@ async function getStock(symbol) {
 async function buyStock(symbol, quantity) {
   let stock = getStockFromPortfolio(symbol);
   let portfolio = getPortfolio();
-
   console.log(portfolio);
-
   if (quantity > 0) {
     if (stock) {
       portfolio.forEach((item) =>
@@ -44,6 +43,7 @@ async function buyStock(symbol, quantity) {
       console.log(stock);
       portfolio.push(stock);
     }
+    console.log(portfolio);
     sessionStorage.setItem("portfolio", JSON.stringify(portfolio));
   } else {
     alert("Enter quantity greater than 0");

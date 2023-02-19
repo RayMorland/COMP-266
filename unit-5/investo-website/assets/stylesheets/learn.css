@@ -40,3 +40,16 @@
   padding: 10px 20px;
   font-family: "effra-cc", sans-serif;
 }
+
+.image-wrapper {
+  overflow: hidden;
+  height: 30vh;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .image-wrapper {
+    height: 40vh;
+    width: 30vw;
+  }
+}

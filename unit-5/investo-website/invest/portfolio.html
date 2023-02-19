@@ -90,8 +90,8 @@
             <p>Manage your stock portfolio</p>
           </div>
           <div class="column justify-start align-end-center m-0">
-            <h1>$1000</h1>
-            <h3>Portfolio Value</h3>
+            <h2 id="portfolio-value">$1000</h2>
+            <h4>Portfolio Value</h4>
           </div>
         </div>
       </div>
@@ -103,48 +103,6 @@
           >
             <h3>Stocks</h3>
             <div id="portfolio-positions" class="column w-full m-0 gap-20">
-              <a
-                href="../invest/stock/TXN.html"
-                class="portfolio-stock white-panel responsive-row justify-between m-0"
-              >
-                <div class="column m-0 justify-start align-start">
-                  <h3 class="stock-symbol">TXN</h3>
-                  <h5 class="stock-company-name">Texas Instruments Inc.</h5>
-                </div>
-                <div class="row justify-end align-start m-0 gap-20">
-                  <div class="column justify-start align-end m-0 gap-2">
-                    <h5>My position</h5>
-                    <h4 class="stock-price">$1000</h4>
-                    <h5 class="stock-change">10 shares</h5>
-                  </div>
-                  <div class="column justify-start align-end m-0 gap-2">
-                    <h5>Stock info</h5>
-                    <h4 class="stock-price">$10.20</h4>
-                    <h5 class="stock-change">+$0.28 USD</h5>
-                  </div>
-                </div>
-              </a>
-              <a
-                href="../invest/stock/AAPL.html"
-                class="portfolio-stock white-panel responsive-row justify-between m-0"
-              >
-                <div class="column m-0 justify-start align-start">
-                  <h3 class="stock-symbol">AAPL</h3>
-                  <h5 class="stock-company-name">Apple Inc.</h5>
-                </div>
-                <div class="row justify-end align-start m-0 gap-20">
-                  <div class="column justify-start align-end m-0 gap-2">
-                    <h5>My position</h5>
-                    <h4 class="stock-price">$1000</h4>
-                    <h5 class="stock-change">10 shares</h5>
-                  </div>
-                  <div class="column justify-start align-end m-0 gap-2">
-                    <h5>Stock info</h5>
-                    <h4 class="stock-price">$10.20</h4>
-                    <h5 class="stock-change">+$0.28 USD</h5>
-                  </div>
-                </div>
-              </a>
             </div>
           </div>
           <div id="portfolio-watchlist-wrapper" class="column gap-20 m-0">
@@ -154,32 +112,12 @@
                 <h5>Symbol</h5>
                 <h5>Price</h5>
               </div>
-              <div class="column gap-20 m-0">
-                <a
-                  href="../invest/stock/AAPL.html"
-                  class="watchlist-stock row justify-between w-full"
-                >
-                  <h4 class="watchlist-symbol">AAPL</h4>
-                  <h4 class="watchlist-price">$100</h4>
-                </a>
-                <a
-                  href="../invest/stock/META.html"
-                  class="watchlist-stock row justify-between w-full"
-                >
-                  <h4 class="watchlist-symbol">META</h4>
-                  <h4 class="watchlist-price">$100</h4>
-                </a>
-                <a
-                  href="../invest/stock/GOOG.html"
-                  class="watchlist-stock row justify-between w-full"
-                >
-                  <h4 class="watchlist-symbol">GOOG</h4>
-                  <h4 class="watchlist-price">$100</h4>
-                </a>
-                <a href="../invest.html" class="small-link text-center"
-                  >Find more stocks</a
-                >
+              <div class="column gap-20 m-0" id="watchlist-stocks">
+
               </div>
+              <a href="../invest.html" class="small-link text-center"
+              >Find more stocks</a
+            >
             </div>
           </div>
         </div>
@@ -277,5 +215,8 @@
       src="../assets/js/form-validation.js"
     ></script>
     <script type="text/javascript" src="../assets/js/detect-click.js"></script>
+    <script type="text/javascript" src="../data/stock-data.js"></script>
+    <script type="text/javascript" src="../assets/js/stock-portfolio.js"></script>
+    <script type="text/javascript" src="../assets/js/portfolio-page.js"></script>
   </body>
 </html>

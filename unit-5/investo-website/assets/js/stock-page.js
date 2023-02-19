@@ -19,6 +19,11 @@ let closingPrices;
 let tableClosings = document.getElementById("table-closings");
 let priceChanges;
 let tableChanges = document.getElementById("table-changes");
+let buySellTotal = document.getElementById("buy-sell-total");
+let investorLink = document.getElementById("investor-link");
+buySellTotal.textContent = "$0";
+
+let stockInfo = stockInfoData;
 
 quantityEl.innerText;
 quantityEl.textContent = quantity;
@@ -26,10 +31,12 @@ quantityEl.textContent = quantity;
 function increase() {
   quantity >= 0 ? (quantity += 1) : (quantity = 0);
   quantityEl.textContent = quantity;
+  buySellTotal.textContent = `$${(quantity * price).toFixed(2)}`;
 }
 function decrease() {
   quantity > 0 ? (quantity -= 1) : (quantity = 0);
   quantityEl.textContent = quantity;
+  buySellTotal.textContent = `$${(quantity * price).toFixed(2)}`;
 }
 
 marketData = stockData;
@@ -41,49 +48,54 @@ thisStock = marketData.find(
   (stk) => stk.symbol.toLowerCase() === stock.toLowerCase()
 );
 
+investorLink.setAttribute(
+  "href",
+  stockInfo.find((stk) => stk.symbol == thisStock.symbol).investorWebsite
+);
 
+document.title = `Investo: ${thisStock.symbol}`;
 
 stockSymbol.textContent = thisStock.symbol;
 businessName.textContent = thisStock.company;
 
 price = thisStock.prices[Object.keys(thisStock.prices)[99]]["4. close"];
 
-priceDates = Object.keys(thisStock.prices).slice(-6,-1);
+priceDates = Object.keys(thisStock.prices).slice(-6, -1);
 
-openingPrices = priceDates.map(date => {
-    return thisStock.prices[date]["1. open"];
+openingPrices = priceDates.map((date) => {
+  return thisStock.prices[date]["1. open"];
 });
 
-closingPrices = priceDates.map(date => {
-    return thisStock.prices[date]["4. close"];
+closingPrices = priceDates.map((date) => {
+  return thisStock.prices[date]["4. close"];
 });
 
 changes = openingPrices.map((price, index) => {
-    return (closingPrices[index] - price).toFixed(2);
+  return (closingPrices[index] - price).toFixed(2);
 });
 
-priceDates.forEach(date => {
-    let cell = document.createElement('td');
-    cell.textContent = date.split(" ")[0];
-    tableDates.appendChild(cell);
+priceDates.forEach((date) => {
+  let cell = document.createElement("td");
+  cell.textContent = date.split(" ")[0];
+  tableDates.appendChild(cell);
 });
 
-openingPrices.forEach(price => {
-    let cell = document.createElement('td');
-    cell.textContent = `$${Number(price).toFixed(2)}`;
-    tableOpenings.appendChild(cell);
+openingPrices.forEach((price) => {
+  let cell = document.createElement("td");
+  cell.textContent = `$${Number(price).toFixed(2)}`;
+  tableOpenings.appendChild(cell);
 });
 
-closingPrices.forEach(price => {
-    let cell = document.createElement('td');
-    cell.textContent = `$${Number(price).toFixed(2)}`;
-    tableClosings.appendChild(cell);
+closingPrices.forEach((price) => {
+  let cell = document.createElement("td");
+  cell.textContent = `$${Number(price).toFixed(2)}`;
+  tableClosings.appendChild(cell);
 });
 
-changes.forEach(change => {
-    let cell = document.createElement('td');
-    cell.textContent = `${change}%`;
-    tableChanges.appendChild(cell);
+changes.forEach((change) => {
+  let cell = document.createElement("td");
+  cell.textContent = `${change}%`;
+  tableChanges.appendChild(cell);
 });
 
 priceEl.textContent = `$${Number(price).toFixed(2)}`;
@@ -105,17 +117,28 @@ async function buy() {
   myPositionQuantity.textContent = getStockFromPortfolio(stock).quantity;
   quantity = 0;
   quantityEl.textContent = quantity;
+  buySellTotal.textContent = "$0";
 }
 
 async function sell() {
   await sellStock(stock, quantity);
+  console.log(stock);
 
-  myPosition.textContent = `$${(
-    getStockFromPortfolio(stock).quantity * price
-  ).toFixed(2)}`;
-  myPositionQuantity.textContent = getStockFromPortfolio(stock).quantity;
+  let stk = getStockFromPortfolio(stock);
+
+  if (stk) {
+    myPosition.textContent = `$${(
+      stk.quantity * price
+    ).toFixed(2)}`;
+    myPositionQuantity.textContent = stk.quantity;
+  } else {
+    myPositionQuantity.textContent = 0;
+    myPosition.textContent = "$0";
+  }
+
   quantity = 0;
   quantityEl.textContent = quantity;
+  buySellTotal.textContent = "$0";
 }
 
 const setWatchlistButtonContent = () => {

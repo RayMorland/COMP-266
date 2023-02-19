@@ -54,7 +54,7 @@ unit4.get("/invest/stock/*", (req, res, next) => {
   let symbol = req.url.split("/")[3];
 
   if (stockSymbols.indexOf(symbol) >= 0) {
-    res.sendFile(__dirname + `/investo-website/stocks/${symbol}.html`);
+    res.sendFile(__dirname + `/investo-website/invest/stock/${symbol}.html`);
   } else {
     next();
   }
