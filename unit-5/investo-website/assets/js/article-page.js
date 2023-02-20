@@ -1,3 +1,12 @@
+/*
+ * title: article-page.js
+ * description: functions required for the individual article pages
+ * date: February 19, 2023
+ * @author Raymond Morland
+ * @version 1.0
+ * @copyright 2023 Raymond Morland
+ */
+
 const articleContainer = document.getElementById("article-container");
 let articleTitle = document.getElementById("article-title");
 let articleAuthor = document.getElementById("article-author");

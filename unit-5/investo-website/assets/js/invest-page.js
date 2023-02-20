@@ -1,3 +1,12 @@
+/*
+ * title: invest-page.js
+ * description: functions required for the invest page
+ * date: February 19, 2023
+ * @author Raymond Morland
+ * @version 1.0
+ * @copyright 2023 Raymond Morland
+ */
+
 let investStocks = document.getElementById("stocks");
 let stocksData = stockData;
 

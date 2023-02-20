@@ -1,16 +1,25 @@
+/*
+ * title: stock-page.js
+ * description: functions required for the individual stock pages
+ * date: February 19, 2023
+ * @author Raymond Morland
+ * @version 1.0
+ * @copyright 2023 Raymond Morland
+ */
+
 let thisStock;
 let portfolio;
 let stock;
+let price;
 let quantity = 0;
 let stockSymbol = document.getElementById("symbol");
 let businessName = document.getElementById("business-name");
 let myPosition = document.getElementById("my-position");
 let quantityEl = document.getElementById("quantity");
-let price;
 let priceEl = document.getElementById("price");
 let myPositionQuantity = document.getElementById("position-quantity");
 let watchlistButton = document.getElementById("watch-list-button");
-
+//
 let priceDates;
 let tableDates = document.getElementById("table-dates");
 let openingPrices;
@@ -21,40 +30,27 @@ let priceChanges;
 let tableChanges = document.getElementById("table-changes");
 let buySellTotal = document.getElementById("buy-sell-total");
 let investorLink = document.getElementById("investor-link");
-buySellTotal.textContent = "$0";
-
 let stockInfo = stockInfoData;
 
-quantityEl.innerText;
-quantityEl.textContent = quantity;
-
-function increase() {
-  quantity >= 0 ? (quantity += 1) : (quantity = 0);
-  quantityEl.textContent = quantity;
-  buySellTotal.textContent = `$${(quantity * price).toFixed(2)}`;
-}
-function decrease() {
-  quantity > 0 ? (quantity -= 1) : (quantity = 0);
-  quantityEl.textContent = quantity;
-  buySellTotal.textContent = `$${(quantity * price).toFixed(2)}`;
-}
-
-marketData = stockData;
-portfolio = getPortfolio();
-
-stock = window.location.pathname.split("/").splice(-1)[0].split(".")[0];
-
-thisStock = marketData.find(
-  (stk) => stk.symbol.toLowerCase() === stock.toLowerCase()
-);
-
-investorLink.setAttribute(
-  "href",
-  stockInfo.find((stk) => stk.symbol == thisStock.symbol).investorWebsite
-);
-
+// function to load and inject all data required for individual stock page
 function loadStockPage() {
+  marketData = stockData;
+  portfolio = getPortfolio();
+
+  stock = window.location.pathname.split("/").splice(-1)[0].split(".")[0];
+
+  thisStock = marketData.find(
+    (stk) => stk.symbol.toLowerCase() === stock.toLowerCase()
+  );
+
+  investorLink.setAttribute(
+    "href",
+    stockInfo.find((stk) => stk.symbol == thisStock.symbol).investorWebsite
+  );
+  buySellTotal.textContent = "$0";
   document.title = `Investo: ${thisStock.symbol}`;
+
+  quantityEl.textContent = quantity;
 
   stockSymbol.textContent = thisStock.symbol;
   businessName.textContent = thisStock.company;
@@ -129,6 +125,18 @@ function loadStockPage() {
   }
 }
 
+function increase() {
+  quantity >= 0 ? (quantity += 1) : (quantity = 0);
+  quantityEl.textContent = quantity;
+  buySellTotal.textContent = `$${(quantity * price).toFixed(2)}`;
+}
+
+function decrease() {
+  quantity > 0 ? (quantity -= 1) : (quantity = 0);
+  quantityEl.textContent = quantity;
+  buySellTotal.textContent = `$${(quantity * price).toFixed(2)}`;
+}
+
 async function buy() {
   await buyStock(stock, quantity);
 
@@ -175,6 +183,6 @@ const setWatchlistButtonContent = () => {
     );
   }
 };
-setWatchlistButtonContent();
 
+setWatchlistButtonContent();
 loadStockPage();
