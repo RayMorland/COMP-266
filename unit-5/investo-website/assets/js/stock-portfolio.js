@@ -49,7 +49,7 @@ function getStock(symbol) {
 }
 
 // function to buy stock given symbol and quantity to buy
-async function buyStock(symbol, quantity) {
+function buyStock(symbol, quantity) {
   // try to get stock from portfolio
   let stock = getStockFromPortfolio(symbol);
   // try to get the portfolio
@@ -59,17 +59,18 @@ async function buyStock(symbol, quantity) {
   if (quantity > 0) {
     // if the stock is in the portfolio already increase the quantity by quantity
     if (stock) {
-      //  
+      // increase the quantity of the stock in the portfolio
       portfolio.forEach((item) =>
         item.symbol === symbol ? (item.quantity += quantity) : null
       );
     } else {
-      stock = await getStock(symbol);
+      // if the stock is not in the portfolio add it with a quantity
+      stock = getStock(symbol);
       stock["quantity"] = quantity;
-
       portfolio.push(stock);
     }
 
+    // update the portfolio in session storage
     sessionStorage.setItem("portfolio", JSON.stringify(portfolio));
   } else {
     alert("Enter quantity greater than 0");
@@ -77,22 +78,31 @@ async function buyStock(symbol, quantity) {
 }
 
 // function to sell stock given the stock symbol and the quantity to sell
-async function sellStock(symbol, quantity) {
+function sellStock(symbol, quantity) {
+  // get the stock from the portfolio
   let stock = getStockFromPortfolio(symbol);
+  // get the portfolio
   let portfolio = getPortfolio();
+  // get the index of the stock
   let indexOfStock = portfolio.findIndex((stk) => stk.symbol == symbol);
 
+  // if the stock is in the portfolio
   if (stock) {
     if (quantity <= 0) {
       alert("Must be more than 0");
     } else if (quantity > stock.quantity) {
       alert("You don't have that many");
     } else if (quantity == stock.quantity) {
+      // if the quantity to sell is equal to the quantity in the portfolio 
+      // remove the stock from the portfolio
       portfolio.splice(indexOfStock, 1);
     } else {
+      // if the quantity to sell is less than the quantity in the portfolio 
+      // decrease the quantity in the portfolio
       portfolio[indexOfStock].quantity -= quantity;
     }
 
+    // update the portfolio
     sessionStorage.setItem("portfolio", JSON.stringify(portfolio));
   } else {
     alert("You don't own this stock");
@@ -101,11 +111,14 @@ async function sellStock(symbol, quantity) {
 
 // function to get the watchlist from session storage
 function getWatchlist() {
+  // try to get the watchlist from session storage
   let watchlist = JSON.parse(sessionStorage.getItem("watchlist"));
 
   if (watchlist) {
+    // if it exists return it
     return watchlist;
   } else {
+    // if it doesn't exists create a new empty watchlist and save it in session storage
     let newWatchlist = [];
     sessionStorage.setItem("watchlist", JSON.stringify(newWatchlist));
     return newWatchlist;
@@ -121,6 +134,7 @@ function stockInWatchlist(symbol) {
 function addToWatchlist(symbol) {
   let watchlist = getWatchlist();
 
+  // if a symbol is not in the watch list add it and save the watchlist
   if (watchlist.indexOf(symbol) > -1) {
     alert("symbol already in watchlist");
   } else {
@@ -133,6 +147,7 @@ function addToWatchlist(symbol) {
 function removeFromWatchlist(symbol) {
   let watchlist = getWatchlist();
 
+  // if a symbol is in the watch list remove it and save the watchlist
   if (watchlist.indexOf(symbol) < 0 - 1) {
     alert("symbol not in watchlist");
   } else {
