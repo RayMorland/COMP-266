@@ -1,0 +1,55 @@
+#learn-main-content {
+  background-color: #f9f9f9;
+}
+
+.article-card img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.article-card {
+  height: auto;
+  overflow: hidden;
+}
+
+.article-card h4 {
+  transition: opacity 0.5s;
+}
+
+.article-card:hover h4 {
+  text-decoration: underline;
+}
+
+.author {
+  font-size: 0.75em;
+  margin: 0;
+}
+
+.article-date {
+  font-size: 0.5em;
+  margin: 0;
+  opacity: 0.6;
+}
+
+.tag {
+  font-weight: 700;
+  font-size: 0.5em;
+  background-color: rgb(240, 240, 240);
+  padding: 10px 20px;
+  font-family: "effra-cc", sans-serif;
+}
+
+.image-wrapper {
+  overflow: hidden;
+  height: 30vh;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .image-wrapper {
+    height: 40vh;
+    width: 30vw;
+  }
+}

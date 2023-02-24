@@ -1,0 +1,12 @@
+<div id="ticker" class="ticker-wrapper primary"></div>
+<div id="secondary-ticker" class="ticker-wrapper secondary"></div>
+
+<script type="text/javascript">
+  $.getJSON("../data/data.json", (res) => {
+    res.marketData.forEach((stock) => {
+      $(".ticker-wrapper").append(`
+    <a href="stock.html?symbol=${stock.symbol}" class='ticker-symbol'>${stock.symbol} <span class='green'>45%</span></a>
+    `);
+    });
+  });
+</script>

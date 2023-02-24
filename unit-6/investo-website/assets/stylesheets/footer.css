@@ -1,0 +1,50 @@
+#site-footer {
+  z-index: 100;
+  border-bottom: 5px solid black;
+  border-top: 5px solid black;
+  background-color: #eeeeee;
+}
+
+#author {
+  font-family: var(--font-family-secondary);
+}
+
+#footer-contact-form {
+  overflow: hidden;
+}
+
+#footer-contact-form button {
+  margin: 20px 0;
+  padding: 10px 30px;
+  background-color: transparent;
+  font-size: 2em;
+}
+
+#footer-contact-form button:hover {
+  background-color: black;
+}
+
+/* Form Error code */
+/* This is our style for the invalid fields */
+input.invalid {
+  border-color: #900;
+  background-color: #fdd;
+}
+
+input:focus.invalid {
+  outline: none;
+}
+
+/* This is the style of our error messages */
+.error {
+  width: 100%;
+  padding: 0;
+  height: 1em;
+  color: black;
+  border-radius: 0 0 5px 5px;
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
+}

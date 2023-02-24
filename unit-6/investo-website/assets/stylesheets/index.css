@@ -1,0 +1,58 @@
+#masthead {
+  min-height: 70vh;
+  border-bottom: 5px solid black;
+  background-image: url("https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=711&q=80");
+  background-size: cover;
+  background-position: center;
+  padding-top: 15vh;
+}
+
+#stock-ticker {
+  width: 100%;
+}
+
+#intro-section {
+  background: #c8bdb8;
+  border-bottom: 5px solid black;
+}
+
+#chart-section {
+  background-color: #4f4c2d;
+  color: white;
+  background-image: url("https://images.unsplash.com/photo-1613442368680-a30262ad8b3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 5px solid black;
+  min-height: 80vh;
+  height: 80vh;
+}
+
+#articles-section {
+  background-color: #fff6c4;
+}
+
+#latest-article-image {
+  overflow: hidden;
+}
+
+#latest-article-image img {
+  overflow: hidden;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+}
+
+#latest-article-content {
+  padding: 20px 0;
+}
+
+.author {
+  font-size: 0.75em;
+  margin: 0;
+}
+
+.article-date {
+  font-size: 0.5em;
+  margin: 0;
+  opacity: 0.6;
+}
