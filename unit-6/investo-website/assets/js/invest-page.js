@@ -39,12 +39,14 @@ function loadInvestPage() {
       // calculate current price
       let stkPrice = stk.prices[Object.keys(stk.prices)[99]]["4. close"];
       let openPrice = stk.prices[Object.keys(stk.prices)[Object.keys(stk.prices).length - 1]]["1. open"];
-      let stkChange = (stkPrice - openPrice).toFixed(2);
+      let stkChange = (openValues[openValues.length - 1] - openValues[0]).toFixed(2);
+
+      console.log(stkChange.slice(0));
 
       if (stkChange < 0) {
         stkChange = `-$${stkChange.slice(1)}`;
-      } else if (stkChange > 0) {
-        stkChange
+      } else {
+        stkChange = `+$${stkChange}`;
       }
 
       //create new <a> element for stock card info

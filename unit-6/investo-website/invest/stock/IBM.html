@@ -82,16 +82,18 @@
     <main id="stock-main-content">
       <div class="container" id="stock-masthead">
         <div class="responsive-row justify-between align-start-center gap-20">
-          <div>
+          <div style="flex: 1">
             <h1 class="stock-symbol mb-10" id="symbol"></h1>
             <h3 class="stock-name mb-10" id="business-name"></h3>
             <a class="stock-investor-site small-link" href="" id="investor-link"
               >Investor Website</a
             >
           </div>
-          <button class="fancy-button" id="watch-list-button" onclick="">
-            Add to Watchlist
-          </button>
+          <div style="flex: 2" class="responsive-row m-0 justify-end">
+            <button class="fancy-button" id="watch-list-button" onclick="">
+              Add to Watchlist
+            </button>
+          </div>
         </div>
       </div>
       <div class="container" id="stock-content">

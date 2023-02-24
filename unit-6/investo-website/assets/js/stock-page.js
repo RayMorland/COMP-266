@@ -197,6 +197,8 @@ async function loadStockPage() {
   var ctx = canvas.getContext("2d");
   $("#price").html(`$${Number(openValues[0]).toFixed(2)}`);
   buildChart(openValues.slice(0,20), keys.slice(0,20), ctx, gradient, color);
+    // set the watchlist button HtML and load the stock page data on page load
+    setWatchlistButtonContent();
 }
 
 // function to increase the buy/sell quantity and display the updated quantity
@@ -254,6 +256,7 @@ async function sell() {
 // function to set the HTML content of the watchlist button depending on if the stock is
 // already in the watchlist or not
 const setWatchlistButtonContent = () => {
+  console.log(stockInWatchlist(stock));
   if (stockInWatchlist(stock)) {
     watchlistButton.text("Remove from Watchlist");
     watchlistButton.attr(
@@ -271,6 +274,4 @@ const setWatchlistButtonContent = () => {
 
 $(() => {
   loadStockPage();
-  // set the watchlist button HtML and load the stock page data on page load
-  setWatchlistButtonContent();
 });

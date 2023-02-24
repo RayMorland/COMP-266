@@ -15,7 +15,7 @@ let watchlistStocks;
 let portfolioValueEl;
 
 // function to load portfolio data into page
-function loadPortfolioPage() {
+async function loadPortfolioPage() {
   portfolioPositions = $("#portfolio-positions");
   watchlistStocks = $("#watchlist-stocks");
   portfolioValueEl = $("#portfolio-value");
@@ -85,13 +85,13 @@ function loadPortfolioPage() {
       </h3>
     `);
   }
-
+  
   // if the watchlist has at least 1 stock populate the watchlist with the stocks
   if (watchlist.length > 0) {
     // for each symbol in the watchlist add link to stock to watchlist
-    watchlist.forEach((stk) => {
+    watchlist.forEach(async (stk) => {
       // get the stock from stock data using the symbol
-      let stock = getStock(stk);
+      let stock = await getStock(stk);
       // set the current price of the stock to the last closing price
       let stkPrice = stock.prices[Object.keys(stock.prices)[99]]["4. close"];
       // create a new <a> element for the stock data
