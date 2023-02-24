@@ -1,11 +1,21 @@
 /*
  * title: article-page.js
  * description: functions required for the individual article pages
- * date: February 19, 2023
+ * date: February 24, 2023
  * @author Raymond Morland
  * @version 1.0
  * @copyright 2023 Raymond Morland
  */
+
+// get all of the elements that will be updated by the code
+let articleContainer;
+let articleTitle;
+let articleAuthor;
+let articleDate;
+let articleMastheadImage;
+let articleContent;
+let articleTags;
+let nextArticles;
 
 // article data
 let articleData;
@@ -16,14 +26,14 @@ let article;
 // function to load article data and populate the page
 async function loadArticle() {
   // get all of the elements that will be updated by the code
-  let articleContainer = $("#article-container");
-  let articleTitle = $("#article-title");
-  let articleAuthor = $("#article-author");
-  let articleDate = $("#article-publish-date");
-  let articleMastheadImage = $("#article-masthead-img");
-  let articleContent = $("#article-content");
-  let articleTags = $("#article-tags");
-  let nextArticles = $("#next-article-links");
+  articleContainer = $("#article-container");
+  articleTitle = $("#article-title");
+  articleAuthor = $("#article-author");
+  articleDate = $("#article-publish-date");
+  articleMastheadImage = $("#article-masthead-img");
+  articleContent = $("#article-content");
+  articleTags = $("#article-tags");
+  nextArticles = $("#next-article-links");
 
   // get the article's slug from the url
   const articleSlug = window.location.pathname
@@ -37,14 +47,12 @@ async function loadArticle() {
 
   // find the article in the article data using it's slug
   article = articleData.find((artcl) => artcl.slug == articleSlug);
-  console.log(article);
   // if the article exists
   if (article) {
     // set the corresponding HTML elements to the articles data
     document.title = `Investo: ${article.title}`;
     articleTitle.text(article.title);
     articleAuthor.text(article.author);
-    console.log(articleDate);
     articleDate.text(article.publishDate);
     articleMastheadImage.attr("src", article.imageUrl);
     articleContent.html(article.content);
@@ -78,7 +86,5 @@ async function loadArticle() {
   }
 }
 
-$(
-  // load the article page
-  loadArticle()
-);
+// load the article page on page load
+$(loadArticle());

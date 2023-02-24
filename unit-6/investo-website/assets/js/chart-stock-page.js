@@ -1,3 +1,13 @@
+/*
+ * title: chart-stock-page.js
+ * description: function for building the chart on the stock pages
+ * date: February 24, 2023
+ * @author Raymond Morland
+ * @version 1.0
+ * @copyright 2023 Raymond Morland
+ */
+
+
 function buildChart(prices, times, ctx, backGrad, color) {
   var gradient = ctx.createLinearGradient(0, 0, 0, 400);
   gradient.addColorStop(0, `${backGrad}, .5)`);

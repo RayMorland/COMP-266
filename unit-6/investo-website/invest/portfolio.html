@@ -103,8 +103,10 @@
             class="column gap-20 m-0 w-70-100"
           >
             <h3>Stocks</h3>
-            <div id="portfolio-positions" class="column w-full m-0 gap-20">
-            </div>
+            <div
+              id="portfolio-positions"
+              class="column w-full m-0 gap-20"
+            ></div>
           </div>
           <div id="portfolio-watchlist-wrapper" class="column gap-20 m-0">
             <h3>Watchlist</h3>
@@ -113,12 +115,10 @@
                 <h5>Symbol</h5>
                 <h5>Price</h5>
               </div>
-              <div class="column gap-20 m-0" id="watchlist-stocks">
-
-              </div>
+              <div class="column gap-20 m-0" id="watchlist-stocks"></div>
               <a href="../invest.html" class="small-link text-center"
-              >Find more stocks</a
-            >
+                >Find more stocks</a
+              >
             </div>
           </div>
         </div>
@@ -126,9 +126,10 @@
       <div class="container">
         <div class="row">
           <div class="column">
-            <button onclick="resetPortfolioAction()" class="fancy-button">Reset Portfolio</button>
+            <button onclick="resetPortfolioAction()" class="fancy-button">
+              Reset Portfolio
+            </button>
           </div>
-          
         </div>
       </div>
     </main>
@@ -141,8 +142,6 @@
             <a href="../index.html" class="logo-link">Investo</a>
           </div>
           <div id="footer-contact-form" class="w-50-100">
-            <!-- Contact form will require js to do anything -->
-            <!-- <h3>Send us a message</h3> -->
             <form
               onsubmit="console.log('form submitted')"
               id="contact-form"
@@ -224,7 +223,13 @@
       src="../assets/js/form-validation.js"
     ></script>
     <script type="text/javascript" src="../assets/js/detect-click.js"></script>
-<script type="text/javascript" src="../assets/js/stock-portfolio.js"></script>
-    <script type="text/javascript" src="../assets/js/portfolio-page.js"></script>
+    <script
+      type="text/javascript"
+      src="../assets/js/stock-portfolio.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../assets/js/portfolio-page.js"
+    ></script>
   </body>
 </html>
