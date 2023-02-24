@@ -38,7 +38,15 @@ function loadInvestPage() {
       }
       // calculate current price
       let stkPrice = stk.prices[Object.keys(stk.prices)[99]]["4. close"];
-      let stkChange = 0;
+      let openPrice = stk.prices[Object.keys(stk.prices)[Object.keys(stk.prices).length - 1]]["1. open"];
+      let stkChange = (stkPrice - openPrice).toFixed(2);
+
+      if (stkChange < 0) {
+        stkChange = `-$${stkChange.slice(1)}`;
+      } else if (stkChange > 0) {
+        stkChange
+      }
+
       //create new <a> element for stock card info
       let stkCard = $("<a></a>");
       stkCard.attr("href", `./invest/stock/${stk.symbol}.html`);
@@ -56,7 +64,7 @@ function loadInvestPage() {
        </div> 
       <div class="column m-0 align-end stock-card-price">
           <h3 class="stock-price">$${Number(stkPrice).toFixed(2)}</h3>
-          <h5 class="stock-change">+$${stkChange} USD</h5>
+          <h5 class="stock-change">${stkChange} USD</h5>
       </div>
     `);
 
@@ -67,7 +75,15 @@ function loadInvestPage() {
       var ctx = canvas.getContext("2d");
 
       chartWrappers.push($(`#${stk.symbol}-chart-canvas`));
-      charts.push(buildChart(openValues.slice(0,20), keys.slice(0,20), ctx, gradient, color));
+      charts.push(
+        buildChart(
+          openValues.slice(0, 20),
+          keys.slice(0, 20),
+          ctx,
+          gradient,
+          color
+        )
+      );
     });
   });
 }
@@ -75,14 +91,13 @@ function loadInvestPage() {
 $(
   // load the invest page data on page load
   loadInvestPage()
-
 );
 
 function drawCharts() {
   // charts.forEach(chart => chart.update());
   // chartWrappers.forEach(wrapper => console.log(wrapper.width()));
-};
+}
 
-$(window).on('resize', function() {
+$(window).on("resize", function () {
   drawCharts();
 });

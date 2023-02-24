@@ -45,7 +45,7 @@ async function getStock(symbol) {
   let stock;
   await $.getJSON("/unit-6/investo-website/data/stock-data.json").done((data) => {
     // find stock in stock data
-    stock = stockData.find((stock) => stock.symbol === symbol);
+    stock = data.stockData.find((stock) => stock.symbol === symbol);
   });
   return stock;
 }

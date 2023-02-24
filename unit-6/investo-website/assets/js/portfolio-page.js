@@ -34,7 +34,7 @@ function loadPortfolioPage() {
     // for each stock in portfolio build the stock element
     portfolio.forEach((stk) => {
       // create a new <a> element for the stock
-      let portfolioStock = document.createElement("a");
+      let portfolioStock = $("<a></a>");
       // set the current price of the stock to the last closing price
       let stkPrice = stk.prices[Object.keys(stk.prices)[99]]["4. close"];
       // set the stock quantity to the quantity of the stock in the portfolio
@@ -45,17 +45,17 @@ function loadPortfolioPage() {
       // add the value of the stock in the portfolio to the total portfolio value
       portfolioValue += Number((stk.quantity * stkPrice).toFixed(2));
       // set the portfolio value element to the total portfolio value
-      portfolioValueEl.textContent = `$${portfolioValue}`;
+      portfolioValueEl.text(`$${portfolioValue}`);
 
       // set the classes of the stock to display it correctly
-      portfolioStock.setAttribute(
+      portfolioStock.attr(
         "class",
         "portfolio-stock white-panel responsive-row justify-between m-0"
       );
       // set the href of the stock to the stock page
-      portfolioStock.setAttribute("href", `../invest/stock/${stk.symbol}.html`);
+      portfolioStock.attr("href", `../invest/stock/${stk.symbol}.html`);
       // add the html to the stock to display its information using template literals
-      portfolioStock.innerHTML = `
+      portfolioStock.html(`
       <div class="column m-0 justify-start align-start">
           <h3 class="stock-symbol">${stk.symbol}</h3>
           <h5 class="stock-company-name">${stk.company}</h5>
@@ -74,17 +74,16 @@ function loadPortfolioPage() {
               <h5 class="stock-change">${stkChange} USD</h5>
           </div>
       </div>
-      `;
+      `);
       // append the stock element to the portfolio stock container
       portfolioPositions.append(portfolioStock);
     });
   } else {
     // if there are no stocks in the portfolio inject HTML with link to invest page
-    portfolioPositions.innerHTML = `
-      <h3>
+    portfolioPositions.html(`<h3>
         No stocks yet <a href="../invest.html" style="cursor: pointer; font-weight: 800; border-bottom: 5px solid black">find your next investment</a>  
       </h3>
-    `;
+    `);
   }
 
   // if the watchlist has at least 1 stock populate the watchlist with the stocks
@@ -96,33 +95,30 @@ function loadPortfolioPage() {
       // set the current price of the stock to the last closing price
       let stkPrice = stock.prices[Object.keys(stock.prices)[99]]["4. close"];
       // create a new <a> element for the stock data
-      let watchlistStock = document.createElement("a");
+      let watchlistStock = $("<a></a>");
       // set the href attribute to the stock page
-      watchlistStock.setAttribute(
-        "href",
-        `../invest/stock/${stock.symbol}.html`
-      );
+      watchlistStock.attr("href", `../invest/stock/${stock.symbol}.html`);
       // set the CSS classes for the element
-      watchlistStock.setAttribute(
+      watchlistStock.attr(
         "class",
         "watchlist-stock row justify-between w-full"
       );
       // set the HTML of the element to display the stock data
-      watchlistStock.innerHTML = `
+      watchlistStock.html(`
           <h4 class="watchlist-symbol">${stock.symbol}</h4>
           <h4 class="watchlist-price">$${Number(stkPrice).toFixed(2)}</h4>
-      `;
+      `);
 
       // append the element to the watchlist
       watchlistStocks.append(watchlistStock);
     });
   } else {
     // if there are no stocks in the watchlist display message
-    watchlistStocks.innerHTML = `
+    watchlistStocks.html(`
       <h4>
         No stocks in your watchlist yet
       </h4>
-    `;
+    `);
   }
 }
 
