@@ -136,5 +136,7 @@ function resetPortfolioAction() {
   }
 }
 
-// load the portfolio page every page load
-loadPortfolioPage();
+$(
+  // load the portfolio page every page load
+  loadPortfolioPage()
+);

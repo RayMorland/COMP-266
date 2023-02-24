@@ -7,13 +7,11 @@
  * @copyright 2023 Raymond Morland
  */
 
-// get the learn page article card container
-let learnArticles = document.getElementById("learn-articles");
-//store local copy of the articles data array
-// let articlesData = articles;
-
 // function to create an article card for each article in the article data array
 function loadLearnPage() {
+  // get the learn page article card container
+  let learnArticles = $("#learn-articles");
+  // get article data from json file using jQuery
   $.getJSON("/unit-6/investo-website/data/articles-data.json", (res) => {
     const articlesData = res.articles;
     // if the data array contains 1 or more articles
@@ -21,13 +19,13 @@ function loadLearnPage() {
       // for each article create an article card and append it to the learn page
       // article card container
       articlesData.forEach((article) => {
-        let articleCard = document.createElement("a");
-        articleCard.setAttribute("href", `learn/article/${article.slug}.html`);
-        articleCard.setAttribute(
+        let articleCard = $("<a></a>");
+        articleCard.attr("href", `learn/article/${article.slug}.html`);
+        articleCard.attr(
           "class",
           "article-card white-panel responsive-row m-0 gap-20 justify-between"
         );
-        articleCard.innerHTML = `
+        articleCard.html(`
             <div class="column justify-between gap-20 m-0 w-50-100">
                 <div class="column gap-10 m-0">
                     <p class="article-date">${article.publishDate}</p>
@@ -47,14 +45,16 @@ function loadLearnPage() {
                 id="article-main-image"
                 />
             </div>
-          `;
+          `);
         learnArticles.append(articleCard);
       });
     } else {
-      learnArticles.innerHTML = "<h1>Can't find article</h1>";
+      learnArticles.html("<h1>Can't find article</h1>");
     }
   });
 }
 
-// load learn page data on page load
-loadLearnPage();
+$(
+  // load learn page data on page load
+  loadLearnPage()
+);

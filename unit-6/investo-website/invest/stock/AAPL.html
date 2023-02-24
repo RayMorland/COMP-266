@@ -5,14 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Investo: Stock</title>
-    <link
-      rel="stylesheet"
-      href="../../assets/stylesheets/global.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../assets/stylesheets/stock.css"
-    />
+    <link rel="stylesheet" href="../../assets/stylesheets/global.css" />
+    <link rel="stylesheet" href="../../assets/stylesheets/stock.css" />
     <script src="../../assets/js/jquery-3.6.3.min.js"></script>
   </head>
   <body>
@@ -95,10 +89,7 @@
             <h1 class="stock-symbol mb-10" id="symbol"></h1>
             <!-- switched id to class -->
             <h3 class="stock-name mb-10" id="business-name"></h3>
-            <a
-              class="stock-investor-site small-link"
-              href=""
-              id="investor-link"
+            <a class="stock-investor-site small-link" href="" id="investor-link"
               >Investor Website</a
             >
           </div>
@@ -111,9 +102,8 @@
       <div class="container" id="stock-content">
         <div class="responsive-row gap-20">
           <div class="column gap-20 m-0 w-70-100">
-            <div id="stock-chart-wrapper" class="white-panel">
-              <div class="row justify-between">
-                <!-- Placeholder text for stock information -->
+            <div id="stock-chart-wrapper" class="white-panel column justify-between m-0">
+              <div class="row justify-between m-0">
                 <h3>Price Chart</h3>
                 <div class="column align-end m-0">
                   <h5>Current Price</h5>
@@ -121,7 +111,7 @@
                 </div>
               </div>
               <!-- Canvas will be required for displaying chart with js -->
-              <!-- <canvas id="stock-chart"></canvas> -->
+              <canvas id="stock-chart"></canvas>
             </div>
             <div id="stock-data" class="white-panel">
               <!-- Placeholder text. Actual stock data will be read in using js -->
@@ -156,7 +146,9 @@
               <h3 class="text-center">My position</h3>
             </div>
             <h4 class="text-center" id="my-position"></h4>
-            <h4 class="text-center">Number of Shares Owned: <span id="position-quantity"></span></h4>
+            <h4 class="text-center">
+              Number of Shares Owned: <span id="position-quantity"></span>
+            </h4>
             <div class="column mt-10">
               <h4 class="text-center">Quantity to Buy/Sell</h4>
               <div
@@ -166,30 +158,24 @@
                 <button onclick="decrease()" class="icon-button">-</button>
                 <!-- Placeholder text for quantity that will be controlled with js -->
                 <div id="quantity"></div>
-                <button type="button" onclick="increase()" class="icon-button">+</button>
+                <button type="button" onclick="increase()" class="icon-button">
+                  +
+                </button>
               </div>
 
-              <h4 class="text-center">Total: <span id="buy-sell-total"></span></h4>
+              <h4 class="text-center">
+                Total: <span id="buy-sell-total"></span>
+              </h4>
             </div>
             <div id="stock-buy-sell-buttons" class="column gap-20 w-full">
-              <button
-                type="button"
-                onclick="buy()"
-                class="secondary-button"
-              >
+              <button type="button" onclick="buy()" class="secondary-button">
                 Buy
               </button>
-              <button
-                type="button"
-                onclick="sell()"
-                class="secondary-button"
-              >
+              <button type="button" onclick="sell()" class="secondary-button">
                 Sell
               </button>
             </div>
-            <a
-              href="../../invest/portfolio.html"
-              class="small-link text-center"
+            <a href="../../invest/portfolio.html" class="small-link text-center"
               >Go to portfolio</a
             >
           </div>
@@ -294,10 +280,12 @@
       type="text/javascript"
       src="../../assets/js/detect-click.js"
     ></script>
-    <script type="text/javascript" src="../../data/stock-data.js"></script>
-    <script type="text/javascript" src="../../data/stock-info-data.js"></script>
-    <script type="text/javascript" src="../../assets/js/stock-portfolio.js"></script>
+    <script
+      type="text/javascript"
+      src="../../assets/js/stock-portfolio.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="../../assets/js/chart.js"></script>
     <script type="text/javascript" src="../../assets/js/stock-page.js"></script>
-      
   </body>
 </html>

@@ -41,15 +41,17 @@ function resetPortfolio() {
 }
 
 // function to get stock from data given stock symbol
-function getStock(symbol) {
+async function getStock(symbol) {
   let stock;
-  // find stock in stock data
-  stock = stockData.find((stock) => stock.symbol === symbol);
+  await $.getJSON("/unit-6/investo-website/data/stock-data.json").done((data) => {
+    // find stock in stock data
+    stock = stockData.find((stock) => stock.symbol === symbol);
+  });
   return stock;
 }
 
 // function to buy stock given symbol and quantity to buy
-function buyStock(symbol, quantity) {
+async function buyStock(symbol, quantity) {
   // try to get stock from portfolio
   let stock = getStockFromPortfolio(symbol);
   // try to get the portfolio
@@ -65,7 +67,7 @@ function buyStock(symbol, quantity) {
       );
     } else {
       // if the stock is not in the portfolio add it with a quantity
-      stock = getStock(symbol);
+      stock = await getStock(symbol);
       stock["quantity"] = quantity;
       portfolio.push(stock);
     }
@@ -93,11 +95,11 @@ function sellStock(symbol, quantity) {
     } else if (quantity > stock.quantity) {
       alert("You don't have that many");
     } else if (quantity == stock.quantity) {
-      // if the quantity to sell is equal to the quantity in the portfolio 
+      // if the quantity to sell is equal to the quantity in the portfolio
       // remove the stock from the portfolio
       portfolio.splice(indexOfStock, 1);
     } else {
-      // if the quantity to sell is less than the quantity in the portfolio 
+      // if the quantity to sell is less than the quantity in the portfolio
       // decrease the quantity in the portfolio
       portfolio[indexOfStock].quantity -= quantity;
     }

@@ -7,7 +7,7 @@
  * @copyright 2023 Raymond Morland
  */
 
-// declare the stock 
+// declare the stock
 let thisStock;
 // declare portfolio
 let portfolio;
@@ -19,34 +19,59 @@ let price;
 let quantity = 0;
 
 //get page elements that will have data injected into them
-let stockSymbol = document.getElementById("symbol");
-let businessName = document.getElementById("business-name");
-let myPosition = document.getElementById("my-position");
-let quantityEl = document.getElementById("quantity");
-let priceEl = document.getElementById("price");
-let myPositionQuantity = document.getElementById("position-quantity");
-let watchlistButton = document.getElementById("watch-list-button");
-let buySellTotal = document.getElementById("buy-sell-total");
-let investorLink = document.getElementById("investor-link");
+let stockSymbol;
+let businessName;
+let myPosition;
+let quantityEl;
+let priceEl;
+let myPositionQuantity;
+let watchlistButton;
+let buySellTotal;
+let investorLink;
 
 // declare the values that will be added to the table and
 // get the elements those values will be injected into
 let priceDates;
-let tableDates = document.getElementById("table-dates");
+let tableDates;
 let openingPrices;
-let tableOpenings = document.getElementById("table-openings");
+let tableOpenings;
 let closingPrices;
-let tableClosings = document.getElementById("table-closings");
+let tableClosings;
 let priceChanges;
-let tableChanges = document.getElementById("table-changes");
-
-// store local copy of stock info data array
-let stockInfo = stockInfoData;
-// store local copy of stock data array
-let marketData = stockData;
+let tableChanges;
+let stockInfo;
+let marketData;
 
 // function to load and inject all data required for individual stock page
-function loadStockPage() {
+async function loadStockPage() {
+  stockSymbol = $("#symbol");
+  businessName = $("#business-name");
+  myPosition = $("#my-position");
+  quantityEl = $("#quantity");
+  priceEl = $("#price");
+  myPositionQuantity = $("#position-quantity");
+  watchlistButton = $("#watch-list-button");
+  buySellTotal = $("#buy-sell-total");
+  investorLink = $("#investor-link");
+
+  tableDates = $("#table-dates");
+  tableOpenings = $("#table-openings");
+  tableClosings = $("#table-closings");
+  tableChanges = $("#table-changes");
+
+  await $.getJSON(
+    "/unit-6/investo-website/data/stock-info-data.json",
+    (res) => {
+      // store local copy of stock info data
+      stockInfo = res.stockInfoData;
+    }
+  );
+
+  await $.getJSON("/unit-6/investo-website/data/stock-data.json", (res) => {
+    // store local copy of stock data
+    marketData = res.stockData;
+  });
+
   // try to get portfolio from session storage
   portfolio = getPortfolio();
 
@@ -59,23 +84,23 @@ function loadStockPage() {
   );
 
   // set the investor page link
-  investorLink.setAttribute(
+  investorLink.attr(
     "href",
     stockInfo.find((stk) => stk.symbol == thisStock.symbol).investorWebsite
   );
 
-  buySellTotal.textContent = "$0";
+  buySellTotal.text("$0");
   document.title = `Investo: ${thisStock.symbol}`;
-  quantityEl.textContent = quantity;
-  stockSymbol.textContent = thisStock.symbol;
-  businessName.textContent = thisStock.company;
+  quantityEl.text(quantity);
+  stockSymbol.text(thisStock.symbol);
+  businessName.text(thisStock.company);
 
   // get the current price of the stock
   price = thisStock.prices[Object.keys(thisStock.prices)[99]]["4. close"];
 
   // get the last five time time periods for the stock to display in the table
   priceDates = Object.keys(thisStock.prices).slice(-6, -1);
-  
+
   // get the opening prices for those time periods
   openingPrices = priceDates.map((date) => {
     return thisStock.prices[date]["1. open"];
@@ -94,11 +119,10 @@ function loadStockPage() {
   // for each date convert the date format from YYYY-MM-DD to Month Day, Year and
   // add table cell for date
   priceDates.forEach((date) => {
-    let cell = document.createElement("td");
+    let cell = $("<td></td>");
     let dateArray = date.split(" ")[0].split("-");
     let year = dateArray[0];
     let month = Number(dateArray[1]);
-    console.log(dateArray);
     let day = dateArray[2][0] == "0" ? dateArray[2][1] : dateArray[2];
     let months = [
       "Jan",
@@ -114,29 +138,29 @@ function loadStockPage() {
       "Nov",
       "Dec",
     ];
-    cell.textContent = months[month - 1] + " " + day + ", " + year;
-    tableDates.appendChild(cell);
+    cell.text(months[month - 1] + " " + day + ", " + year);
+    tableDates.append(cell);
   });
 
   // add opening price table cells
   openingPrices.forEach((price) => {
-    let cell = document.createElement("td");
-    cell.textContent = `$${Number(price).toFixed(2)}`;
-    tableOpenings.appendChild(cell);
+    let cell = $("<td></td>");
+    cell.text(`$${Number(price).toFixed(2)}`);
+    tableOpenings.append(cell);
   });
 
   // add closing price table cells
   closingPrices.forEach((price) => {
-    let cell = document.createElement("td");
-    cell.textContent = `$${Number(price).toFixed(2)}`;
-    tableClosings.appendChild(cell);
+    let cell = $("<td></td>");
+    cell.text(`$${Number(price).toFixed(2)}`);
+    tableClosings.append(cell);
   });
 
   // add price change table cells
   changes.forEach((change) => {
-    let cell = document.createElement("td");
-    cell.textContent = `${change}%`;
-    tableChanges.appendChild(cell);
+    let cell = $("<td></td>");
+    cell.text(`${change}%`);
+    tableChanges.append(cell);
   });
 
   // add stock price to price element
@@ -147,85 +171,106 @@ function loadStockPage() {
     // find the stock in the portfolio
     let stk = portfolio.find((stk) => stk.symbol == thisStock.symbol).quantity;
     // update the HTML
-    myPosition.textContent = `$${(stk * price).toFixed(2)}`;
-    myPositionQuantity.textContent = stk;
+    myPosition.text(`$${(stk * price).toFixed(2)}`);
+    myPositionQuantity.text(stk);
   } else {
     // if it's not in the portfolio the position is 0
-    myPosition.textContent = `$${0}`;
-    myPositionQuantity.textContent = 0;
+    myPosition.text(`$${0}`);
+    myPositionQuantity.text(0);
   }
+
+  const keys = Object.keys(thisStock.prices).reverse();
+  const openValues = [];
+  keys.forEach((date) => {
+    openValues.push(thisStock.prices[date]["1. open"]);
+  });
+  let gradient;
+  let color;
+  if (openValues[0] < openValues[openValues.length - 1]) {
+    gradient = "rgba(204, 255, 204";
+    color = "rgba(0,153,0)";
+  } else {
+    gradient = "rgba(255, 204, 204";
+    color = "rgba(179,0,0)";
+  }
+  var canvas = document.getElementById("stock-chart");
+  var ctx = canvas.getContext("2d");
+  $("#price").html(`$${Number(openValues[0]).toFixed(2)}`);
+  buildChart(openValues, keys, ctx, gradient, color);
 }
 
 // function to increase the buy/sell quantity and display the updated quantity
 function increase() {
   quantity >= 0 ? (quantity += 1) : (quantity = 0);
-  quantityEl.textContent = quantity;
-  buySellTotal.textContent = `$${(quantity * price).toFixed(2)}`;
+  quantityEl.text(quantity);
+  buySellTotal.text(`$${(quantity * price).toFixed(2)}`);
 }
 
 // function to decrease the buy/sell quantity and display the updated quantity
 function decrease() {
   quantity > 0 ? (quantity -= 1) : (quantity = 0);
-  quantityEl.textContent = quantity;
-  buySellTotal.textContent = `$${(quantity * price).toFixed(2)}`;
+  quantityEl.text(quantity);
+  buySellTotal.text(`$${(quantity * price).toFixed(2)}`);
 }
 
 // function to buy a quantity of stock when the user presses buy
-function buy() {
+async function buy() {
   // call portfolio buy stock function
-  buyStock(stock, quantity);
+  await buyStock(stock, quantity);
 
   // if successful update HTML
-  myPosition.textContent = `$${(
-    getStockFromPortfolio(stock).quantity * price
-  ).toFixed(2)}`;
-  myPositionQuantity.textContent = getStockFromPortfolio(stock).quantity;
+  myPosition.text(
+    `$${(getStockFromPortfolio(stock).quantity * price).toFixed(2)}`
+  );
+  myPositionQuantity.text(getStockFromPortfolio(stock).quantity);
 
   // update the quantity to buy/sell back to 0
   quantity = 0;
-  quantityEl.textContent = quantity;
-  buySellTotal.textContent = "$0";
+  quantityEl.text(quantity);
+  buySellTotal.text("$0");
 }
 
 // function to sell a quantity of stock when the user presses sell
-function sell() {
+async function sell() {
   // call portfolio sell stock function
-  sellStock(stock, quantity);
+  await sellStock(stock, quantity);
 
   // if successful get the stock from the portfolio to update the my position elements
   let stk = getStockFromPortfolio(stock);
   if (stk) {
-    myPosition.textContent = `$${(stk.quantity * price).toFixed(2)}`;
-    myPositionQuantity.textContent = stk.quantity;
+    myPosition.text(`$${(stk.quantity * price).toFixed(2)}`);
+    myPositionQuantity.text(stk.quantity);
   } else {
-    myPositionQuantity.textContent = 0;
-    myPosition.textContent = "$0";
+    myPositionQuantity.text(0);
+    myPosition.text("$0");
   }
 
   // update the quantity to buy/sell back to 0
   quantity = 0;
-  quantityEl.textContent = quantity;
-  buySellTotal.textContent = "$0";
+  quantityEl.text(quantity);
+  buySellTotal.text("$0");
 }
 
 // function to set the HTML content of the watchlist button depending on if the stock is
 // already in the watchlist or not
 const setWatchlistButtonContent = () => {
   if (stockInWatchlist(stock)) {
-    watchlistButton.textContent = "Remove from Watchlist";
-    watchlistButton.setAttribute(
+    watchlistButton.text("Remove from Watchlist");
+    watchlistButton.attr(
       "onclick",
       "removeFromWatchlist(stock); setWatchlistButtonContent()"
     );
   } else {
-    watchlistButton.textContent = "Add to Watchlist";
-    watchlistButton.setAttribute(
+    watchlistButton.text("Add to Watchlist");
+    watchlistButton.attr(
       "onclick",
       "addToWatchlist(stock); setWatchlistButtonContent()"
     );
   }
 };
 
-// set the watchlist button HtML and load the stock page data on page load
-setWatchlistButtonContent();
-loadStockPage();
+$(() => {
+  loadStockPage();
+  // set the watchlist button HtML and load the stock page data on page load
+  setWatchlistButtonContent();
+});
