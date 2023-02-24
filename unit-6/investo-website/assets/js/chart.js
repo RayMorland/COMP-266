@@ -24,11 +24,14 @@ function buildChart(prices, times, ctx, backGrad, color) {
     options: {
       responsive: true,
       maintainAspectRatio: true,
-    //   onRes
+      //   onRes
       plugins: {
         legend: {
           display: false,
         },
+      },
+      animation: {
+        duration: 0,
       },
       scales: {
         x: {

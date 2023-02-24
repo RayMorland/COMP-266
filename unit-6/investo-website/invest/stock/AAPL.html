@@ -47,7 +47,6 @@
         </div>
       </div>
     </header>
-    <!-- will need js to build out the full screen menu for small screens -->
     <div id="full-screen-menu">
       <button id="full-menu-button" class="menu-button" onclick="closeMenu()">
         <svg
@@ -84,16 +83,12 @@
       <div class="container" id="stock-masthead">
         <div class="responsive-row justify-between align-start-center gap-20">
           <div>
-            <!-- Placeholder text for stock information -->
-            <!-- switched id to class -->
             <h1 class="stock-symbol mb-10" id="symbol"></h1>
-            <!-- switched id to class -->
             <h3 class="stock-name mb-10" id="business-name"></h3>
             <a class="stock-investor-site small-link" href="" id="investor-link"
               >Investor Website</a
             >
           </div>
-          <!-- added class -->
           <button class="fancy-button" id="watch-list-button" onclick="">
             Add to Watchlist
           </button>
@@ -102,19 +97,17 @@
       <div class="container" id="stock-content">
         <div class="responsive-row gap-20">
           <div class="column gap-20 m-0 w-70-100">
-            <div id="stock-chart-wrapper" class="white-panel column justify-between m-0">
+            <div id="stock-chart-wrapper" class="white-panel column justify-between m-0 gap-20">
               <div class="row justify-between m-0">
                 <h3>Price Chart</h3>
                 <div class="column align-end m-0">
                   <h5>Current Price</h5>
-                  <h2 id="price">$100.00</h2>
+                  <h2 id="price"></h2>
                 </div>
               </div>
-              <!-- Canvas will be required for displaying chart with js -->
               <canvas id="stock-chart"></canvas>
             </div>
             <div id="stock-data" class="white-panel">
-              <!-- Placeholder text. Actual stock data will be read in using js -->
               <h3 class="mb-20">Stock Data</h3>
               <div>
                 <table id="stock-data-table">
@@ -139,7 +132,6 @@
             </div>
           </div>
           <div class="white-panel column gap-20 m-0" id="stock-actions-panel">
-            <!-- Placeholder text for portfolio data -->
             <div
               class="responsive-row space-between justify-center align-center gap-20"
             >
@@ -156,7 +148,6 @@
                 class="row align-center justify-center gap-20"
               >
                 <button onclick="decrease()" class="icon-button">-</button>
-                <!-- Placeholder text for quantity that will be controlled with js -->
                 <div id="quantity"></div>
                 <button type="button" onclick="increase()" class="icon-button">
                   +
@@ -191,7 +182,6 @@
             <a href="../../index.html" class="logo-link">Investo</a>
           </div>
           <div id="footer-contact-form" class="w-50-100">
-            <!-- Contact form will require js to do anything -->
             <!-- <h3>Send us a message</h3> -->
             <form
               onsubmit="console.log('form submitted')"

@@ -196,7 +196,7 @@ async function loadStockPage() {
   var canvas = document.getElementById("stock-chart");
   var ctx = canvas.getContext("2d");
   $("#price").html(`$${Number(openValues[0]).toFixed(2)}`);
-  buildChart(openValues, keys, ctx, gradient, color);
+  buildChart(openValues.slice(0,20), keys.slice(0,20), ctx, gradient, color);
 }
 
 // function to increase the buy/sell quantity and display the updated quantity

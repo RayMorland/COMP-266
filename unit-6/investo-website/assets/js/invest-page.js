@@ -67,7 +67,7 @@ function loadInvestPage() {
       var ctx = canvas.getContext("2d");
 
       chartWrappers.push($(`#${stk.symbol}-chart-canvas`));
-      charts.push(buildChart(openValues, keys, ctx, gradient, color));
+      charts.push(buildChart(openValues.slice(0,20), keys.slice(0,20), ctx, gradient, color));
     });
   });
 }

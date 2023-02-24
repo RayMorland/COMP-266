@@ -10,7 +10,7 @@ function buildChart(prices, times, ctx, backGrad, color) {
         type: "line",
         label: "Basic",
         data: prices,
-        pointRadius: 0,
+        pointRadius: 2,
         borderColor: color,
         backgroundColor: gradient,
         fill: "origin",
@@ -29,6 +29,13 @@ function buildChart(prices, times, ctx, backGrad, color) {
         legend: {
           display: false,
         },
+        tooltip: {
+          mode: 'index',
+          intersect: false
+          }
+      },
+      animation: {
+        duration: 0,
       },
       scales: {
         x: {
@@ -39,9 +46,9 @@ function buildChart(prices, times, ctx, backGrad, color) {
         },
 
         y: {
-          display: false,
+          display: true,
           grid: {
-            display: false,
+            display: true,
           },
         },
       },
