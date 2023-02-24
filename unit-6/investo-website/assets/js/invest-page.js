@@ -57,14 +57,14 @@ function loadInvestPage() {
         "invest-stock responsive-row white-panel justify-between align-center gap-20 m-0"
       );
       stkCard.html(`
-      <div class="column m-0 justify-center align-start stock-card-info">
+      <div class="column m-0 justify-center align-start-center stock-card-info">
           <h3 class="stock-symbol">${stk.symbol}</h3>
           <h5 class="stock-company-name">${stk.company}</h5>
       </div>
       <div id="${stk.symbol}-chart-canvas" class="stock-chart-canvas w-50-100">
         <canvas id="${stk.symbol}-chart"></canvas>
        </div> 
-      <div class="column m-0 align-end stock-card-price">
+      <div class="column m-0 align-end-center stock-card-price">
           <h3 class="stock-price">$${Number(stkPrice).toFixed(2)}</h3>
           <h5 class="stock-change">${stkChange} USD</h5>
       </div>
