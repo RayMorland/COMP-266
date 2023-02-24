@@ -19,6 +19,7 @@
   justify-content: space-between;
   align-items: stretch;
   gap: 20px;
+  height: 40vh;
 }
 
 .stock-card:hover {
@@ -31,9 +32,10 @@
 }
 
 .stock-card .stock-card-chart {
-  align-self: stretch;
+  /* align-self: stretch;
   position: relative;
-  width: 50%;
+  width: 50%; */
+  min-width: 0;
 }
 
 .stock-card.stock-card-chart canvas {
@@ -53,7 +55,26 @@
 }
 
 .stock-chart-canvas {
-  width: 100%;
+  align-self: stretch;
+  position: relative;
+  flex: 1;
+  /* width: 50%; */
+}
+
+.stock-chart-canvas canvas {
+  width: 100% !important;
+}
+
+/* .stock-chart {
+  object-fit: contain;
+} */
+
+.stock-card-info {
+  flex: 1;
+}
+
+.stock-card-price {
+  flex: 1;
 }
 
 @media (min-width: 900px) {
@@ -64,5 +85,6 @@
   .stock-card {
     flex-direction: row;
     align-items: flex-start;
+    height: 20vh;
   }
 }
