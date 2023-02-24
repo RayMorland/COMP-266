@@ -10,12 +10,15 @@
  */
 
 // get portfolio stocks, watchlist stocks, and portfolio value elements
-let portfolioPositions = document.getElementById("portfolio-positions");
-let watchlistStocks = document.getElementById("watchlist-stocks");
-let portfolioValueEl = document.getElementById("portfolio-value");
+let portfolioPositions;
+let watchlistStocks;
+let portfolioValueEl;
 
 // function to load portfolio data into page
 function loadPortfolioPage() {
+  portfolioPositions = $("#portfolio-positions");
+  watchlistStocks = $("#watchlist-stocks");
+  portfolioValueEl = $("#portfolio-value");
   // set portfolio value to 0 when page loads
   let portfolioValue = 0;
   // retrieve portfolio from session storage
@@ -24,7 +27,7 @@ function loadPortfolioPage() {
   let watchlist = JSON.parse(sessionStorage.getItem("watchlist"));
 
   // set the portfolio value element
-  portfolioValueEl.textContent = `$${portfolioValue}`;
+  portfolioValueEl.text(`$${portfolioValue}`);
 
   // if the portfolio has stocks in it
   if (portfolio.length > 0) {
