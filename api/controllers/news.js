@@ -8,5 +8,5 @@ module.exports.get = async (req, res) => {
       .then((data) => {
         let articles = { articles: data.data.data.slice(0, 3) };
         res.send(articles);
-      }).catch(error => console.log(error));
+      }).catch(error => res.send(error));
 };
