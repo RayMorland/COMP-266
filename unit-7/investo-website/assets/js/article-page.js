@@ -49,6 +49,13 @@ async function loadArticle() {
     }
   );
 
+  await $.getJSON(
+    "https://comp-266-portfolio.raymondmorland.com/api/articles",
+    (res) => {
+      articleData = res.articles;
+    }
+  );
+
   // if the article exists
   if (article) {
     // set the corresponding HTML elements to the articles data

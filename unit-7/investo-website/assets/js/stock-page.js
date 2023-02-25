@@ -208,7 +208,6 @@ async function loadStockPage() {
 
   stockNewsEl.append(`<h3>${stock} News</h3>`)
   stockNews.articles.forEach(news => {
-    console.log(news);
     let newsLink = $("<a></a>");
     newsLink.attr("href", news.news_url);
     newsLink.attr("class", "news-article-link");
@@ -229,6 +228,7 @@ async function loadStockPage() {
     `);
     stockNewsEl.append(newsLink);
   });
+  stockNewsEl.append(`<a href="https://stocknewsapi.com/" class="small-link">Powered by Stock News API</a>`);
 
   // set the watchlist button HtML and load the stock page data on page load
   setWatchlistButtonContent();
