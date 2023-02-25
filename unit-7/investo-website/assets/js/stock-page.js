@@ -80,6 +80,8 @@ async function loadStockPage() {
 
   stockNews = await getSymbolNews(stock);
 
+  console.log(stockNews);
+
   // try to get portfolio from session storage
   portfolio = getPortfolio();
 
