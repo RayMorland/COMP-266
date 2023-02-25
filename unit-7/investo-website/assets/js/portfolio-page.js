@@ -27,7 +27,7 @@ async function loadPortfolioPage() {
   let watchlist = JSON.parse(sessionStorage.getItem("watchlist"));
 
   // set the portfolio value element
-  portfolioValueEl.text(`$${portfolioValue}`);
+  portfolioValueEl.text(`$${portfolioValue.toFixed(2)}`);
 
   // if the portfolio has stocks in it
   if (portfolio.length > 0) {
