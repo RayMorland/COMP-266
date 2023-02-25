@@ -167,6 +167,8 @@ function testName(name, event) {
     name.classList.add("invalid");
     nameError.textContent = "Name cannot be empty";
   }
+
+  return isValid;
 }
 
 // function that tests the validity of the message input value
@@ -190,6 +192,8 @@ function testMessage(message, event) {
     message.classList.add("invalid");
     messageError.textContent = "Message cannot be empty";
   }
+
+  return isValid;
 }
 
 // event listener that triggers when window is loaded
@@ -217,7 +221,13 @@ contactMessage.addEventListener("input", (event) => {
 // event listener that triggers when the form is submitted
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  testEmail(email, event.type);
-  testName(contactName, event.type);
-  testMessage(contactMessage, event.type);
+
+  let emailValid = testEmail(email, event.type);
+  let nameValid = testName(contactName, event.type);
+  let messageValid = testMessage(contactMessage, event.type);
+
+  if (emailValid && nameValid && messageValid) {
+    alert("Form sent!");
+    form.reset();
+  }
 });

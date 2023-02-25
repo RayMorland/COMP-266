@@ -35,12 +35,28 @@ async function loadPortfolioPage() {
     portfolio.forEach((stk) => {
       // create a new <a> element for the stock
       let portfolioStock = $("<a></a>");
+      const priceDates = Object.keys(stk.prices).reverse().slice(0, 20);
+      const openValues = [];
+      // for each dateTime get the opening value during the interval
+      priceDates.forEach((date) => {
+        // add the opening price to the openValues array
+        openValues.push(stk.prices[date]["1. open"]);
+      });
       // set the current price of the stock to the last closing price
       let stkPrice = stk.prices[Object.keys(stk.prices)[99]]["4. close"];
       // set the stock quantity to the quantity of the stock in the portfolio
       let stkQuantity = getStockFromPortfolio(stk.symbol).quantity;
       // set the change in stock value between day open and close
-      let stkChange = 0;
+
+      let stkChange = (stkPrice - openValues[0]).toFixed(2);
+      let stkChangeSpan;
+  
+      // change how the price change is shown depending on if it is less than or greater than 0
+      if (stkChange < 0) {
+        stkChangeSpan = `-$${stkChange.slice(1)}`;
+      } else {
+        stkChangeSpan = `+$${stkChange}`;
+      }
 
       // add the value of the stock in the portfolio to the total portfolio value
       portfolioValue += Number((stk.quantity * stkPrice).toFixed(2));
@@ -71,7 +87,7 @@ async function loadPortfolioPage() {
           <div class="column justify-start align-end m-0 gap-2">
               <h5>Stock info</h5>
               <h4 class="stock-price">$${Number(stkPrice).toFixed(2)}</h4>
-              <h5 class="stock-change">${stkChange} USD</h5>
+              <h5 class="stock-change">${stkChangeSpan} USD</h5>
           </div>
       </div>
       `);
@@ -81,7 +97,7 @@ async function loadPortfolioPage() {
   } else {
     // if there are no stocks in the portfolio inject HTML with link to invest page
     portfolioPositions.html(`<h3>
-        No stocks yet <a href="../invest.html" style="cursor: pointer; font-weight: 800; border-bottom: 5px solid black">find your next investment</a>  
+        No stocks yet <a href="../invest.html" style="cursor: pointer; font-weight: 800; border-bottom: 5px solid black; font-family: inherit">find your next investment</a>  
       </h3>
     `);
   }

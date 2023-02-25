@@ -41,12 +41,14 @@ async function loadArticle() {
     .splice(-1)[0]
     .split(".")[0];
 
-  await $.getJSON("/unit-6/investo-website/data/articles-data.json", (res) => {
-    articleData = res.articles;
-  });
+  await $.getJSON(
+    "http://localhost:8081/api/articles/article",
+    { slug: articleSlug },
+    (res) => {
+      article = res;
+    }
+  );
 
-  // find the article in the article data using it's slug
-  article = articleData.find((artcl) => artcl.slug == articleSlug);
   // if the article exists
   if (article) {
     // set the corresponding HTML elements to the articles data

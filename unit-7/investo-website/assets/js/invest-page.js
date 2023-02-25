@@ -17,25 +17,11 @@ async function loadInvestPage() {
   // get the stock card container
   investStocks = $("#stocks");
 
-  let infoData;
-
   // get stock data from json file using jQuery
-  await $.getJSON(
-    "/unit-7/investo-website/data/stock-info-data.json",
-    (res) => {
-      // store local copy of stock data array
-      // stocksData = res.stockData;
-      infoData = res.stockInfoData;
-
-      infoData.forEach(async (data) => {
-        let stock = await getStockData(data);
-        console.log(stock);
-        stocksData.push(stock);
-      });
-    }
-  );
-
-  console.log(stocksData);
+  await $.getJSON("http://localhost:8081/api/stocks", (res) => {
+    // store local copy of stock data array
+    stocksData = res.stockData;
+  });
 
   // for each stock in the data create the HTML and build and inject the chart
   stocksData.forEach((stk) => {
@@ -109,24 +95,6 @@ async function loadInvestPage() {
     // build the chart for this stock
     buildChart(openValues, priceDates, ctx, gradient, color);
   });
-}
-
-async function getStockData(data) {
-  let stock;
-console.log(data);
-  await $.getJSON("https://comp-266-portfolio.raymondmorland.com/data", { symbol: data.symbol }, (res) => {
-    let prices = {};
-    let symbol = data.symbol;
-    let company = data.companyName;
-    console.log(res);
-
-    prices = res[Object.keys(res)[1]];
-
-    // store local copy of stock data
-    stock = { symbol: symbol, company: company, prices: prices };
-  });
-
-  return stock;
 }
 
 // load the invest page data on page load

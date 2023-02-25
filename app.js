@@ -4,6 +4,9 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 8081;
 
+const stocksApi = require('./api/routes/stock-routes');
+const articlesApi = require('./api/routes/article-routes');
+
 app.use(cors());
 
 app.use(function (req, res, next) {
@@ -34,13 +37,8 @@ app.use('/unit-5/investo-website', require('./unit-5/unit5'));
 app.use('/unit-6/investo-website', require('./unit-6/unit6'));
 app.use('/unit-7/investo-website', require('./unit-7/unit7'));
 
-// app.use('/api', unit4Routes);
-
-app.get("/data", (req, res) => {
-  console.log(req.url);
-  let data = {message: "hello"}
-  res.send(data);
-});
+app.use('/api/stocks', stocksApi);
+app.use('/api/articles', articlesApi);
 
 app.get('*', (req, res) => {
   res.sendFile(__dirname + "/404.html");

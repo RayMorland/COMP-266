@@ -39,7 +39,6 @@ let closingPrices;
 let tableClosings;
 let priceChanges;
 let tableChanges;
-let stockInfo;
 let marketData = [];
 
 // function to load and inject all data required for individual stock page
@@ -59,36 +58,23 @@ async function loadStockPage() {
   tableClosings = $("#table-closings");
   tableChanges = $("#table-changes");
 
-    // get stock symbol from url
-    stock = window.location.pathname.split("/").splice(-1)[0].split(".")[0];
+  // get stock symbol from url
+  stock = window.location.pathname.split("/").splice(-1)[0].split(".")[0];
 
   await $.getJSON(
-    "/unit-7/investo-website/data/stock-info-data.json",
+    "http://localhost:8081/api/stocks/stock",
+    { symbol: stock },
     (res) => {
-      // store local copy of stock info data
-      stockInfo = res.stockInfoData;
+      // store local copy of stock data
+      thisStock = res;
     }
   );
-
-  await $.getJSON("/unit-7/investo-website/data", { symbol: stock }, (res) => {
-    let prices = {};
-    let symbol = stock;
-    let company = stockInfo.find(stk => stk.symbol === symbol).companyName;
-
-    prices = res[Object.keys(res)[1]];
-    
-    // store local copy of stock data
-    thisStock = {symbol: symbol, company: company, prices: prices};
-  });
 
   // try to get portfolio from session storage
   portfolio = getPortfolio();
 
   // set the investor page link
-  investorLink.attr(
-    "href",
-    stockInfo.find((stk) => stk.symbol == thisStock.symbol).investorWebsite
-  );
+  investorLink.attr("href", thisStock.investorWebsite);
 
   buySellTotal.text("$0");
   document.title = `Investo: ${thisStock.symbol}`;
@@ -119,9 +105,10 @@ async function loadStockPage() {
 
   // for each date convert the date format from YYYY-MM-DD to Month Day, Year and
   // add table cell for date
-  priceDates.forEach((date) => {
+  priceDates.reverse().forEach((date) => {
     let cell = $("<td></td>");
     let dateArray = date.split(" ")[0].split("-");
+    let time = date.split(" ")[1].split(":").slice(0, 2).join(":");
     let year = dateArray[0];
     let month = Number(dateArray[1]);
     let day = dateArray[2][0] == "0" ? dateArray[2][1] : dateArray[2];
@@ -139,19 +126,21 @@ async function loadStockPage() {
       "Nov",
       "Dec",
     ];
-    cell.text(months[month - 1] + " " + day + ", " + year);
+    cell.html(
+      months[month - 1] + " " + day + ", " + year + "<br>" + time + "<br>"
+    );
     tableDates.append(cell);
   });
 
   // add opening price table cells
-  openingPrices.forEach((price) => {
+  openingPrices.reverse().forEach((price) => {
     let cell = $("<td></td>");
     cell.text(`$${Number(price).toFixed(2)}`);
     tableOpenings.append(cell);
   });
 
   // add closing price table cells
-  closingPrices.forEach((price) => {
+  closingPrices.reverse().forEach((price) => {
     let cell = $("<td></td>");
     cell.text(`$${Number(price).toFixed(2)}`);
     tableClosings.append(cell);
@@ -165,7 +154,7 @@ async function loadStockPage() {
   });
 
   // add stock price to price element
-  priceEl.textContent = `$${Number(price).toFixed(2)}`;
+  priceEl.text(`$${Number(price).toFixed(2)}`);
 
   // if the stock is in the users portfolio update the my position values
   if (getStockFromPortfolio(stock)) {
@@ -187,9 +176,9 @@ async function loadStockPage() {
   });
   // get the current price as the closing price during the last time interval
   let stkPrice =
-    thisStock.prices[Object.keys(thisStock.prices)[Object.keys(thisStock.prices).length - 1]][
-      "4. close"
-    ];
+    thisStock.prices[
+      Object.keys(thisStock.prices)[Object.keys(thisStock.prices).length - 1]
+    ]["4. close"];
   // the price change is the difference between the first opening price and the current price
   let stkChange = (stkPrice - openValues[0]).toFixed(2);
   let gradient;
@@ -203,7 +192,6 @@ async function loadStockPage() {
   }
   var canvas = document.getElementById("stock-chart");
   var ctx = canvas.getContext("2d");
-  $("#price").html(`$${Number(openValues[0]).toFixed(2)}`);
   buildChart(openValues.slice(0, 20), keys.slice(0, 20), ctx, gradient, color);
   // set the watchlist button HtML and load the stock page data on page load
   setWatchlistButtonContent();
@@ -226,45 +214,54 @@ function decrease() {
 // function to buy a quantity of stock when the user presses buy
 async function buy() {
   // call portfolio buy stock function
-  await buyStock(stock, quantity);
+  let success = await buyStock(stock, quantity);
 
-  // if successful update HTML
-  myPosition.text(
-    `$${(getStockFromPortfolio(stock).quantity * price).toFixed(2)}`
-  );
-  myPositionQuantity.text(getStockFromPortfolio(stock).quantity);
+  if (success) {
+    // if successful update HTML
+    myPosition.text(
+      `$${(getStockFromPortfolio(stock).quantity * price).toFixed(2)}`
+    );
+    myPositionQuantity.text(getStockFromPortfolio(stock).quantity);
 
-  // alert the user to how many shares they have purchased
-  alert(`You have purchased ${quantity} shares of ${stock}`);
-
-  // update the quantity to buy/sell back to 0
-  quantity = 0;
-  quantityEl.text(quantity);
-  buySellTotal.text("$0");
+    // alert the user to how many shares they have purchased
+    alert(
+      `You have purchased ${quantity} share${
+        quantity > 1 ? "s" : ""
+      } of ${stock}`
+    );
+    // update the quantity to buy/sell back to 0
+    quantity = 0;
+    quantityEl.text(quantity);
+    buySellTotal.text("$0");
+  }
 }
 
 // function to sell a quantity of stock when the user presses sell
 async function sell() {
   // call portfolio sell stock function
-  await sellStock(stock, quantity);
+  let success = await sellStock(stock, quantity);
 
-  // if successful get the stock from the portfolio to update the my position elements
-  let stk = getStockFromPortfolio(stock);
-  if (stk) {
-    myPosition.text(`$${(stk.quantity * price).toFixed(2)}`);
-    myPositionQuantity.text(stk.quantity);
-  } else {
-    myPositionQuantity.text(0);
-    myPosition.text("$0");
+  if (success) {
+    // if successful get the stock from the portfolio to update the my position elements
+    let stk = getStockFromPortfolio(stock);
+    if (stk) {
+      myPosition.text(`$${(stk.quantity * price).toFixed(2)}`);
+      myPositionQuantity.text(stk.quantity);
+    } else {
+      myPositionQuantity.text(0);
+      myPosition.text("$0");
+    }
+
+    // alert the user to how many shares they have sold
+    alert(
+      `You have sold ${quantity} share${quantity > 1 ? "s" : ""} of ${stock}`
+    );
+
+    // update the quantity to buy/sell back to 0
+    quantity = 0;
+    quantityEl.text(quantity);
+    buySellTotal.text("$0");
   }
-
-  // alert the user to how many shares they have sold
-  alert(`You have sold ${quantity} shares of ${stock}`);
-
-  // update the quantity to buy/sell back to 0
-  quantity = 0;
-  quantityEl.text(quantity);
-  buySellTotal.text("$0");
 }
 
 // function to set the HTML content of the watchlist button depending on if the stock is

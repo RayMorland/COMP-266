@@ -64,7 +64,7 @@ async function loadTicker() {
   secondaryTicker = $("#secondary-ticker");
   
 
-  await $.getJSON("/unit-6/investo-website/data/stock-data.json", (res) => {
+  await $.getJSON("http://localhost:8081/api/stocks", (res) => {
     stockData = res.stockData;
   });
 

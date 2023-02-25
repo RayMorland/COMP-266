@@ -12,7 +12,7 @@ function loadLearnPage() {
   // get the learn page article card container
   let learnArticles = $("#learn-articles");
   // get article data from json file using jQuery
-  $.getJSON("/unit-6/investo-website/data/articles-data.json", (res) => {
+  $.getJSON("http://localhost:8081/api/articles", (res) => {
     const articlesData = res.articles;
     // if the data array contains 1 or more articles
     if (articlesData.length > 0) {

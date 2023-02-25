@@ -3,6 +3,7 @@
     {
       "symbol": "AAPL",
       "company": "Apple Computers Inc.",
+      "investorWebsite": "https://investor.apple.com/investor-relations/default.aspx",
       "prices": {
         "2022-12-02 20:00:00": {
           "1. open": "147.5100",
@@ -709,6 +710,7 @@
     {
       "symbol": "MSFT",
       "company": "Microsoft Corp.",
+      "investorWebsite": "https://www.microsoft.com/en-us/investor",
       "prices": {
         "2022-12-02 20:00:00": {
           "1. open": "254.6600",
@@ -1415,6 +1417,7 @@
     {
       "symbol": "GOOG",
       "company": "Alphabet Inc.",
+      "investorWebsite": "https://abc.xyz/investor/",
       "prices": {
         "2022-12-02 20:00:00": {
           "1. open": "100.6300",
@@ -2121,6 +2124,7 @@
     {
       "symbol": "AMZN",
       "company": "Amazon.com Inc.",
+      "investorWebsite": "https://ir.aboutamazon.com/overview/default.aspx",
       "prices": {
         "2022-12-02 20:00:00": {
           "1. open": "94.0100",
@@ -2827,6 +2831,7 @@
     {
       "symbol": "TSLA",
       "company": "Tesla Inc.",
+      "investorWebsite": "https://ir.tesla.com/#quarterly-disclosure",
       "prices": {
         "2022-12-02 20:00:00": {
           "1. open": "194.2200",
@@ -3533,6 +3538,7 @@
     {
       "symbol": "TSM",
       "company": "Taiwan Semiconductor Manufacturing Company Ltd.",
+      "investorWebsite": "https://investor.tsmc.com/english",
       "prices": {
         "2022-12-02 20:00:00": {
           "1. open": "81.7800",
@@ -4239,6 +4245,7 @@
     {
       "symbol": "NVDA",
       "company": "NVIDIA Corporation",
+      "investorWebsite": "https://investor.nvidia.com/home/default.aspx",
       "prices": {
         "2022-12-02 20:00:00": {
           "1. open": "168.8000",
@@ -4945,6 +4952,7 @@
     {
       "symbol": "META",
       "company": "Meta Platforms Inc.",
+      "investorWebsite": "https://investor.fb.com/home/default.aspx",
       "prices": {
         "2022-12-02 20:00:00": {
           "1. open": "123.7000",
@@ -5651,6 +5659,7 @@
     {
       "symbol": "CSCO",
       "company": "Cisco Systems Inc.",
+      "investorWebsite": "https://investor.cisco.com/stock-information/quote-and-chart/default.aspx",
       "prices": {
         "2022-12-02 18:20:00": {
           "1. open": "49.6899",
@@ -6357,6 +6366,7 @@
     {
       "symbol": "ORCL",
       "company": "Oracle Corporation",
+      "investorWebsite": "https://investor.oracle.com/home/default.aspx",
       "prices": {
         "2022-12-02 17:25:00": {
           "1. open": "83.3300",
@@ -7063,6 +7073,7 @@
     {
       "symbol": "TXN",
       "company": "Texas Instruments Inc.",
+      "investorWebsite": "https://investor.ti.com/",
       "prices": {
         "2022-12-02 17:40:00": {
           "1. open": "177.2300",
@@ -7769,6 +7780,7 @@
     {
       "symbol": "ADBE",
       "company": "Adobe Inc.",
+      "investorWebsite": "https://www.adobe.com/investor-relations.html",
       "prices": {
         "2022-12-02 17:25:00": {
           "1. open": "341.5300",
@@ -8475,6 +8487,8 @@
     {
       "symbol": "NFLX",
       "company": "Netflix Inc",
+      "investorWebsite": "https://ir.netflix.net/ir-overview/profile/default.aspx",
+
       "prices": {
         "2022-12-02 20:00:00": {
           "1. open": "319.9500",
@@ -9181,6 +9195,7 @@
     {
       "symbol": "IBM",
       "company": "International Business Machines Corp.",
+      "investorWebsite": "https://www.ibm.com/investor",
       "prices": {
         "2022-12-02 19:05:00": {
           "1. open": "148.5000",
@@ -9887,6 +9902,7 @@
     {
       "symbol": "QCOM",
       "company": "Qualcomm Inc.",
+      "investorWebsite": "https://investor.qualcomm.com/",
       "prices": {
         "2022-12-02 19:40:00": {
           "1. open": "125.5999",

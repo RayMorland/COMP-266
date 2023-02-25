@@ -90,16 +90,21 @@
             >
           </div>
           <div style="flex: 2" class="responsive-row m-0 justify-end">
-            <button class="fancy-button" id="watch-list-button" onclick="">
-              Add to Watchlist
-            </button>
+            <button
+              class="fancy-button"
+              id="watch-list-button"
+              onclick=""
+            ></button>
           </div>
         </div>
       </div>
       <div class="container" id="stock-content">
         <div class="responsive-row gap-20">
           <div class="column gap-20 m-0 w-70-100">
-            <div id="stock-chart-wrapper" class="white-panel column justify-between m-0 gap-20">
+            <div
+              id="stock-chart-wrapper"
+              class="white-panel column justify-between m-0 gap-20"
+            >
               <div class="row justify-between m-0">
                 <h3>Price Chart</h3>
                 <div class="column align-end m-0">
@@ -110,7 +115,13 @@
               <canvas id="stock-chart"></canvas>
             </div>
             <div id="stock-data" class="white-panel">
-              <h3 class="mb-20">Stock Data</h3>
+              <div class="row justify-between">
+                <h3 class="mb-20">Intraday Stock Data</h3>
+                <div class="row gap-20 m-0">
+                  <h4>5 min interval</h4>
+                </div>
+                
+              </div>
               <div>
                 <table id="stock-data-table">
                   <thead>
@@ -277,7 +288,10 @@
       src="../../assets/js/stock-portfolio.js"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="text/javascript" src="../../assets/js/chart-stock-page.js"></script>
+    <script
+      type="text/javascript"
+      src="../../assets/js/chart-stock-page.js"
+    ></script>
     <script type="text/javascript" src="../../assets/js/stock-page.js"></script>
   </body>
 </html>

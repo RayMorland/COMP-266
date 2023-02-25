@@ -43,10 +43,13 @@ function resetPortfolio() {
 // function to get stock from data given stock symbol
 async function getStock(symbol) {
   let stock;
-  await $.getJSON("/unit-6/investo-website/data/stock-data.json").done((data) => {
-    // find stock in stock data
-    stock = data.stockData.find((stock) => stock.symbol === symbol);
-  });
+  await $.getJSON(
+    "http://localhost:8081/api/stocks/stock",
+    { symbol: symbol },
+    (data) => {
+      stock = data;
+    }
+  );
   return stock;
 }
 
@@ -74,8 +77,10 @@ async function buyStock(symbol, quantity) {
 
     // update the portfolio in session storage
     sessionStorage.setItem("portfolio", JSON.stringify(portfolio));
+    return true;
   } else {
     alert("Enter quantity greater than 0");
+    return false;
   }
 }
 
@@ -92,8 +97,10 @@ function sellStock(symbol, quantity) {
   if (stock) {
     if (quantity <= 0) {
       alert("Must be more than 0");
+      return false;
     } else if (quantity > stock.quantity) {
       alert("You don't have that many");
+      return false;
     } else if (quantity == stock.quantity) {
       // if the quantity to sell is equal to the quantity in the portfolio
       // remove the stock from the portfolio
@@ -106,8 +113,10 @@ function sellStock(symbol, quantity) {
 
     // update the portfolio
     sessionStorage.setItem("portfolio", JSON.stringify(portfolio));
+    return true;
   } else {
     alert("You don't own this stock");
+    return false;
   }
 }
 
