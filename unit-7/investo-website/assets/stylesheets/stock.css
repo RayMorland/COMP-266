@@ -1,0 +1,45 @@
+#stock-main-content {
+  background-color: #fff6c4;
+}
+
+#stock-actions-panel {
+  flex: 1;
+  border: 5px solid black;
+  padding: 2rem;
+  background-color: #ffffff;
+  align-items: stretch;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 129px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+#stock-chart-wrapper {
+  /* min-height: 80vh; */
+}
+
+#quantity,
+#my-position {
+  font-size: 2em;
+  font-family: "effra-cc", sans-serif;
+}
+
+.icon-button {
+  font-size: 3em;
+  font-family: "effra-cc", sans-serif;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: black;
+}
+
+table {
+  overflow-x: auto;
+  width: 100%;
+}
+
+#table-dates td {
+  font-family: var(--font-family-primary) !important;
+}

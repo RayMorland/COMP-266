@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require("cors");
-const axios = require("axios");
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 8081;
@@ -33,19 +32,14 @@ app.use('/unit-3/investo-website', require('./unit-3/unit3'));
 app.use('/unit-4/investo-website', require('./unit-4/unit4'));
 app.use('/unit-5/investo-website', require('./unit-5/unit5'));
 app.use('/unit-6/investo-website', require('./unit-6/unit6'));
-// app.use('/unit-7/investo-website', require('./unit-7/unit7'));
+app.use('/unit-7/investo-website', require('./unit-7/unit7'));
 
 // app.use('/api', unit4Routes);
 
 app.get("/data", (req, res) => {
-  console.log(req.query);
-  axios
-    .get(
-      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${req.query.symbol}&interval=60min&apikey=${process.env.ALPHAVANTAGE_API_KEY}`
-    )
-    .then((data) => {
-      res.send(data.data);
-    });
+  console.log(req.url);
+  let data = {message: "hello"}
+  res.send(data);
 });
 
 app.get('*', (req, res) => {

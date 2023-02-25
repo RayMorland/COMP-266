@@ -1,0 +1,90 @@
+#invest-main-content {
+  background-color: #fff6c4;
+}
+
+#stocks {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+.stock-card {
+  border: 5px solid black;
+  padding: 30px;
+  background-color: white;
+  transition: all 0.1s;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+  height: 40vh;
+}
+
+.stock-card:hover {
+  box-shadow: 5px 5px black;
+  transform: translate(-5px, -5px);
+}
+
+.stock-card:hover {
+  cursor: pointer;
+}
+
+.stock-card .stock-card-chart {
+  /* align-self: stretch;
+  position: relative;
+  width: 50%; */
+  min-width: 0;
+}
+
+.stock-card.stock-card-chart canvas {
+  /* width: 100%; */
+}
+
+.stock-price {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.invest-stock {
+  font-size: 1em;
+}
+
+.stock-company-name {
+}
+
+.stock-chart-canvas {
+  align-self: stretch;
+  position: relative;
+  flex: 1;
+  /* width: 50%; */
+}
+
+.stock-chart-canvas canvas {
+  width: 100% !important;
+}
+
+/* .stock-chart {
+  object-fit: contain;
+} */
+
+.stock-card-info {
+  flex: 1;
+}
+
+.stock-card-price {
+  flex: 1;
+}
+
+@media (min-width: 900px) {
+  #stocks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stock-card {
+    flex-direction: row;
+    align-items: flex-start;
+    height: 20vh;
+  }
+}
