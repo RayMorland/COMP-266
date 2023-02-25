@@ -1,7 +1,7 @@
 /*
  * title: learn-page.js
  * description: functions required for the learn page
- * date: February 19, 2023
+ * date: February 24, 2023
  * @author Raymond Morland
  * @version 1.0
  * @copyright 2023 Raymond Morland
@@ -54,7 +54,5 @@ function loadLearnPage() {
   });
 }
 
-$(
-  // load learn page data on page load
-  loadLearnPage()
-);
+// load learn page data on page load
+$(loadLearnPage());

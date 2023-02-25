@@ -1,7 +1,7 @@
 /*
  * title: stock-page.js
  * description: functions required for the individual stock pages
- * date: February 19, 2023
+ * date: February 24, 2023
  * @author Raymond Morland
  * @version 1.0
  * @copyright 2023 Raymond Morland
@@ -184,9 +184,16 @@ async function loadStockPage() {
   keys.forEach((date) => {
     openValues.push(thisStock.prices[date]["1. open"]);
   });
+  // get the current price as the closing price during the last time interval
+  let stkPrice =
+    thisStock.prices[Object.keys(thisStock.prices)[Object.keys(thisStock.prices).length - 1]][
+      "4. close"
+    ];
+  // the price change is the difference between the first opening price and the current price
+  let stkChange = (stkPrice - openValues[0]).toFixed(2);
   let gradient;
   let color;
-  if (openValues[0] < openValues[openValues.length - 1]) {
+  if (stkChange >= 0) {
     gradient = "rgba(204, 255, 204";
     color = "rgba(0,153,0)";
   } else {
@@ -196,9 +203,9 @@ async function loadStockPage() {
   var canvas = document.getElementById("stock-chart");
   var ctx = canvas.getContext("2d");
   $("#price").html(`$${Number(openValues[0]).toFixed(2)}`);
-  buildChart(openValues.slice(0,20), keys.slice(0,20), ctx, gradient, color);
-    // set the watchlist button HtML and load the stock page data on page load
-    setWatchlistButtonContent();
+  buildChart(openValues.slice(0, 20), keys.slice(0, 20), ctx, gradient, color);
+  // set the watchlist button HtML and load the stock page data on page load
+  setWatchlistButtonContent();
 }
 
 // function to increase the buy/sell quantity and display the updated quantity
@@ -226,6 +233,9 @@ async function buy() {
   );
   myPositionQuantity.text(getStockFromPortfolio(stock).quantity);
 
+  // alert the user to how many shares they have purchased
+  alert(`You have purchased ${quantity} shares of ${stock}`);
+
   // update the quantity to buy/sell back to 0
   quantity = 0;
   quantityEl.text(quantity);
@@ -246,6 +256,9 @@ async function sell() {
     myPositionQuantity.text(0);
     myPosition.text("$0");
   }
+
+  // alert the user to how many shares they have sold
+  alert(`You have sold ${quantity} shares of ${stock}`);
 
   // update the quantity to buy/sell back to 0
   quantity = 0;
@@ -272,6 +285,5 @@ const setWatchlistButtonContent = () => {
   }
 };
 
-$(() => {
-  loadStockPage();
-});
+// load the stock page
+$(loadStockPage());

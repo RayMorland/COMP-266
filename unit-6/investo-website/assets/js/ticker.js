@@ -125,4 +125,5 @@ async function loadTicker() {
   }
 }
 
+// load the stock ticker on page load
 $(loadTicker);

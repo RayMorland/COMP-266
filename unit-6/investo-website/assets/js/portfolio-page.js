@@ -3,7 +3,7 @@
  * description: populates the portfolio page with users stock and
  * watchlist information on page load and reloads information when
  * portfolio is reset
- * date: February 19, 2023
+ * date: February 24, 2023
  * @author Raymond Morland
  * @version 1.0
  * @copyright 2023 Raymond Morland
@@ -135,7 +135,5 @@ function resetPortfolioAction() {
   }
 }
 
-$(
-  // load the portfolio page every page load
-  loadPortfolioPage()
-);
+// load the portfolio page every page load
+$(loadPortfolioPage());

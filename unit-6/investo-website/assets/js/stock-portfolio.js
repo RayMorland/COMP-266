@@ -1,7 +1,7 @@
 /*
  * title: stock-portfolio.js
  * description: functions for managing user's stock portfolio
- * date: February 19, 2023
+ * date: February 24, 2023
  * @author Raymond Morland
  * @version 1.0
  * @copyright 2023 Raymond Morland

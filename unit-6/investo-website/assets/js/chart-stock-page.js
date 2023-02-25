@@ -7,12 +7,15 @@
  * @copyright 2023 Raymond Morland
  */
 
-
+// function to build the chart for a stock card on the stock pages
 function buildChart(prices, times, ctx, backGrad, color) {
+  // set background gradient
   var gradient = ctx.createLinearGradient(0, 0, 0, 400);
   gradient.addColorStop(0, `${backGrad}, .5)`);
   gradient.addColorStop(1, `${backGrad}, 0)`);
 
+  // set the data values, line type, and settings
+  // the x values are the price time and the y values are the prices
   var data = {
     labels: times,
     datasets: [
@@ -28,13 +31,16 @@ function buildChart(prices, times, ctx, backGrad, color) {
       },
     ],
   };
+
+  // create a new chart object
   var myNewChart = new Chart(ctx, {
     type: "line",
     data: data,
     options: {
+      // make the chart responsive
       responsive: true,
       maintainAspectRatio: true,
-    //   onRes
+      // hide the legend but show tooltip on chart hover
       plugins: {
         legend: {
           display: false,
@@ -44,9 +50,11 @@ function buildChart(prices, times, ctx, backGrad, color) {
           intersect: false
           }
       },
+      // prevent animation on chart load
       animation: {
         duration: 0,
       },
+      // hide the x axis and grid lines and show the y axis and grid lines
       scales: {
         x: {
           display: false,
@@ -65,5 +73,6 @@ function buildChart(prices, times, ctx, backGrad, color) {
     },
   });
 
+  // return the new chart object
   return myNewChart;
 }
