@@ -321,7 +321,7 @@ const setWatchlistButtonContent = () => {
 async function getSymbolNews(stockSymbol) {
   console.log(stockSymbol);
   await $.getJSON(
-    "http://localhost:8081/api/news/symbol",
+    "https://comp-266-portfolio.raymondmorland.com/api/news/symbol",
     { symbol: stockSymbol },
     (res) => {
       articles = res;
