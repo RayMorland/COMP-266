@@ -6,6 +6,7 @@ const port = process.env.PORT || 8081;
 
 const stocksApi = require('./api/routes/stock-routes');
 const articlesApi = require('./api/routes/article-routes');
+const newsApi = require('./api/routes/news-routes');
 
 app.use(cors());
 
@@ -39,6 +40,7 @@ app.use('/unit-7/investo-website', require('./unit-7/unit7'));
 
 app.use('/api/stocks', stocksApi);
 app.use('/api/articles', articlesApi);
+app.use('/api/news', newsApi);
 
 app.get('*', (req, res) => {
   res.sendFile(__dirname + "/404.html");

@@ -41,6 +41,9 @@ let priceChanges;
 let tableChanges;
 let marketData = [];
 
+// stock symbol news articles
+let stockNews;
+
 // function to load and inject all data required for individual stock page
 async function loadStockPage() {
   stockSymbol = $("#symbol");
@@ -69,6 +72,12 @@ async function loadStockPage() {
       thisStock = res;
     }
   );
+
+  // get the news articles for this stock symbol
+
+  stockNews = await getSymbolNews(stock);
+
+  console.log(stockNews);
 
   // try to get portfolio from session storage
   portfolio = getPortfolio();
@@ -281,6 +290,19 @@ const setWatchlistButtonContent = () => {
     );
   }
 };
+
+async function getSymbolNews(stockSymbol) {
+  console.log(stockSymbol);
+  await $.getJSON(
+    "https://comp-266-portfolio.raymondmorland.com/api/news/symbol",
+    { symbol: stockSymbol },
+    (res) => {
+      console.log(res);
+      articles = res;
+    }
+  );
+  return articles;
+}
 
 // load the stock page
 $(loadStockPage());
