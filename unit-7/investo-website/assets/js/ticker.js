@@ -64,7 +64,7 @@ async function loadTicker() {
   secondaryTicker = $("#secondary-ticker");
   
 
-  await $.getJSON("http://localhost:8081/api/stocks", (res) => {
+  await $.getJSON("https://comp-266-portfolio.raymondmorland.com/api/stocks", (res) => {
     stockData = res.stockData;
   });
 

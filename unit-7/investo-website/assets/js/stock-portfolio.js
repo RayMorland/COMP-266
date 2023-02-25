@@ -44,7 +44,7 @@ function resetPortfolio() {
 async function getStock(symbol) {
   let stock;
   await $.getJSON(
-    "http://localhost:8081/api/stocks/stock",
+    "https://comp-266-portfolio.raymondmorland.com/api/stocks/stock",
     { symbol: symbol },
     (data) => {
       stock = data;

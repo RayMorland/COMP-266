@@ -18,10 +18,13 @@ async function loadInvestPage() {
   investStocks = $("#stocks");
 
   // get stock data from json file using jQuery
-  await $.getJSON("http://localhost:8081/api/stocks", (res) => {
-    // store local copy of stock data array
-    stocksData = res.stockData;
-  });
+  await $.getJSON(
+    "https://comp-266-portfolio.raymondmorland.com/api/stocks",
+    (res) => {
+      // store local copy of stock data array
+      stocksData = res.stockData;
+    }
+  );
 
   // for each stock in the data create the HTML and build and inject the chart
   stocksData.forEach((stk) => {

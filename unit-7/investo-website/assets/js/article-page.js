@@ -42,7 +42,7 @@ async function loadArticle() {
     .split(".")[0];
 
   await $.getJSON(
-    "http://localhost:8081/api/articles/article",
+    "https://comp-266-portfolio.raymondmorland.com/api/articles/article",
     { slug: articleSlug },
     (res) => {
       article = res;

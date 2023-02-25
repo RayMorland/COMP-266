@@ -62,7 +62,7 @@ async function loadStockPage() {
   stock = window.location.pathname.split("/").splice(-1)[0].split(".")[0];
 
   await $.getJSON(
-    "http://localhost:8081/api/stocks/stock",
+    "https://comp-266-portfolio.raymondmorland.com/api/stocks/stock",
     { symbol: stock },
     (res) => {
       // store local copy of stock data
