@@ -43,3 +43,30 @@ table {
 #table-dates td {
   font-family: var(--font-family-primary) !important;
 }
+
+.news-article-link {
+  font-size: 1em;
+}
+
+.topic {
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  font-size: .75em !important;
+  font-weight: 700;
+}
+
+.news-card {
+  margin-bottom: 10px;
+}
+
+.news-card:hover .news-title {
+  text-decoration: underline;
+}
+
+.news-title {
+  font-family: var(--font-family-primary) !important;
+}
+
+.news-source-name {
+  font-family: var(--font-family-secondary) !important;
+}

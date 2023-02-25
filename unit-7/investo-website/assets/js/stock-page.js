@@ -43,6 +43,7 @@ let marketData = [];
 
 // stock symbol news articles
 let stockNews;
+let stockNewsEl;
 
 // function to load and inject all data required for individual stock page
 async function loadStockPage() {
@@ -61,6 +62,8 @@ async function loadStockPage() {
   tableClosings = $("#table-closings");
   tableChanges = $("#table-changes");
 
+  stockNewsEl = $("#stock-news");
+
   // get stock symbol from url
   stock = window.location.pathname.split("/").splice(-1)[0].split(".")[0];
 
@@ -76,8 +79,6 @@ async function loadStockPage() {
   // get the news articles for this stock symbol
 
   stockNews = await getSymbolNews(stock);
-
-  console.log(stockNews);
 
   // try to get portfolio from session storage
   portfolio = getPortfolio();
@@ -202,6 +203,31 @@ async function loadStockPage() {
   var canvas = document.getElementById("stock-chart");
   var ctx = canvas.getContext("2d");
   buildChart(openValues.slice(0, 20), keys.slice(0, 20), ctx, gradient, color);
+
+  stockNewsEl.append(`<h3>${stock} News</h3>`)
+  stockNews.articles.forEach(news => {
+    console.log(news);
+    let newsLink = $("<a></a>");
+    newsLink.attr("href", news.news_url);
+    newsLink.attr("class", "news-article-link");
+    newsLink.html(`
+      <div class="column m-0 gap-10 news-card">
+        <div class="row m-0 news-title">
+          ${news.title}
+        </div>
+        <div class="responsive-row m-0 gap-20">
+          <div class="news-source-name">
+            ${news.source_name}
+          </div>
+          <div>
+            ${news.topics.map(topic => ` <span class="topic">${topic.toUpperCase()}</span>`).join("")}
+          </div>
+        </div>
+      </div>
+    `);
+    stockNewsEl.append(newsLink);
+  });
+
   // set the watchlist button HtML and load the stock page data on page load
   setWatchlistButtonContent();
 }
@@ -295,10 +321,9 @@ const setWatchlistButtonContent = () => {
 async function getSymbolNews(stockSymbol) {
   console.log(stockSymbol);
   await $.getJSON(
-    "https://comp-266-portfolio.raymondmorland.com/api/news/symbol",
+    "http://localhost:8081/api/news/symbol",
     { symbol: stockSymbol },
     (res) => {
-      console.log(res);
       articles = res;
     }
   );

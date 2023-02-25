@@ -6,8 +6,7 @@ module.exports.get = async (req, res) => {
       `https://stocknewsapi.com/api/v1?tickers=${req.query.symbol}&items=3&page=1&token=${process.env.STOCK_NEWS_API_KEY}`
     )
     .then((data) => {
-        console.log(req.query);
-      let articles = { "articles": data.data.data.slice(0, 3) };
+      let articles = { articles: data.data.data.slice(0, 3) };
       res.send(articles);
     });
 };
