@@ -43,7 +43,7 @@ async function loadPortfolioPage() {
         openValues.push(stk.prices[date]["1. open"]);
       });
       // set the current price of the stock to the last closing price
-      let stkPrice = stk.prices[Object.keys(stk.prices)[99]]["4. close"];
+      let stkPrice = stk.prices[Object.keys(stk.prices)[0]]["4. close"];
       // set the stock quantity to the quantity of the stock in the portfolio
       let stkQuantity = getStockFromPortfolio(stk.symbol).quantity;
       // set the change in stock value between day open and close
@@ -109,7 +109,7 @@ async function loadPortfolioPage() {
       // get the stock from stock data using the symbol
       let stock = await getStock(stk);
       // set the current price of the stock to the last closing price
-      let stkPrice = stock.prices[Object.keys(stock.prices)[99]]["4. close"];
+      let stkPrice = stock.prices[Object.keys(stock.prices)[0]]["4. close"];
       // create a new <a> element for the stock data
       let watchlistStock = $("<a></a>");
       // set the href attribute to the stock page

@@ -177,11 +177,7 @@ async function loadStockPage() {
   keys.forEach((date) => {
     closeValues.push(thisStock.prices[date]["4. close"]);
   });
-  // get the current price as the closing price during the last time interval
-  let stkPrice =
-    thisStock.prices[
-      Object.keys(thisStock.prices)[Object.keys(thisStock.prices).length - 1]
-    ]["4. close"];
+
   // the price change is the difference between the first opening price and the current price
   let stkChange = (price - closeValues.slice(-20)[0]).toFixed(2);
   let gradient;
@@ -197,11 +193,17 @@ async function loadStockPage() {
   var ctx = canvas.getContext("2d");
   buildChart(closeValues.slice(-20), keys.slice(-20), ctx, gradient, color);
 
+  // inject the stock into the stock news title
   stockNewsEl.append(`<h3>${stock} News</h3>`);
+
+  // for each stock news item add new stock news link
   stockNews.articles.forEach((news) => {
+    // create the link element
     let newsLink = $("<a></a>");
+    // set the hrek to the news url
     newsLink.attr("href", news.news_url);
     newsLink.attr("class", "news-article-link");
+    // inject the html into the link
     newsLink.html(`
       <div class="column m-0 gap-10 news-card">
         <div class="row m-0 news-title">
@@ -221,8 +223,11 @@ async function loadStockPage() {
         </div>
       </div>
     `);
+    // append the news article link to the stock page
     stockNewsEl.append(newsLink);
   });
+
+  // add the Stock News API link
   stockNewsEl.append(
     `<a href="https://stocknewsapi.com/" class="small-link">Powered by Stock News API</a>`
   );
