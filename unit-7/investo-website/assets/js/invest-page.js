@@ -29,21 +29,18 @@ async function loadInvestPage() {
   // for each stock in the data create the HTML and build and inject the chart
   stocksData.forEach((stk) => {
     // price dateTimes are the keys of the price objects in the data array
-    const priceDates = Object.keys(stk.prices).reverse().slice(0, 20);
-    const openValues = [];
-    // for each dateTime get the opening value during the interval
+    const priceDates = Object.keys(stk.prices).reverse().slice(-20);
+    const closeValues = [];
+    // for each dateTime get the close value during the interval
     priceDates.forEach((date) => {
-      // add the opening price to the openValues array
-      openValues.push(stk.prices[date]["1. open"]);
+      // add the closing price to the closeValues array
+      closeValues.push(stk.prices[date]["4. close"]);
     });
 
     // get the current price as the closing price during the last time interval
-    let stkPrice =
-      stk.prices[Object.keys(stk.prices)[Object.keys(stk.prices).length - 1]][
-        "4. close"
-      ];
-    // the price change is the difference between the first opening price and the current price
-    let stkChange = (stkPrice - openValues[0]).toFixed(2);
+    let stkPrice = stk.prices[Object.keys(stk.prices)[0]]["4. close"];
+    // the price change is the difference between the first close price and the current price
+    let stkChange = (stkPrice - closeValues.slice(-20)[0]).toFixed(2);
     let stkChangeSpan;
 
     // change how the price change is shown depending on if it is less than or greater than 0
@@ -96,7 +93,7 @@ async function loadInvestPage() {
     var ctx = canvas.getContext("2d");
 
     // build the chart for this stock
-    buildChart(openValues, priceDates, ctx, gradient, color);
+    buildChart(closeValues.slice(-20), priceDates, ctx, gradient, color);
   });
 }
 

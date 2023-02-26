@@ -48,7 +48,7 @@ unit7.get("/invest/portfolio.html", (req, res) => {
 });
 
 unit7.get("/invest/stock", (req, res) => {
-  res.redirect("/unit-4/investo-website/invest.html");
+  res.redirect(__dirname + "/investo-website/invest.html");
 });
 
 unit7.get("/invest/stock/*", (req, res, next) => {

@@ -67,20 +67,11 @@ async function loadStockPage() {
   // get stock symbol from url
   stock = window.location.pathname.split("/").splice(-1)[0].split(".")[0];
 
-  await $.getJSON(
-    "https://comp-266-portfolio.raymondmorland.com/api/stocks/stock",
-    { symbol: stock },
-    (res) => {
-      // store local copy of stock data
-      thisStock = res;
-    }
-  );
+  // get this stock
+  thisStock = await getStock(stock);
 
   // get the news articles for this stock symbol
-
   stockNews = await getSymbolNews(stock);
-
-  console.log(stockNews);
 
   // try to get portfolio from session storage
   portfolio = getPortfolio();
@@ -95,11 +86,11 @@ async function loadStockPage() {
   businessName.text(thisStock.company);
 
   // get the current price of the stock
-  price = thisStock.prices[Object.keys(thisStock.prices)[99]]["4. close"];
+  price = thisStock.prices[Object.keys(thisStock.prices)[0]]["4. close"];
 
   // get the last five time time periods for the stock to display in the table
-  priceDates = Object.keys(thisStock.prices).slice(-6, -1);
-
+  priceDates = Object.keys(thisStock.prices).slice(0, 5);
+  6;
   // get the opening prices for those time periods
   openingPrices = priceDates.map((date) => {
     return thisStock.prices[date]["1. open"];
@@ -182,9 +173,9 @@ async function loadStockPage() {
   }
 
   const keys = Object.keys(thisStock.prices).reverse();
-  const openValues = [];
+  const closeValues = [];
   keys.forEach((date) => {
-    openValues.push(thisStock.prices[date]["1. open"]);
+    closeValues.push(thisStock.prices[date]["4. close"]);
   });
   // get the current price as the closing price during the last time interval
   let stkPrice =
@@ -192,7 +183,7 @@ async function loadStockPage() {
       Object.keys(thisStock.prices)[Object.keys(thisStock.prices).length - 1]
     ]["4. close"];
   // the price change is the difference between the first opening price and the current price
-  let stkChange = (stkPrice - openValues[0]).toFixed(2);
+  let stkChange = (price - closeValues.slice(-20)[0]).toFixed(2);
   let gradient;
   let color;
   if (stkChange >= 0) {
@@ -204,10 +195,10 @@ async function loadStockPage() {
   }
   var canvas = document.getElementById("stock-chart");
   var ctx = canvas.getContext("2d");
-  buildChart(openValues.slice(0, 20), keys.slice(0, 20), ctx, gradient, color);
+  buildChart(closeValues.slice(-20), keys.slice(-20), ctx, gradient, color);
 
-  stockNewsEl.append(`<h3>${stock} News</h3>`)
-  stockNews.articles.forEach(news => {
+  stockNewsEl.append(`<h3>${stock} News</h3>`);
+  stockNews.articles.forEach((news) => {
     let newsLink = $("<a></a>");
     newsLink.attr("href", news.news_url);
     newsLink.attr("class", "news-article-link");
@@ -221,14 +212,20 @@ async function loadStockPage() {
             ${news.source_name}
           </div>
           <div>
-            ${news.topics.map(topic => ` <span class="topic">${topic.toUpperCase()}</span>`).join("")}
+            ${news.topics
+              .map(
+                (topic) => ` <span class="topic">${topic.toUpperCase()}</span>`
+              )
+              .join("")}
           </div>
         </div>
       </div>
     `);
     stockNewsEl.append(newsLink);
   });
-  stockNewsEl.append(`<a href="https://stocknewsapi.com/" class="small-link">Powered by Stock News API</a>`);
+  stockNewsEl.append(
+    `<a href="https://stocknewsapi.com/" class="small-link">Powered by Stock News API</a>`
+  );
 
   // set the watchlist button HtML and load the stock page data on page load
   setWatchlistButtonContent();
@@ -318,6 +315,21 @@ const setWatchlistButtonContent = () => {
     );
   }
 };
+
+async function getStock(stock) {
+  let thisStock;
+  // call the stock API with the stock symbol as the query param
+  await $.getJSON(
+    "https://comp-266-portfolio.raymondmorland.com/api/stocks/stock",
+    { symbol: stock },
+    (res) => {
+      // store local copy of stock data
+      thisStock = res;
+    }
+  );
+  // return the stock data
+  return thisStock;
+}
 
 // function to retrieve the news articles for this stock
 async function getSymbolNews(stockSymbol) {
