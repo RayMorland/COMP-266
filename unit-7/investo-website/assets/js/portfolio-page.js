@@ -61,7 +61,7 @@ async function loadPortfolioPage() {
       // add the value of the stock in the portfolio to the total portfolio value
       portfolioValue += Number((stk.quantity * stkPrice).toFixed(2));
       // set the portfolio value element to the total portfolio value
-      portfolioValueEl.text(`$${portfolioValue}`);
+      portfolioValueEl.text(`$${portfolioValue.toFixed(2)}`);
 
       // set the classes of the stock to display it correctly
       portfolioStock.attr(

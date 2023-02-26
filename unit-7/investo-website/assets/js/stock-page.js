@@ -79,10 +79,19 @@ async function loadStockPage() {
   // set the investor page link
   investorLink.attr("href", thisStock.investorWebsite);
 
+  // set the initial buy sell total
   buySellTotal.text("$0");
+
+  // set the page title to this stock's symbol
   document.title = `Investo: ${thisStock.symbol}`;
+
+  // set quantity element
   quantityEl.text(quantity);
+
+  // set the stock symbol
   stockSymbol.text(thisStock.symbol);
+
+  // set the business name
   businessName.text(thisStock.company);
 
   // get the current price of the stock
@@ -172,8 +181,11 @@ async function loadStockPage() {
     myPositionQuantity.text(0);
   }
 
+  // get the keys from the prices, the keys represent the date times of the interval
   const keys = Object.keys(thisStock.prices).reverse();
   const closeValues = [];
+
+  // get the closing price of each interval
   keys.forEach((date) => {
     closeValues.push(thisStock.prices[date]["4. close"]);
   });
@@ -182,6 +194,8 @@ async function loadStockPage() {
   let stkChange = (price - closeValues.slice(-20)[0]).toFixed(2);
   let gradient;
   let color;
+
+  // set the gradient and line color depending on the stock price change
   if (stkChange >= 0) {
     gradient = "rgba(204, 255, 204";
     color = "rgba(0,153,0)";
@@ -189,8 +203,12 @@ async function loadStockPage() {
     gradient = "rgba(255, 204, 204";
     color = "rgba(179,0,0)";
   }
+
+  // get the canvas element to display the chart in
   var canvas = document.getElementById("stock-chart");
   var ctx = canvas.getContext("2d");
+
+  // build the chart with the last 20 values
   buildChart(closeValues.slice(-20), keys.slice(-20), ctx, gradient, color);
 
   // inject the stock into the stock news title
@@ -321,6 +339,7 @@ const setWatchlistButtonContent = () => {
   }
 };
 
+// function to get the stock from the API
 async function getStock(stock) {
   let thisStock;
   // call the stock API with the stock symbol as the query param
@@ -338,14 +357,19 @@ async function getStock(stock) {
 
 // function to retrieve the news articles for this stock
 async function getSymbolNews(stockSymbol) {
+  let stockArticles;
+
+  // get the articles with the stock symbol as the query param
   await $.getJSON(
     "https://comp-266-portfolio.raymondmorland.com/api/news/symbol",
     { symbol: stockSymbol },
     (res) => {
-      articles = res;
+      stockArticles = res;
     }
   );
-  return articles;
+
+  // return the stocks articles
+  return stockArticles;
 }
 
 // load the stock page
